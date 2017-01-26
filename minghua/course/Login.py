@@ -26,11 +26,7 @@ class Login(object):
 			j = pyquery.PyQuery(
 				browser.session.get(self.urlLoginInit).content
 			)
-				
-			print(j('#tokenId').val())
-			print(j('#modulus').val())
-			print(j('#exponent').val())
-
+			
 			strToken = self.getEncryptPwd(
 				password, 
 				j('#tokenId').val(), 
@@ -41,15 +37,15 @@ class Login(object):
 
 			print(strToken)
 
-			# res = browser.session.post(self.urlDoLogin, data = {
-			# 	'loginName' : userName,
-			# 	'strToken' : strToken,
-			# 	'loginType' : 0,
-			# 	'isCheckCode' : 0,
-			# 	'historyUrl' : ''
-			# })
+			res = browser.session.post(self.urlDoLogin, data = {
+				'loginName' : userName,
+				'strToken' : strToken,
+				'loginType' : 0,
+				'isCheckCode' : 0,
+				'historyUrl' : ''
+			})
 
-			# print(res.content)
+			print(res.content)
 
 			#self.saveUserInfo(userName, password, strToken, self.prefix)
 
