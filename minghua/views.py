@@ -43,6 +43,6 @@ def addSchool(request):
 	
 	#return HttpResponse('success')
 
-	def getCourse(request):
-		business = Business()
-		business.run('上海立达职业技术学院', '1561055', '123456')
+def getCourse(request):
+	business = Business()
+	business.run('上海立达职业技术学院', '1561055', '123456')
