@@ -8,5 +8,6 @@ class Business(object):
 	def run(self, school, userName, passward):
 		school = School()
 		schoolInfo = school.getSchool(school)
-		schoolKey = schoolInfo['key']
-		print(schoolKey)
+		print(schoolInfo)
+		#schoolKey = schoolInfo['key']
+		#print(schoolKey)
