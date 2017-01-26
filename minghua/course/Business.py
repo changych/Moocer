@@ -14,7 +14,8 @@ class Business(object):
 			login = Login(schoolInfo.key)
 			res,browser = login.login(userName, password)
 			course = Course(schoolInfo.key, browser, userName)
-			course.courseList()
+			courseSet = course.courseList()
 			break
 		#schoolKey = schoolInfo['key']
 		#print(schoolKey)
+		return courseSet

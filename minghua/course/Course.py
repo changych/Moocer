@@ -20,6 +20,8 @@ class Course(object):
 	# 学习所有课程
 	def courseList(self):
 
+		courseSet = {}
+
 		# 获取所有课程列表
 		courseRes = self.browser.session.post(self.urlCourseIndex, data = {
 			'keyWord' : '',
@@ -35,7 +37,7 @@ class Course(object):
 		#print j('.view-shadow')
 		for li in j('.view-item'):
 			title = pyquery.PyQuery(li)('.view-title').text()
-			print(title)
+			courseSet[1] = title
 			# href = pyquery.PyQuery(a).attr('href')
 			# courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
 
@@ -48,4 +50,5 @@ class Course(object):
 			# 	#print '--------------------'
 			# except Exception as e: 
 			# 	traceback.print_exc()
-			# 	continue	
+			# 	continue
+		return courseSet	

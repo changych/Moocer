@@ -45,9 +45,9 @@ def addSchool(request):
 
 def getCourse(request):
 	business = Business()
-	business.run(
+	courseSet = business.run(
 		request.GET['school'], 
 		request.GET['user_name'], 
 		request.GET['password']
 	)
-	return HttpResponse(request.GET['school'])
+	return HttpResponse(courseSet)
