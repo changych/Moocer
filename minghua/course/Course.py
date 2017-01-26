@@ -33,17 +33,19 @@ class Course(object):
 		j = pyquery.PyQuery(courseRes.content)
 		#print courseRes.content
 		#print j('.view-shadow')
-		for a in j('.view-shadow'):
-			href = pyquery.PyQuery(a).attr('href')
-			courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
+		for li in j('.view-item'):
+			title = pyquery.PyQuery(li)('.view-title').text()
+			print(title)
+			# href = pyquery.PyQuery(a).attr('href')
+			# courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
 
-			try:
-				print(courseId)
-				#self.sudyCourse(courseId)
-				print('--------------------')	
+			# try:
+			# 	print(courseId)
+			# 	#self.sudyCourse(courseId)
+			# 	print('--------------------')	
 					
-				#print courseId
-				#print '--------------------'
-			except Exception as e: 
-				traceback.print_exc()
-				continue	
+			# 	#print courseId
+			# 	#print '--------------------'
+			# except Exception as e: 
+			# 	traceback.print_exc()
+			# 	continue	
