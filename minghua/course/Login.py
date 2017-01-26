@@ -25,6 +25,8 @@ class Login(object):
 			j = pyquery.PyQuery(
 				browser.session.get(self.urlLoginInit).content
 			)
+
+			print(j)
 				
 			print(j('#tokenId').val())
 			print(j('#modulus').val())
