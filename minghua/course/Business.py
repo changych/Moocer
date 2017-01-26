@@ -13,7 +13,7 @@ class Business(object):
 		for schoolInfo in schoolInfoList:
 			login = Login(schoolInfo.key)
 			res,browser = login.login(userName, password)
-			course = Course(schoolInfo.key, userName, password)
+			course = Course(schoolInfo.key, browser, userName)
 			course.courseList()
 			break
 		#schoolKey = schoolInfo['key']
