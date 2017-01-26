@@ -27,8 +27,6 @@ class School(object):
 			enName = nameSet[1]
 			key = url[url.find('//')+2:url.find('.')]
 			print(chName)
-			detect(chName)
-			print(chardet.detect(chName))
 			s = SchoolInfo.objects.filter(key=key)
 			if(len(s) == 0):
 				s = SchoolInfo(
