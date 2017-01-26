@@ -31,15 +31,15 @@ class Login(object):
 			print(j('#modulus').val())
 			print(j('#exponent').val())
 
-			# strToken = self.getEncryptPwd(
-			# 	password, 
-			# 	j('#tokenId').val(), 
-			# 	j('#modulus').val(), 
-			# 	j('#exponent').val(), 
-			# 	''
-			# )
+			strToken = self.getEncryptPwd(
+				password, 
+				j('#tokenId').val(), 
+				j('#modulus').val(), 
+				j('#exponent').val(), 
+				''
+			)
 
-			# print(strToken)
+			print(strToken)
 
 			# res = browser.session.post(self.urlDoLogin, data = {
 			# 	'loginName' : userName,

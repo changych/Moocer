@@ -8,10 +8,8 @@ class Business(object):
 
 	def run(self, school, userName, password):
 		schoolHandler = School()
-		print(school)
 		schoolInfoList = schoolHandler.getSchool(school)
 		for schoolInfo in schoolInfoList:
-			print(schoolInfo.key)
 			login = Login(schoolInfo.key)
 			#res,browser = login.login(userName, password)
 			login.login(userName, password)

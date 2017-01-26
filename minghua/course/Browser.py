@@ -3,7 +3,6 @@ import requests
 class Browser: 
 
 	def __init__(self):
-		print('in Browser')
 		self.session = requests.Session()
 		headers = {
 			'Accept' : '*/*',
