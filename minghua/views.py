@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from minghua.models import SchoolInfo, QuizInfo
 from minghua.school.school import School
+from minghua.course.Business import Business
 
 def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
@@ -41,3 +42,7 @@ def addSchool(request):
 		return HttpResponse(request.GET['ch_name'])
 	
 	#return HttpResponse('success')
+
+	def getCourse(request):
+		business = Business()
+		business.run('上海立达职业技术学院', '1561055', '123456')
