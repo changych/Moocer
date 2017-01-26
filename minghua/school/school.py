@@ -26,6 +26,8 @@ class School(object):
 			enName = nameSet[1]
 			key = url[url.find('//')+2:url.find('.')]
 			print(chName)
+			print(isinstance(chName,"gbk"))
+			print(isinstance(chName,"utf-8"))
 			s = SchoolInfo.objects.filter(key=key)
 			if(len(s) == 0):
 				s = SchoolInfo(
