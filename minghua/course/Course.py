@@ -40,9 +40,10 @@ class Course(object):
 			subTitile = pyquery.PyQuery(li)('.view-subtitle')
 			link = pyquery.PyQuery(subTitile)('a').filter('.link-action')
 			href = pyquery.PyQuery(link).attr('href')
-			href = href[ : href.rfind('/')+1]
-			print(href)
-			courseSet[1] = title
+			href = href[ : href.rfind('/')]
+			courseId = href[href.rfind('/')+1 : ]
+			print(courseId)
+			courseSet[courseId] = title
 
 			# href = pyquery.PyQuery(a).attr('href')
 			# courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
