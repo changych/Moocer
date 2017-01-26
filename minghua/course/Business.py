@@ -6,7 +6,7 @@ from minghua.course.Login import Login
 
 class Business(object):
 
-	def run(self, school, userName, passward):
+	def run(self, school, userName, password):
 		schoolHandler = School()
 		print(school)
 		schoolInfoList = schoolHandler.getSchool(school)
