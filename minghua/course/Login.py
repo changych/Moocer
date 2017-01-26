@@ -53,7 +53,7 @@ class Login(object):
 
 			return json.loads(res.text), browser
 		except Exception, err:
-			prin('error')
+			print('error')
 			#LogUtil.getLogger(userName, 'login.fatal').error('[login fail]')
 
 
