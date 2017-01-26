@@ -18,6 +18,7 @@ class Login(object):
 		try:
 			#st = time.time()
 
+			print(self.prefix)
 			print(userName)
 			print(password)
 
