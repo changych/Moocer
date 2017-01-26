@@ -40,9 +40,9 @@ class Course(object):
 			try:
 				if len(courseSet) > 0:
 					if courseId in courseSet:
-						print courseId
+						print(courseId)
 						#self.sudyCourse(courseId)
-						print '--------------------'
+						print('--------------------')
 
 				#print courseId
 				#print '--------------------'
