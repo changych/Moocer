@@ -38,10 +38,9 @@ class Course(object):
 			courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
 
 			try:
-				if courseId in courseSet:
-					print(courseId)
-					#self.sudyCourse(courseId)
-					print('--------------------')
+				print(courseId)
+				#self.sudyCourse(courseId)
+				print('--------------------')	
 					
 				#print courseId
 				#print '--------------------'
