@@ -32,12 +32,12 @@ class Course(object):
 		})
 
 		#print courseRes
-		j = pyquery.PyQuery(courseRes.content)
+		j = pyquery.PyQuery(courseRes.text)
 		#print courseRes.content
 		#print j('.view-shadow')
 		for li in j('.view-item'):
 			title = pyquery.PyQuery(li)('.view-title').text()
-			courseSet[1] = title.encode("gbk").decode('utf-8')
+			courseSet[1] = title
 			# href = pyquery.PyQuery(a).attr('href')
 			# courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
 
