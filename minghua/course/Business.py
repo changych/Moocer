@@ -2,7 +2,7 @@ import time
 import os
 
 from minghua.school.school import School
-from Login import Login
+from minghua.course.Login import Login
 
 class Business(object):
 
