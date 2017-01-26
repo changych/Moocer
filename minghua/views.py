@@ -45,4 +45,9 @@ def addSchool(request):
 
 def getCourse(request):
 	business = Business()
-	business.run('上海立达职业技术学院', '1561055', '123456')
+	business.run(
+		request.GET['school'], 
+		request.GET['user_name'], 
+		request.GET['password']
+	)
+	return HttpResponse(request.GET['school'])
