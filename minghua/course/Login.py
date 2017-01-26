@@ -4,7 +4,7 @@ import pyquery
 import time
 import traceback
 
-from minghua.school.Browser import Browser
+from Browser import Browser
 
 class Login(object):
 
