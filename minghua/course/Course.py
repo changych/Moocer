@@ -38,9 +38,9 @@ class Course(object):
 		for li in j('.view-item'):
 			title = pyquery.PyQuery(li)('.view-title').text()
 			subTitile = pyquery.PyQuery(li)('.view-subtitle')
-			print(subTitile)
 			link = pyquery.PyQuery(subTitile)('a').filter('.link-action')
-			print(link)
+			href = pyquery.PyQuery(link).attr('href')
+			print(href)
 			courseSet[1] = title
 
 			# href = pyquery.PyQuery(a).attr('href')
