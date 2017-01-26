@@ -2,6 +2,7 @@ import time
 import os
 
 from minghua.school.school import School
+from minghua.school.Login import Login
 
 class Business(object):
 
@@ -11,5 +12,8 @@ class Business(object):
 		schoolInfoList = schoolHandler.getSchool(school)
 		for schoolInfo in schoolInfoList:
 			print(schoolInfo.key)
+			login = Login.Login(schoolKey)
+			res,browser = login.login(userName, password)
+			break
 		#schoolKey = schoolInfo['key']
 		#print(schoolKey)
