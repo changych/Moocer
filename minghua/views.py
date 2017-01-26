@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from minghua.models import SchoolInfo, QuizInfo
-from school.school import School
+from minghua.school.school import School
 
 def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")

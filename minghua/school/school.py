@@ -12,9 +12,6 @@ from minghua.models import SchoolInfo, QuizInfo
 #import Browser
 #import LogUtil
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 class School(object):
 
 	def updateSchool(self):
@@ -28,7 +25,7 @@ class School(object):
 			chName = nameSet[0]
 			enName = nameSet[1]
 			key = url[url.find('//')+2:url.find('.')]
-			print chName
+			print(chName)
 			s = SchoolInfo.objects.filter(key=key)
 			if(len(s) == 0):
 				s = SchoolInfo(
