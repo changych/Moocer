@@ -6,9 +6,9 @@ from minghua.school.school import School
 class Business(object):
 
 	def run(self, school, userName, passward):
-		school = School()
+		schoolHandler = School()
 		print(school)
-		schoolInfo = school.getSchool(school)
+		schoolInfo = schoolHandler.getSchool(school)
 		print(schoolInfo)
 		#schoolKey = schoolInfo['key']
 		#print(schoolKey)
