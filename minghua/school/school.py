@@ -42,3 +42,10 @@ class School(object):
 					en_name=enName,
 					url=url
 				)
+
+	def getSchool(self, school):
+		s = SchoolInfo.objects.filter(ch_name=school)
+		if(len(s) == 0):
+			return None
+		else:
+			return s
