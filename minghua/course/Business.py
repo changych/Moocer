@@ -10,6 +10,6 @@ class Business(object):
 		print(school)
 		schoolInfoList = schoolHandler.getSchool(school)
 		for schoolInfo in schoolInfoList:
-			print(schoolInfo)
+			print(schoolInfo.key)
 		#schoolKey = schoolInfo['key']
 		#print(schoolKey)
