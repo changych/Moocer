@@ -22,16 +22,14 @@ class Login(object):
 			print(userName)
 			print(password)
 
-			browser = Browser.Browser()
-			# j = pyquery.PyQuery(
-			# 	browser.session.get(self.urlLoginInit).content
-			# )
-
-			print(browser.session.get(self.urlLoginInit).content)
+			browser = Browser()
+			j = pyquery.PyQuery(
+				browser.session.get(self.urlLoginInit).content
+			)
 				
-			# print(j('#tokenId').val())
-			# print(j('#modulus').val())
-			# print(j('#exponent').val())
+			print(j('#tokenId').val())
+			print(j('#modulus').val())
+			print(j('#exponent').val())
 
 			# strToken = self.getEncryptPwd(
 			# 	password, 
