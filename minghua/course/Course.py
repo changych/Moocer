@@ -51,5 +51,5 @@ class Course(object):
 			# except Exception as e: 
 			# 	traceback.print_exc()
 			# 	continue
-		print courseSet
+		print(courseSet)
 		return courseSet	
