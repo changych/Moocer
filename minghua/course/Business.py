@@ -11,8 +11,7 @@ class Business(object):
 		schoolInfoList = schoolHandler.getSchool(school)
 		for schoolInfo in schoolInfoList:
 			login = Login(schoolInfo.key)
-			#res,browser = login.login(userName, password)
-			login.login(userName, password)
+			res,browser = login.login(userName, password)
 			break
 		#schoolKey = schoolInfo['key']
 		#print(schoolKey)

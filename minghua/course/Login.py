@@ -52,7 +52,7 @@ class Login(object):
 			#et = time.time()
 			#LogUtil.getLogger(userName, 'login').info('[login success cost : ' + str(et-st) + ']')
 
-			#return json.loads(res.text), browser
+			return json.loads(res.text), browser
 		except Exception as err:
 			traceback.print_exc()
 			#LogUtil.getLogger(userName, 'login.fatal').error('[login fail]')
