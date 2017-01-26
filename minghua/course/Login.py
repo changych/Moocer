@@ -23,42 +23,42 @@ class Login(object):
 			print(password)
 
 			browser = Browser.Browser()
-			j = pyquery.PyQuery(
-				browser.session.get(self.urlLoginInit).content
-			)
+			# j = pyquery.PyQuery(
+			# 	browser.session.get(self.urlLoginInit).content
+			# )
 
 			print(browser.session.get(self.urlLoginInit).content)
 				
-			print(j('#tokenId').val())
-			print(j('#modulus').val())
-			print(j('#exponent').val())
+			# print(j('#tokenId').val())
+			# print(j('#modulus').val())
+			# print(j('#exponent').val())
 
-			strToken = self.getEncryptPwd(
-				password, 
-				j('#tokenId').val(), 
-				j('#modulus').val(), 
-				j('#exponent').val(), 
-				''
-			)
+			# strToken = self.getEncryptPwd(
+			# 	password, 
+			# 	j('#tokenId').val(), 
+			# 	j('#modulus').val(), 
+			# 	j('#exponent').val(), 
+			# 	''
+			# )
 
-			print(strToken)
+			# print(strToken)
 
-			res = browser.session.post(self.urlDoLogin, data = {
-				'loginName' : userName,
-				'strToken' : strToken,
-				'loginType' : 0,
-				'isCheckCode' : 0,
-				'historyUrl' : ''
-			})
+			# res = browser.session.post(self.urlDoLogin, data = {
+			# 	'loginName' : userName,
+			# 	'strToken' : strToken,
+			# 	'loginType' : 0,
+			# 	'isCheckCode' : 0,
+			# 	'historyUrl' : ''
+			# })
 
-			print(res.content)
+			# print(res.content)
 
 			#self.saveUserInfo(userName, password, strToken, self.prefix)
 
 			#et = time.time()
 			#LogUtil.getLogger(userName, 'login').info('[login success cost : ' + str(et-st) + ']')
 
-			return json.loads(res.text), browser
+			#return json.loads(res.text), browser
 		except Exception as err:
 			print('error')
 			#LogUtil.getLogger(userName, 'login.fatal').error('[login fail]')
