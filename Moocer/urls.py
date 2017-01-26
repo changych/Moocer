@@ -20,5 +20,6 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^minghua/', include('minghua.urls')),
     url(r'^polls/', include('polls.urls')),
+    url(r'^static/', admin.site.urls),
     url(r'^admin/', admin.site.urls),
-]
+]+static(settings.STATIC_URL)
