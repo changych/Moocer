@@ -18,9 +18,9 @@ class Login(object):
 		try:
 			#st = time.time()
 
-			print(self.prefix)
-			print(userName)
-			print(password)
+			# print(self.prefix)
+			# print(userName)
+			# print(password)
 
 			browser = Browser()
 			j = pyquery.PyQuery(
@@ -35,7 +35,7 @@ class Login(object):
 				''
 			)
 
-			print(strToken)
+			#print(strToken)
 
 			res = browser.session.post(self.urlDoLogin, data = {
 				'loginName' : userName,
@@ -45,7 +45,7 @@ class Login(object):
 				'historyUrl' : ''
 			})
 
-			print(res.content)
+			#print(res.content)
 
 			#self.saveUserInfo(userName, password, strToken, self.prefix)
 

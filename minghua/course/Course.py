@@ -8,9 +8,9 @@ import random
 import math
 import traceback
 
-import Browser
+from minghua.course.Browser import Browser
 
-class Learn(object):
+class Course(object):
 
 	def __init__(self, prefix, browser, userName):
 		self.baseUri = 'http://' + prefix + '.minghuaetc.com'
@@ -18,7 +18,7 @@ class Learn(object):
 		self.urlCourseIndex = self.baseUri + '/portal/ajaxMyCourseIndex.mooc'
 
 	# 学习所有课程
-	def learn(self, courseSet):
+	def courseList(self):
 
 		# 获取所有课程列表
 		courseRes = self.browser.session.post(self.urlCourseIndex, data = {
@@ -46,6 +46,6 @@ class Learn(object):
 
 				#print courseId
 				#print '--------------------'
-			except Exception,e: 
+			except Exception as e: 
 				traceback.print_exc()
 				continue	
