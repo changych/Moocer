@@ -51,4 +51,4 @@ def getCourse(request):
 		request.GET['user_name'], 
 		request.GET['password']
 	)
-	return HttpResponse(courseSet[1])
+	return HttpResponse(courseSet[1896])
