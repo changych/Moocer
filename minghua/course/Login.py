@@ -60,7 +60,7 @@ class Login(object):
 
 			#return json.loads(res.text), browser
 		except Exception as err:
-			print('error')
+			traceback.print_exc()
 			#LogUtil.getLogger(userName, 'login.fatal').error('[login fail]')
 
 
