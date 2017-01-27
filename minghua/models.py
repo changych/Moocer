@@ -25,4 +25,15 @@ class SchoolInfo(models.Model):
     url = models.CharField(max_length=1024)
 
     def __str__(self):
-        return self.en_name
+        return self.ch_name
+
+@python_2_unicode_compatible
+class OrderInfo(models.Model):
+    user = models.CharField(max_length=64,unique=True)
+    school = models.CharField(max_length=256)
+    study = models.CharField(max_length=256)
+    exam = models.CharField(max_length=256)
+    status = models.IntegerField(defanlt=0)
+
+    def __str__(self):
+        return self.ch_name

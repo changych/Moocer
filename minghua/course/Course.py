@@ -19,7 +19,6 @@ class Course(object):
 
 	# 学习所有课程
 	def courseList(self):
-
 		courseSet = []
 
 		# 获取所有课程列表
@@ -45,18 +44,5 @@ class Course(object):
 			print(courseId)
 			courseSet.append({'id': courseId, 'title':title})
 
-			# href = pyquery.PyQuery(a).attr('href')
-			# courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
-
-			# try:
-			# 	print(courseId)
-			# 	#self.sudyCourse(courseId)
-			# 	print('--------------------')	
-					
-			# 	#print courseId
-			# 	#print '--------------------'
-			# except Exception as e: 
-			# 	traceback.print_exc()
-			# 	continue
 		print(courseSet)
 		return courseSet	
