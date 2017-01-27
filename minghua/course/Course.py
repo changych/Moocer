@@ -20,7 +20,7 @@ class Course(object):
 	# 学习所有课程
 	def courseList(self):
 
-		courseSet = {}
+		courseSet = []
 
 		# 获取所有课程列表
 		courseRes = self.browser.session.post(self.urlCourseIndex, data = {
@@ -43,7 +43,7 @@ class Course(object):
 			href = href[ : href.rfind('/')]
 			courseId = href[href.rfind('/')+1 : ]
 			print(courseId)
-			courseSet[courseId] = title
+			courseSet.append({'id': courseId, 'title':title})
 
 			# href = pyquery.PyQuery(a).attr('href')
 			# courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
