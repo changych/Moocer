@@ -51,5 +51,5 @@ class School(object):
 			return s
 
 	def getSchoolList(self, pageSize, offset):
-		schoolList = SchoolInfo.objects.all()[int(offset),int(offset)+int(pageSize)]
+		schoolList = SchoolInfo.objects.all()[0,10]
 		return schoolList
