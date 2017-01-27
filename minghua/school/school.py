@@ -49,3 +49,7 @@ class School(object):
 			return None
 		else:
 			return s
+
+	def getSchoolList(self, pageSize, offset):
+		schoolList = SchoolInfo.objects.all()[offset,offset+pageSize]
+		return schoolList
