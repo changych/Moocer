@@ -34,6 +34,8 @@ class OrderInfo(models.Model):
     study = models.CharField(max_length=256)
     exam = models.CharField(max_length=256)
     status = models.IntegerField(default=0)
+    create_time = models.DateTimeField(auto_now_add=True)
+    finish_time = models.DateTimeField(default=0)
 
     def __str__(self):
         return self.ch_name
