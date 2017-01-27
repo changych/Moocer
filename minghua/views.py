@@ -1,4 +1,6 @@
 #-*- coding: utf-8 -*-  
+import json
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from minghua.models import SchoolInfo, QuizInfo
@@ -20,7 +22,7 @@ def getCourse(request):
 		request.GET['user_name'], 
 		request.GET['password']
 	)
-	return HttpResponse(courseSet)
+	return HttpResponse(json.dumps(courseSet))
 
 def getSchoolList(request):
 	school = School()
@@ -28,4 +30,4 @@ def getSchoolList(request):
 		request.GET['pageSize'],
 		request.GET['offset']
 	)
-	return HttpResponse(schoolList)
+	return HttpResponse(json.dumps(schoolList))
