@@ -54,5 +54,5 @@ class School(object):
 		result = {}
 		schoolList = SchoolInfo.objects.all()[int(offset):int(offset)+int(pageSize)]
 		for school in schoolList:
-			result[school.key] = school.ch_name
+			result[school.key] = {'key':school.key, 'name':school.ch_name}
 		return result
