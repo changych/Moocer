@@ -33,7 +33,7 @@ class OrderInfo(models.Model):
     school = models.CharField(max_length=256)
     study = models.CharField(max_length=256)
     exam = models.CharField(max_length=256)
-    status = models.IntegerField(defanlt=0)
+    status = models.IntegerField(default=0)
 
     def __str__(self):
         return self.ch_name
