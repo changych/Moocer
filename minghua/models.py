@@ -31,7 +31,7 @@ class SchoolInfo(models.Model):
 
 @python_2_unicode_compatible
 class OrderInfo(models.Model):
-    user = models.CharField(max_length=64,unique=True)
+    user = models.CharField(max_length=64)
     school = models.CharField(max_length=256)
     study = models.CharField(max_length=256)
     exam = models.CharField(max_length=256)
