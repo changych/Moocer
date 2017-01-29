@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from minghua.models import SchoolInfo, QuizInfo
 from minghua.school.school import School
+from minghua.order.order import Order
 from minghua.course.Business import Business
 
 def index(request):
@@ -31,3 +32,13 @@ def getSchoolList(request):
 		request.GET['offset']
 	)
 	return HttpResponse(json.dumps(schoolList))
+
+def addOrder(request):
+	order = Order()
+	res = order.addOrder(
+		request.GET['school'],
+		request.GET['user'],
+		request.GET['study'],
+		request.GET['exam']
+	)
+	return HttpResponse(json.dumps({'status':res}}))
