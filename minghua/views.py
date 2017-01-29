@@ -41,4 +41,4 @@ def addOrder(request):
 		request.GET['study'],
 		request.GET['exam']
 	)
-	return HttpResponse(json.dumps({'status':res}}))
+	return HttpResponse(json.dumps({'status':res}))
