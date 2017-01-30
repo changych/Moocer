@@ -12,8 +12,8 @@ from minghua.models import QuizInfo
 class Quiz(object):
 
 	def getQuizInfo(self, quizContent):
-		print 'quiz content:'
-		print quizContent
+		print('quiz content:')
+		print(quizContent)
 		q = QuizInfo.objects.filter(quiz_content=quizContent)
 		if(len(q) == 0):
 			return None
