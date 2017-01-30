@@ -26,6 +26,19 @@ def getCourse(request):
 	)
 	return HttpResponse(json.dumps(courseSet))
 
+def addQuiz(request):
+	quiz = Quiz()
+	res = quiz.addQuizInfo(
+		request.POST['course_id'],
+		request.POST['quiz_id'],
+		request.POST['answer_id'],
+		request.POST['mark_result'],
+		request.POST['mark_quiz_score'],
+		request.POST['quiz_content'],
+		request.POST['answer_content']
+	)
+	return HttpResponse(json.dumps({'status':res}))
+
 def getQuiz(request):
 	quiz = Quiz()
 	quizSet = quiz.getQuizInfo(
