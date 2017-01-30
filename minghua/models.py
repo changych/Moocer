@@ -8,7 +8,8 @@ import datetime
 # Create your models here.
 @python_2_unicode_compatible
 class QuizInfo(models.Model):
-    quiz_id = models.IntegerField(unique=True)
+    course_id = models.IntegerField()
+    quiz_id = models.IntegerField()
     answer_id = models.CharField(max_length=256)
     mark_result = models.IntegerField()
     mark_quiz_score = models.IntegerField()
