@@ -17,11 +17,11 @@ class Quiz(object):
 		if(len(q) == 0):
 			return None
 		else:
-			return q
+			for quiz in q:
+				return {'quiz_content':quiz.quiz_content, 'answer_content':quiz.answer_content}
 
 	def addQuizInfo(self, courseId, quizId, answerId, markResult, markQuizScore, quizContent, answerContent):
 		q = QuizInfo.objects.filter(course_id=courseId).filter(quiz_id=quizId)
-		print(q)
 		if(len(q) == 0):
 			q = QuizInfo(
 				course_id=courseId, 
