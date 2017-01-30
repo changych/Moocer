@@ -15,6 +15,7 @@ class Quiz(object):
 		print('quiz content:')
 		print(quizContent)
 		q = QuizInfo.objects.filter(quiz_content__contains=quizContent)
+		print q
 		if(len(q) == 0):
 			return None
 		else:
