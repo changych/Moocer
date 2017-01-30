@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from minghua.models import SchoolInfo, QuizInfo
 from minghua.school.school import School
 from minghua.order.order import Order
+from minghua.quiz.quiz import Quiz
 from minghua.course.Business import Business
 
 def index(request):
@@ -24,6 +25,13 @@ def getCourse(request):
 		request.GET['password']
 	)
 	return HttpResponse(json.dumps(courseSet))
+
+def getQuiz(request):
+	quiz = Quiz()
+	quizSet = quiz.getQuizInfo(
+		request.GET['quiz_content']
+	)
+	return HttpResponse(json.dumps(quizSet))
 
 def getSchoolList(request):
 	school = School()
