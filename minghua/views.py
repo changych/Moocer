@@ -20,7 +20,7 @@ def wechatValid(request):
 	nonce = request.GET['nonce']
 
 	wechatValid = Validate()
-	res = wechatValid.validate(signature, timestmp, nonce)
+	res = wechatValid.validate(signature, timestamp, nonce)
 	if res == True:
 		return HttpResponse(echoStr)
 	else:
