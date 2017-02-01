@@ -24,7 +24,7 @@ def wechatValid(request):
 	if res == True:
 		return HttpResponse(echoStr)
 	else:
-		return False
+		return HttpResponse('error')
 
 	
 
