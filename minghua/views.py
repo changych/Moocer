@@ -8,9 +8,25 @@ from minghua.school.school import School
 from minghua.order.order import Order
 from minghua.quiz.quiz import Quiz
 from minghua.course.Business import Business
+from minghua.wechat.Validate import Validate
 
 def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
+
+def wechatValid(request):
+	echoStr = request.GET['echostr']
+	signature = request.GET['signature']
+	timestamp = request.GET['timestamp']
+	nonce = request.GET['nonce']
+
+	wechatValid = Validate()
+	res = wechatValid.validate(signature, timestmp, nonce)
+	if res == True:
+		return HttpResponse(echoStr)
+	else:
+		return False
+
+	
 
 def updateSchool(request):
 	school = School()
