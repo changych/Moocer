@@ -1,4 +1,4 @@
-import haslib
+import hashlib
 
 class Validate(object):
 
