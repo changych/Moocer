@@ -7,7 +7,7 @@ class Validate(object):
 		token = '715074363yuan'
 		params = [token, timestmp, nonce]
 		rawStr = ''.join(params)
-		shaStr = hashlib.sha1(rawStr).hexdigest()
+		shaStr = hashlib.sha1(rawStr.encode('utf-8')).hexdigest()
 		if shaStr == signature:
 			return True
 		else:
