@@ -11,4 +11,4 @@ class Validate(object):
 		if shaStr == signature:
 			return True
 		else:
-			return False
+			return shaStr
