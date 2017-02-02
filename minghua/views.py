@@ -14,19 +14,19 @@ def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
 
 def wechatValid(request):
-	echoStr = request.GET['echostr']
-	signature = request.GET['signature']
-	timestamp = request.GET['timestamp']
-	nonce = request.GET['nonce']
+	#echoStr = request.GET['echostr']
+	#signature = request.GET['signature']
+	#timestamp = request.GET['timestamp']
+	#nonce = request.GET['nonce']
 
 	wechatValid = Validate()
-	res = wechatValid.validate(signature, timestamp, nonce)
+	#res = wechatValid.validate(signature, timestamp, nonce)
 	rec = request.stream.read()
 	print(rec)
-	if res == True:
-		return HttpResponse(echoStr)
-	else:
-		return HttpResponse('error')
+	#if res == True:
+	#	return HttpResponse(echoStr)
+	#else:
+	#	return HttpResponse('error')
 
 	
 
