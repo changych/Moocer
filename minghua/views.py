@@ -21,8 +21,10 @@ def wechatValid(request):
 
 	wechatValid = Validate()
 	#res = wechatValid.validate(signature, timestamp, nonce)
-	rec = request.stream.read()
-	print(rec)
+	for key in request.POST:
+		#rec = request.stream.read()
+		print(key)
+		print(request.POST[key])
 	#if res == True:
 	#	return HttpResponse(echoStr)
 	#else:
