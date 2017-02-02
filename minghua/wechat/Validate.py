@@ -61,7 +61,7 @@ class Validate(object):
 	def bind(self, fromUserName, content):
 		infoSet = content.split('#')
 		content = "请输入：#账号#密码，如：#123000000#123456"
-		if len(infoSet) >= 2:
+		if len(infoSet) > 2:
 			schoolId = infoSet[1]
 			schoolPwd = infoSet[2]
 			user = User()
