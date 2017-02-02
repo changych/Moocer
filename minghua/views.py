@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-  
 import json
-import pyquery
+from pyquery import PyQuery as pq
+from lxml import etree
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -24,8 +25,9 @@ def wechatValid(request):
 	#res = wechatValid.validate(signature, timestamp, nonce)
 	data = request.body
 	print(data)
-	xml = pyquery.PyQuery(data)
-	print(pyquery.PyQuery(xml)('FromUserName'))
+	xml = pq(etree.fromstring(data))
+	print(xml)
+
 
 
 	for key in request.GET:
