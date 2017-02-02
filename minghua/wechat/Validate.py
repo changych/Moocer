@@ -59,8 +59,8 @@ class Validate(object):
 			count = q[0].count
 			lastTime = q[0].last_time
 			lastTime = lastTime.replace(tzinfo=None)
-			if now.yaer == lastTime.year and now.month == lastTime.month and now.day == lastTime.day \
-			and count >= 5:
+			if now.yaer() == lastTime.year() and now.month() == lastTime.month() \
+			and now.day() == lastTime.day() and count >= 5:
 				print(lastTime)
 				content = "您今天查询答案次数已达上限，可下单刷课提高上限"		
 
