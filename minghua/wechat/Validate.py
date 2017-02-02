@@ -51,9 +51,9 @@ class Validate(object):
 		else:
 			if now.year == q[0].last_time.year and now.month == q[0].last_time.month \
 				and now.day == q[0].last_time.day and q[0].count >= 5:
-				queryFlag = 1
-			else:
 				queryFlag = 2
+			else:
+				queryFlag = 1
 
 		# 构造返回内容
 		if queryFlag == 2:
