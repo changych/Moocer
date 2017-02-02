@@ -25,7 +25,6 @@ def wechatValid(request):
 	#res = wechatValid.validate(signature, timestamp, nonce)
 
 	data = request.body
-	print(data)
 	xml = etree.fromstring(data)
 	# fromUserName = xml.find('FromUserName').text
 	# toUserName = xml.find('ToUserName').text
@@ -61,7 +60,6 @@ def wechatValid(request):
 	elif msgType == 'text':
 		res = wechatValid.msg(data)
 
-	print(res)
 	return HttpResponse(res)
 
 	
