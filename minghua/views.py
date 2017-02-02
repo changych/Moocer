@@ -21,6 +21,9 @@ def wechatValid(request):
 
 	wechatValid = Validate()
 	#res = wechatValid.validate(signature, timestamp, nonce)
+	data = request.raw_post_data
+	print(data)
+	
 	for key in request.GET:
 		#rec = request.stream.read()
 		print(key)
