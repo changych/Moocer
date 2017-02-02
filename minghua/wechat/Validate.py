@@ -60,24 +60,32 @@ class Validate(object):
 
 	def bind(self, fromUserName, content):
 		infoSet = content.split('#')
-		schoolId = infoSet[1]
-		print(schoolId)
-		schoolPwd = infoSet[2]
-		print(schoolPwd)
-		user = User()
-		user.update(fromUserName, None, schoolId, schoolPwd, None, 1)
-		return "绑定成功"
+		content = "请输入：#账号#密码，如：#123000000#123456"
+		if len(infoSet) >= 2:
+			schoolId = infoSet[1]
+			schoolPwd = infoSet[2]
+			user = User()
+			user.update(fromUserName, None, schoolId, schoolPwd, None, 1)
+			content = "绑定成功"
+		return content
+
 
 	def query(self, fromUserName, content):
 		now = datetime.date.today()
 		# 0: 该用户查询记录不存在, 1: 用户查询没超限, 2: 用户查询超限
 		queryFlag = 2
 		q = QueryInfo.objects.filter(open_id=fromUserName)
-		if(len(q) == 0):
+
+		u = UserInfo.objects.filter(open_id=fromUserName)
+		quota = 0
+		if (len(u) > 0):
+			quota = u[0].level * 10
+
+		if (len(q) == 0):
 			queryFlag = 0
 		else:
 			if now.year == q[0].last_time.year and now.month == q[0].last_time.month \
-				and now.day == q[0].last_time.day and q[0].count >= 5:
+				and now.day == q[0].last_time.day and q[0].count >= quota:
 				queryFlag = 2
 			else:
 				queryFlag = 1
