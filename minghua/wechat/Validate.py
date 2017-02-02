@@ -93,7 +93,7 @@ class Validate(object):
 
 		# 构造返回内容
 		if queryFlag == 2:
-			resContent = "您今天查询答案次数已达上限，可下单刷课提高上限"
+			resContent = "您今天查询答案次数已达上限，淘宝下单刷课可提高上限"
 		else:
 			quiz = Quiz()
 			quizInfo = quiz.getQuizInfo(content)
