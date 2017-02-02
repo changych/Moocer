@@ -49,7 +49,7 @@ class Validate(object):
 			q = QueryInfo(
 				open_id=fromUserName, 
 				count=1, 
-				last_time=int(time.time())
+				last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 			)
 			q.save()
 		else:
