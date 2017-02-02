@@ -61,7 +61,7 @@ class Validate(object):
 		else:
 			quiz = Quiz()
 			quizInfo = quiz.getQuizInfo(content)
-			if len(quizInfo) == 0:
+			if quizInfo == None:
 				content = "您所查题目不存在，请查其他题目"
 			else:
 				quizContent = quizInfo['quiz_content']
