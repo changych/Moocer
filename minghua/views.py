@@ -27,6 +27,7 @@ def wechatValid(request):
 	data = request.body
 	#print(data)
 	xml = etree.fromstring(data)
+	print(xml)
 	# fromUserName = xml.find('FromUserName').text
 	# toUserName = xml.find('ToUserName').text
 	# createTime = xml.find('CreateTime').text
