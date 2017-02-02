@@ -53,18 +53,20 @@ class Validate(object):
 				last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 			)
 			q.save()
+			content = "原题：" + quizContent + "\n答案：" + answerContent
 		else:
 			now = datetime.datetime.now()
+			count = q[0].count
 			lastTime = q[0].last_time
 			lastTime = lastTime.replace(tzinfo=None)
-			if now > lastTime:
+			if now.yaer == lastTime.year and now.month == lastTime.month and now.day == lastTime.day \
+			and count >= 5:
 				print(lastTime)
-
-		
+				content = "您今天查询答案次数已达上限，可下单刷课提高上限"		
 
 		msgType = 'text'
 		now = int(time.time())
-		content = "原题：" + quizContent + "\n答案：" + answerContent
+		
 
 		res = textTpl%(fromUserName, toUserName, now, msgType, content)
 		return res
