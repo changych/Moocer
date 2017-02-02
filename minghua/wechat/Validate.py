@@ -47,7 +47,7 @@ class Validate(object):
 		content = xml.find('Content').text
 
 		if content.startswith('#'):
-			self.bind(content)
+			resContent = self.bind(content)
 		else:
 			resContent = self.query(fromUserName, content)		
 
@@ -64,6 +64,7 @@ class Validate(object):
 		print(schoolId)
 		schoolPwd = infoSet[2]
 		print(schoolPwd)
+		return "绑定成功"
 
 	def query(self, fromUserName, content):
 		now = datetime.date.today()
