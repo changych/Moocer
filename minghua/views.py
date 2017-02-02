@@ -25,8 +25,9 @@ def wechatValid(request):
 	#res = wechatValid.validate(signature, timestamp, nonce)
 	data = request.body
 	print(data)
-	xml = pq(etree.fromstring(data))
-	print(xml['FromUserName'])
+	xml = pq(data)
+	u = xml["FromUserName"]
+	print(u.html)
 
 
 
