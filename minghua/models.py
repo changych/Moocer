@@ -46,7 +46,7 @@ class OrderInfo(models.Model):
 @python_2_unicode_compatible
 class QueryInfo(models.Model):
     open_id = models.CharField(max_length=64,unique=True)
-    count = models.CharField(max_length=256)
+    count = models.IntegerField(default=0)
     last_time = models.DateTimeField()
 
     def __str__(self):
