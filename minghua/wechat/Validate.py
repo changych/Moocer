@@ -41,11 +41,11 @@ class Validate(object):
 
 		quiz = Quiz()
 		res = quiz.getQuizInfo(content)
-		quizInfo = res[0]
-		quizContent = quizInfo['quiz_content']
-		print(quizContent)
-		answerContent = quizInfo['answer_content']
-		print(answerContent)
+		for quizInfo in res:
+			quizContent = quizInfo['quiz_content']
+			print(quizContent)
+			answerContent = quizInfo['answer_content']
+			print(answerContent)
 
 		msgType = 'text'
 		now = int(time.time())
