@@ -51,3 +51,16 @@ class QueryInfo(models.Model):
 
     def __str__(self):
         return self.open_id
+
+@python_2_unicode_compatible
+class UserInfo(models.Model):
+    open_id = models.CharField(max_length=64,unique=True)
+    name = models.CharField(max_length=256)
+    school_key = models.CharField(max_length=64)
+    school_id = models.CharField(max_length=64)
+    school_password = models.CharField(max_length=64)
+    create_time = models.DateTimeField()
+    level = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.open_id
