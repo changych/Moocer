@@ -71,6 +71,10 @@ class Validate(object):
 				quizContent = quizInfo['quiz_content']
 				answerContent = quizInfo['answer_content']
 				content = "原题：" + quizContent + "\n答案：" + answerContent
+				q.update(
+					count=count+1,
+					last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+				)
 
 		msgType = 'text'
 		now = int(time.time())
