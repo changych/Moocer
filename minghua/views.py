@@ -24,7 +24,7 @@ def wechatValid(request):
 	#res = wechatValid.validate(signature, timestamp, nonce)
 	data = request.body
 	print(data)
-	xml = pyquery(data)
+	xml = pyquery.PyQuery(data)
 	print(xml['ToUserName'])
 
 	for key in request.GET:
