@@ -53,8 +53,9 @@ class Validate(object):
 			)
 			q.save()
 		else:
-			ts = time.mktime(q[0].last_time)
-			print(ts)
+			now = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+			if now > q[0].last_time:
+				print(ts)
 
 		
 
