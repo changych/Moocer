@@ -34,7 +34,7 @@ class Validate(object):
 		msgType = 'text'
 		now = int(time.time())
 		content = "感谢您的关注。1、输入：#账号#密码 绑定账号，如：#123000000#123456。\
-		3、绑定账号可通过题目字面查询测试答案。2、淘宝网搜索“名华慕课”，可进入名华慕课专业服务。"
+		3、绑定账号可输入题目内容查询测试答案。2、淘宝网搜索“名华慕课”，可进入名华慕课专业服务。"
 
 		res = textTpl%(fromUserName, toUserName, now, msgType, content)
 		return res
@@ -67,7 +67,7 @@ class Validate(object):
 			schoolPwd = infoSet[2]
 			user = User()
 			user.update(fromUserName, None, schoolId, schoolPwd, None, 1)
-			content = "绑定成功"
+			content = "绑定成功，输入题目内容可查测试答案，淘宝搜“名华慕课”提供刷课考试服务"
 		return content
 
 
