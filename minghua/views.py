@@ -53,7 +53,7 @@ def wechatValid(request):
 	res = 'end'
 	if event == 'subscribe':
 		res = wechatValid.subscribe(data)
-	elif: event == 'unsubscribe':
+	elif event == 'unsubscribe':
 		res = wechatValid.subscribe(data)
 
 	return HttpResponse(res)
