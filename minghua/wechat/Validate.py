@@ -2,6 +2,7 @@
 import hashlib
 import time
 from lxml import etree
+from minghua.quiz.quiz import Quiz
 
 class Validate(object):
 
@@ -36,6 +37,12 @@ class Validate(object):
 		xml = etree.fromstring(data)
 		fromUserName = xml.find('FromUserName').text
 		toUserName = xml.find('ToUserName').text
+		content = xml.find('Content').text
+
+		quiz = Quiz()
+		res = quiz.getQuizInfo(content)
+		print(res)
+
 		msgType = 'text'
 		now = int(time.time())
 		content = "欢迎关注"
