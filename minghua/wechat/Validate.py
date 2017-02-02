@@ -47,7 +47,7 @@ class Validate(object):
 		content = xml.find('Content').text
 
 		if content.startswith('#'):
-			resContent = self.bind(content)
+			resContent = self.bind(fromUserName, content)
 		else:
 			resContent = self.query(fromUserName, content)		
 
@@ -58,12 +58,14 @@ class Validate(object):
 		res = textTpl%(fromUserName, toUserName, now, msgType, resContent)
 		return res
 
-	def bind(self, content):
+	def bind(self, fromUserName, content):
 		infoSet = content.split('#')
 		schoolId = infoSet[1]
 		print(schoolId)
 		schoolPwd = infoSet[2]
 		print(schoolPwd)
+		user = User()
+		user.update(fromUserName, None, schoolId, schoolPwd, None)
 		return "绑定成功"
 
 	def query(self, fromUserName, content):
