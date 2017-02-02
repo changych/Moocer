@@ -28,7 +28,7 @@ class Validate(object):
 		toUserName = xml.find('ToUserName').text
 
 		user = User()
-		user.update(fromUserName, None, None, None, None)
+		user.update(fromUserName, None, None, None, None, 0)
 
 		msgType = 'text'
 		now = int(time.time())
@@ -65,7 +65,7 @@ class Validate(object):
 		schoolPwd = infoSet[2]
 		print(schoolPwd)
 		user = User()
-		user.update(fromUserName, None, schoolId, schoolPwd, None)
+		user.update(fromUserName, None, schoolId, schoolPwd, None, 1)
 		return "绑定成功"
 
 	def query(self, fromUserName, content):
