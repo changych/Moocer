@@ -24,10 +24,10 @@ def wechatValid(request):
 	wechatValid = Validate()
 	#res = wechatValid.validate(signature, timestamp, nonce)
 	data = request.body
-	print(data)
+	#print(data)
 	xml = pq(data)
 	print(xml)
-	u = xml("xml")
+	u = xml("xml")("ToUserName")
 	print(u)
 
 
