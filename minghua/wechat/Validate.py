@@ -42,7 +42,7 @@ class Validate(object):
 		quiz = Quiz()
 		quizInfo = quiz.getQuizInfo(content)
 		#for quizInfo in res:
-		quizContent = quizInfo.quiz_content
+		quizContent = quizInfo['quiz_content']
 		print(quizContent)
 			#answerContent = quizInfo.answer_content
 			#print(answerContent)
