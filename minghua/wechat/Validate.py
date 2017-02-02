@@ -49,7 +49,7 @@ class Validate(object):
 		if content.startswith('#'):
 			self.bind(content)
 		else:
-			resContent = self.query(fromUserName)		
+			resContent = self.query(fromUserName, content)		
 
 		msgType = 'text'
 		now = int(time.time())
