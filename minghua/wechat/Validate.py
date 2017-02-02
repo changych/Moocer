@@ -49,8 +49,7 @@ class Validate(object):
 			q = QueryInfo(
 				open_id=fromUserName, 
 				count=1, 
-				last_time=int(time.time()), 
-				url=url
+				last_time=int(time.time())
 			)
 			q.save()
 		else:
