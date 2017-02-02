@@ -25,8 +25,8 @@ def wechatValid(request):
 	data = request.body
 	print(data)
 	xml = pyquery.PyQuery(data)
-	print(xml)
-	
+	print(pyquery.PyQuery(xml)('FromUserName'))
+
 
 	for key in request.GET:
 		#rec = request.stream.read()
