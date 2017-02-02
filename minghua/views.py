@@ -26,8 +26,8 @@ def wechatValid(request):
 	data = request.body
 	print(data)
 	xml = pq(data)
-	u = xml["FromUserName"]
-	print(u.html)
+	u = xml("FromUserName")
+	print(u)
 
 
 
