@@ -28,7 +28,7 @@ class Validate(object):
 		toUserName = xml.find('ToUserName').text
 
 		user = User()
-		user.update(fromUserName, None, None, None)
+		user.update(fromUserName, None, None, None, None)
 
 		msgType = 'text'
 		now = int(time.time())
