@@ -39,6 +39,6 @@ class Validate(object):
 		now = int(time.time())
 		content = "欢迎关注"
 
-		res = textTpl%(toUserName, fromUserName, now, msgType, content)
+		res = textTpl%(fromUserName, toUserName, now, msgType, content)
 		return res
 
