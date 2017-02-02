@@ -30,10 +30,10 @@ class Validate(object):
 		fromUserName = xml.find('FromUserName').text
 		toUserName = xml.find('ToUserName').text
 		msgType = 'text'
-		time = time.time()
+		now = time.time()
 		content = "欢迎关注"
 
-		res = textTpl%(toUserName, fromUserName, time, msgType, content)
+		res = textTpl%(toUserName, fromUserName, now, msgType, content)
 		print(res)
 		return res
 
