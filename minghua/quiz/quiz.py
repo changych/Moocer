@@ -12,7 +12,7 @@ from minghua.models import QuizInfo
 class Quiz(object):
 
 	def getQuizInfo(self, quizContent):
-		quizContent = strip(quizContent)
+		quizContent = quizContent.strip()
 		q = QuizInfo.objects.filter(quiz_content__contains=quizContent)
 		#print(q)
 		if(len(q) == 0):
@@ -23,8 +23,8 @@ class Quiz(object):
 
 	def addQuizInfo(self, courseId, quizId, answerId, markResult, markQuizScore, quizContent, answerContent):
 		q = QuizInfo.objects.filter(course_id=courseId).filter(quiz_id=quizId)
-		quizContent = strip(quizContent)
-		answerContent = strip(answerContent)
+		quizContent = quizContent.strip()
+		answerContent = answerContent.strip()
 		if(len(q) == 0):
 			q = QuizInfo(
 				course_id=courseId, 
