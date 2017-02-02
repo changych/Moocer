@@ -4,6 +4,7 @@ import time
 import datetime
 from lxml import etree
 from minghua.quiz.quiz import Quiz
+from minghua.user.user import User
 from minghua.models import QueryInfo
 
 class Validate(object):
@@ -25,6 +26,10 @@ class Validate(object):
 		xml = etree.fromstring(data)
 		fromUserName = xml.find('FromUserName').text
 		toUserName = xml.find('ToUserName').text
+
+		user = User()
+		user.update(fromUserName, None, None, None)
+
 		msgType = 'text'
 		now = int(time.time())
 		content = "感谢您的关注。1、本公众号不定期公布名华慕课所有课程答案。\

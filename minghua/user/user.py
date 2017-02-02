@@ -10,6 +10,9 @@ class User(object):
 	def update(self, openId, schoolKey, schoolId, schoolPwd):
 		u = UserInfo.objects.filter(open_id=openId)
 		if len(u) == 0:
+			schoolKey = '' if schoolKey == None else schoolKey
+			schoolId = '' if schoolId == None else schoolId
+			schoolPwd = '' if schoolPwd == None else schoolPwd
 			u = UserInfo(
 				open_id=openId, 
 				school_key=schoolKey, 
