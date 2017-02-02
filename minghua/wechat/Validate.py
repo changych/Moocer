@@ -55,7 +55,7 @@ class Validate(object):
 			q.save()
 			content = "原题：" + quizContent + "\n答案：" + answerContent
 		else:
-			now = datetime.now()
+			now = datetime.today()
 			count = q[0].count
 			lastTime = q[0].last_time
 			lastTime = lastTime.replace(tzinfo=None)
