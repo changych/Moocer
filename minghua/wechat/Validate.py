@@ -44,7 +44,7 @@ class Validate(object):
 		#for quizInfo in res:
 		quizContent = quizInfo['quiz_content']
 		print(quizContent)
-		answerContent = quizInfo.answer_content
+		answerContent = quizInfo['answer_content']
 		print(answerContent)
 
 		msgType = 'text'
