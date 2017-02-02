@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-  
 import hashlib
 import time
+import datetime
 from lxml import etree
 from minghua.quiz.quiz import Quiz
 from minghua.models import QueryInfo
@@ -53,7 +54,7 @@ class Validate(object):
 			)
 			q.save()
 		else:
-			now = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+			now = datetime.datetime.now()
 			if now > q[0].last_time:
 				print(ts)
 
