@@ -41,4 +41,13 @@ class OrderInfo(models.Model):
     finish_time = models.DateTimeField()
 
     def __str__(self):
-        return self.ch_name
+        return self.user
+
+@python_2_unicode_compatible
+class QueryInfo(models.Model):
+    open_id = models.CharField(max_length=64,unique=True)
+    count = models.CharField(max_length=256)
+    last_time = models.DateTimeField()
+
+    def __str__(self):
+        return self.open_id
