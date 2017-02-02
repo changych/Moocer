@@ -40,17 +40,23 @@ class Validate(object):
 		toUserName = xml.find('ToUserName').text
 		content = xml.find('Content').text
 
-		queryFlag = False
 		q = QueryInfo.objects.filter(open_id=fromUserName)
 		if(len(q) == 0):
-			queryFlag = True
+			quiz = Quiz()
+			quizInfo = quiz.getQuizInfo(content)
+			quizContent = quizInfo['quiz_content']
+			answerContent = quizInfo['answer_content']
+			q = QueryInfo(
+				open_id=fromUserName, 
+				count=1, 
+				last_time=int(time.time()), 
+				url=url
+			)
+			q.save()
 		else:
 			print(q.last_time)
 
-		quiz = Quiz()
-		quizInfo = quiz.getQuizInfo(content)
-		quizContent = quizInfo['quiz_content']
-		answerContent = quizInfo['answer_content']
+		
 
 		msgType = 'text'
 		now = int(time.time())
