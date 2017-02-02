@@ -13,7 +13,7 @@ class Quiz(object):
 
 	def getQuizInfo(self, quizContent):
 		q = QuizInfo.objects.filter(quiz_content__contains=quizContent)
-		print(q)
+		#print(q)
 		if(len(q) == 0):
 			return None
 		else:
