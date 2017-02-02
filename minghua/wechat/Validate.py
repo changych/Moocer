@@ -46,8 +46,27 @@ class Validate(object):
 		toUserName = xml.find('ToUserName').text
 		content = xml.find('Content').text
 
-		now = datetime.date.today()
+		if content.startswith('#'):
+			self.bind(content)
+		else:
+			resContent = self.query(fromUserName)		
 
+		msgType = 'text'
+		now = int(time.time())
+		
+
+		res = textTpl%(fromUserName, toUserName, now, msgType, resContent)
+		return res
+
+	def bind(self, content):
+		infoSet = content.split('#')
+		schoolId = infoSet[1]
+		print(schoolId)
+		schoolPwd = infoSet[2]
+		print(schoolPwd)
+
+	def query(self, fromUserName):
+		now = datetime.date.today()
 		# 0: 该用户查询记录不存在, 1: 用户查询没超限, 2: 用户查询超限
 		queryFlag = 2
 		q = QueryInfo.objects.filter(open_id=fromUserName)
@@ -84,11 +103,4 @@ class Validate(object):
 						count=q[0].count+1,
 						last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 					)
-
-		msgType = 'text'
-		now = int(time.time())
-		
-
-		res = textTpl%(fromUserName, toUserName, now, msgType, content)
-		return res
-
+		return content
