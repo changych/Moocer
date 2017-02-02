@@ -59,12 +59,18 @@ class Validate(object):
 			count = q[0].count
 			lastTime = q[0].last_time
 			lastTime = lastTime.replace(tzinfo=None)
-			print(now.year)
-			print(lastTime.year)
-			# if now.year() == lastTime.year() and now.month() == lastTime.month() \
-			# and now.day() == lastTime.day() and count >= 5:
-			# 	print(lastTime)
-			content = "您今天查询答案次数已达上限，可下单刷课提高上限"		
+			#print(now.year)
+			#print(lastTime.year)
+			if now.year == lastTime.year and now.month == lastTime.month \
+			and now.day == lastTime.day and count >= 5:
+				print(lastTime)
+				content = "您今天查询答案次数已达上限，可下单刷课提高上限"	
+			else:
+				quiz = Quiz()
+				quizInfo = quiz.getQuizInfo(content)
+				quizContent = quizInfo['quiz_content']
+				answerContent = quizInfo['answer_content']
+				content = "原题：" + quizContent + "\n答案：" + answerContent
 
 		msgType = 'text'
 		now = int(time.time())
