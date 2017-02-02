@@ -24,7 +24,9 @@ class Validate(object):
 		toUserName = xml.find('ToUserName').text
 		msgType = 'text'
 		now = int(time.time())
-		content = "欢迎关注"
+		content = "感谢您的关注，本公众号不定期公布名华慕课所有课程答案。\
+		回复 课程名称 ，如“孙子兵法”即可获取孙子兵法课程部分答案；回复“期末”即可获取期末考试相关信息。\
+		如需提供刷课考试服务，请在淘宝网搜索“名华慕课”，进入名华慕课专业服务。"
 
 		res = textTpl%(fromUserName, toUserName, now, msgType, content)
 		return res
