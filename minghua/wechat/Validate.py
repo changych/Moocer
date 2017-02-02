@@ -55,8 +55,10 @@ class Validate(object):
 			q.save()
 		else:
 			now = datetime.datetime.now()
-			if now > q[0].last_time:
-				print(ts)
+			lastTime = q[0].last_time
+			lastTime = lastTime.replace(tzinfo=None)
+			if now > lastTime:
+				print(lastTime)
 
 		
 
