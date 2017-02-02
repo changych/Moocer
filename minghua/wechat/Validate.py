@@ -53,7 +53,8 @@ class Validate(object):
 			)
 			q.save()
 		else:
-			print(q[0].last_time)
+			ts = time.mktime(q[0].last_time)
+			print(ts)
 
 		
 
