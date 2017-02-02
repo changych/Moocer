@@ -17,8 +17,7 @@ class Validate(object):
 			return False
 
 	def subscribe(self, data):
-		textTpl = 
-			"<xml>\
+		textTpl = "<xml>\
 			<ToUserName><![CDATA[%s]]></ToUserName>\
 			<FromUserName><![CDATA[%s]]></FromUserName>\
 			<CreateTime>%s</CreateTime>\
