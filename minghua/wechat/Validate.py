@@ -6,6 +6,7 @@ from lxml import etree
 from minghua.quiz.quiz import Quiz
 from minghua.user.user import User
 from minghua.models import QueryInfo
+from minghua.models import UserInfo
 
 class Validate(object):
 
