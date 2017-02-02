@@ -17,14 +17,7 @@ class Validate(object):
 			return False
 
 	def subscribe(self, data):
-		textTpl = "<xml>\
-			<ToUserName><![CDATA[%s]]></ToUserName>\
-			<FromUserName><![CDATA[%s]]></FromUserName>\
-			<CreateTime>%s</CreateTime>\
-			<MsgType><![CDATA[%s]]></MsgType>\
-			<Content><![CDATA[%s]]></Content>\
-			<FuncFlag>0</FuncFlag>\
-			</xml>"
+		textTpl = "<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[%s]]></MsgType><Content><![CDATA[%s]]></Content><FuncFlag>0</FuncFlag></xml>"
 
 		xml = etree.fromstring(data)
 		fromUserName = xml.find('FromUserName').text
@@ -38,14 +31,7 @@ class Validate(object):
 		return res
 
 	def msg(self, data):
-		textTpl = "<xml>\
-			<ToUserName><![CDATA[%s]]></ToUserName>\
-			<FromUserName><![CDATA[%s]]></FromUserName>\
-			<CreateTime>%s</CreateTime>\
-			<MsgType><![CDATA[%s]]></MsgType>\
-			<Content><![CDATA[%s]]></Content>\
-			<FuncFlag>0</FuncFlag>\
-			</xml>"
+		textTpl = "<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[%s]]></MsgType><Content><![CDATA[%s]]></Content><FuncFlag>0</FuncFlag></xml>"
 
 		xml = etree.fromstring(data)
 		fromUserName = xml.find('FromUserName').text
