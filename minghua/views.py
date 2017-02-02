@@ -26,9 +26,18 @@ def wechatValid(request):
 	data = request.body
 	#print(data)
 	xml = etree.fromstring(data)
-	print(xml)
-	u = xml.find('FromUserName').text
-	print(u)
+	fromUserName = xml.find('FromUserName').text
+	toUserName = xml.find('ToUserName').text
+	createTime = xml.find('CreateTime').text
+	msgType = xml.find('MsgType').text
+	event = xml.find('Event').text
+	eventKey = xml.find('EventKey').text
+	print(fromUserName)
+	print(toUserName)
+	print(createTime)
+	print(msgType)
+	print(event)
+	print(eventKey)
 
 	for key in request.GET:
 		#rec = request.stream.read()
