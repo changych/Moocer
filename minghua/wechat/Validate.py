@@ -65,7 +65,7 @@ class Validate(object):
 		schoolPwd = infoSet[2]
 		print(schoolPwd)
 
-	def query(self, fromUserName):
+	def query(self, fromUserName, content):
 		now = datetime.date.today()
 		# 0: 该用户查询记录不存在, 1: 用户查询没超限, 2: 用户查询超限
 		queryFlag = 2
@@ -80,18 +80,17 @@ class Validate(object):
 				queryFlag = 1
 
 		# 构造返回内容
-		content = "您今天查询答案次数已达上限，可下单刷课提高上限"
 		if queryFlag == 2:
-			content = "您今天查询答案次数已达上限，可下单刷课提高上限"
+			resContent = "您今天查询答案次数已达上限，可下单刷课提高上限"
 		else:
 			quiz = Quiz()
 			quizInfo = quiz.getQuizInfo(content)
 			if quizInfo == None:
-				content = "您所查题目不存在，请查其他题目"
+				resContent = "您所查题目不存在，请查其他题目"
 			else:
 				quizContent = quizInfo['quiz_content']
 				answerContent = quizInfo['answer_content']
-				content = "原题：" + quizContent + "\n答案：" + answerContent
+				resContent = "原题：" + quizContent + "\n答案：" + answerContent
 				if queryFlag == 0:
 					q = QueryInfo(
 						open_id=fromUserName, 
@@ -104,4 +103,4 @@ class Validate(object):
 						count=q[0].count+1,
 						last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 					)
-		return content
+		return resContent
