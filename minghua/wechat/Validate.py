@@ -80,6 +80,7 @@ class Validate(object):
 				queryFlag = 1
 
 		# 构造返回内容
+		content = "您今天查询答案次数已达上限，可下单刷课提高上限"
 		if queryFlag == 2:
 			content = "您今天查询答案次数已达上限，可下单刷课提高上限"
 		else:
