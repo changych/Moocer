@@ -41,40 +41,44 @@ class Validate(object):
 		toUserName = xml.find('ToUserName').text
 		content = xml.find('Content').text
 
+		now = datetime.date.today()
+
+		# 0: 该用户查询记录不存在, 1: 用户查询没超限, 2: 用户查询超限
+		queryFlag = 2
 		q = QueryInfo.objects.filter(open_id=fromUserName)
 		if(len(q) == 0):
+			queryFlag = 0
+		else:
+			if now.year == q[0].last_time.year and now.month == q[0].last_time.month \
+				and now.day == q[0].last_time.day and q[0].count >= 5:
+				queryFlag = 1
+			else:
+				queryFlag = 2
+
+		# 构造返回内容
+		if queryFlag == 2:
+			content = "您今天查询答案次数已达上限，可下单刷课提高上限"
+		else:
 			quiz = Quiz()
 			quizInfo = quiz.getQuizInfo(content)
-			quizContent = quizInfo['quiz_content']
-			answerContent = quizInfo['answer_content']
-			q = QueryInfo(
-				open_id=fromUserName, 
-				count=1, 
-				last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-			)
-			q.save()
-			content = "原题：" + quizContent + "\n答案：" + answerContent
-		else:
-			now = datetime.date.today()
-			count = q[0].count
-			lastTime = q[0].last_time
-			lastTime = lastTime.replace(tzinfo=None)
-			#print(now.year)
-			#print(lastTime.year)
-			if now.year == lastTime.year and now.month == lastTime.month \
-			and now.day == lastTime.day and count >= 5:
-				print(lastTime)
-				content = "您今天查询答案次数已达上限，可下单刷课提高上限"	
+			if len(quizInfo) == 0:
+				content = "您所查题目不存在，请查其他题目"
 			else:
-				quiz = Quiz()
-				quizInfo = quiz.getQuizInfo(content)
 				quizContent = quizInfo['quiz_content']
 				answerContent = quizInfo['answer_content']
 				content = "原题：" + quizContent + "\n答案：" + answerContent
-				q.update(
-					count=count+1,
-					last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-				)
+				if queryFlag == 0:
+					q = QueryInfo(
+						open_id=fromUserName, 
+						count=1, 
+						last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+					)
+					q.save()
+				else:
+					q.update(
+						count=q[0].count+1,
+						last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+					)
 
 		msgType = 'text'
 		now = int(time.time())
