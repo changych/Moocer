@@ -16,38 +16,47 @@ def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
 
 def wechatValid(request):
+	wechatValid = Validate()
+
 	#echoStr = request.GET['echostr']
 	#signature = request.GET['signature']
 	#timestamp = request.GET['timestamp']
-	#nonce = request.GET['nonce']
-
-	wechatValid = Validate()
+	#nonce = request.GET['nonce']	
 	#res = wechatValid.validate(signature, timestamp, nonce)
+
 	data = request.body
 	#print(data)
 	xml = etree.fromstring(data)
-	fromUserName = xml.find('FromUserName').text
-	toUserName = xml.find('ToUserName').text
-	createTime = xml.find('CreateTime').text
-	msgType = xml.find('MsgType').text
+	# fromUserName = xml.find('FromUserName').text
+	# toUserName = xml.find('ToUserName').text
+	# createTime = xml.find('CreateTime').text
+	# msgType = xml.find('MsgType').text
 	event = xml.find('Event').text
-	eventKey = xml.find('EventKey').text
-	print(fromUserName)
-	print(toUserName)
-	print(createTime)
-	print(msgType)
-	print(event)
-	print(eventKey)
+	# eventKey = xml.find('EventKey').text
+	
+	# print(fromUserName)
+	# print(toUserName)
+	# print(createTime)
+	# print(msgType)
+	# print(event)
+	# print(eventKey)
 
-	for key in request.GET:
-		#rec = request.stream.read()
-		print(key)
-		print(request.GET[key])
+	# for key in request.GET:
+	# 	#rec = request.stream.read()
+	# 	print(key)
+	# 	print(request.GET[key])
 	#if res == True:
 	#	return HttpResponse(echoStr)
 	#else:
 	#	return HttpResponse('error')
-	return HttpResponse('end')
+
+	res = 'end'
+	if event == 'subscribe':
+		res = wechatValid.subscribe(data)
+	elif: event == 'unsubscribe':
+		res = wechatValid.subscribe(data)
+
+	return HttpResponse(res)
 
 	
 

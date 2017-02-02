@@ -1,5 +1,7 @@
 #-*- coding: utf-8 -*-  
 import hashlib
+import time
+from lxml import etree
 
 class Validate(object):
 
@@ -13,3 +15,26 @@ class Validate(object):
 			return True
 		else:
 			return False
+
+	def subscribe(self, data):
+		textTpl = 
+			"<xml>\
+			<ToUserName><![CDATA[%s]]></ToUserName>\
+			<FromUserName><![CDATA[%s]]></FromUserName>\
+			<CreateTime>%s</CreateTime>\
+			<MsgType><![CDATA[%s]]></MsgType>\
+			<Content><![CDATA[%s]]></Content>\
+			<FuncFlag>0</FuncFlag>\
+			</xml>"
+
+		xml = etree.fromstring(data)
+		fromUserName = xml.find('FromUserName').text
+		toUserName = xml.find('ToUserName').text
+		msgType = 'text'
+		time = time.time()
+		content = "欢迎关注"
+
+		res = textTpl%(toUserName, fromUserName, time, msgType, content)
+		print(res)
+		return res
+
