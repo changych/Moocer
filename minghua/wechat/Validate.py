@@ -40,10 +40,10 @@ class Validate(object):
 		content = xml.find('Content').text
 
 		quiz = Quiz()
-		res = quiz.getQuizInfo(content)
-		for quizInfo in res:
-			#quizContent = quizInfo.quiz_content
-			print(quizInfo)
+		quizInfo = quiz.getQuizInfo(content)
+		#for quizInfo in res:
+		quizContent = quizInfo.quiz_content
+		print(quizContent)
 			#answerContent = quizInfo.answer_content
 			#print(answerContent)
 
