@@ -29,6 +29,7 @@ def wechatValid(request):
 	#	return HttpResponse(echoStr)
 	#else:
 	#	return HttpResponse('error')
+	return HttpResponse('end')
 
 	
 
