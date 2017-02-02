@@ -30,8 +30,8 @@ def wechatValid(request):
 	# fromUserName = xml.find('FromUserName').text
 	# toUserName = xml.find('ToUserName').text
 	# createTime = xml.find('CreateTime').text
-	# msgType = xml.find('MsgType').text
-	event = xml.find('Event').text
+	msgType = xml.find('MsgType').text
+	# event = xml.find('Event').text
 	# eventKey = xml.find('EventKey').text
 	
 	# print(fromUserName)
@@ -51,10 +51,15 @@ def wechatValid(request):
 	#	return HttpResponse('error')
 
 	res = 'end'
-	if event == 'subscribe':
+	if msgType == 'event':
 		res = wechatValid.subscribe(data)
-	elif event == 'unsubscribe':
-		res = wechatValid.subscribe(data)
+		event = xml.find('Event').text
+		if event == 'subscribe':
+			res = wechatValid.subscribe(data)
+		elif event == 'unsubscribe':
+			res = wechatValid.subscribe(data)
+	elif msgType == 'text':
+		res = 'end'
 
 	return HttpResponse(res)
 
