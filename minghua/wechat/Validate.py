@@ -37,3 +37,24 @@ class Validate(object):
 		print(res)
 		return res
 
+	def msg(self, data):
+		textTpl = "<xml>\
+			<ToUserName><![CDATA[%s]]></ToUserName>\
+			<FromUserName><![CDATA[%s]]></FromUserName>\
+			<CreateTime>%s</CreateTime>\
+			<MsgType><![CDATA[%s]]></MsgType>\
+			<Content><![CDATA[%s]]></Content>\
+			<FuncFlag>0</FuncFlag>\
+			</xml>"
+
+		xml = etree.fromstring(data)
+		fromUserName = xml.find('FromUserName').text
+		toUserName = xml.find('ToUserName').text
+		msgType = 'text'
+		now = time.time()
+		content = "欢迎关注"
+
+		res = textTpl%(toUserName, fromUserName, now, msgType, content)
+		print(res)
+		return res
+

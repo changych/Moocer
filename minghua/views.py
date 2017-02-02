@@ -59,7 +59,7 @@ def wechatValid(request):
 		elif event == 'unsubscribe':
 			res = wechatValid.subscribe(data)
 	elif msgType == 'text':
-		res = 'end'
+		res = wechatValid.msg(data)
 
 	return HttpResponse(res)
 
