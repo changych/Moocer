@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-  
 import json
+import pyquery
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -23,6 +24,8 @@ def wechatValid(request):
 	#res = wechatValid.validate(signature, timestamp, nonce)
 	data = request.body
 	print(data)
+	xml = pyquery(data)
+	print(xml['ToUserName'])
 
 	for key in request.GET:
 		#rec = request.stream.read()
