@@ -27,7 +27,6 @@ class Validate(object):
 		content = "欢迎关注"
 
 		res = textTpl%(toUserName, fromUserName, now, msgType, content)
-		print(res)
 		return res
 
 	def msg(self, data):
@@ -41,6 +40,5 @@ class Validate(object):
 		content = "欢迎关注"
 
 		res = textTpl%(toUserName, fromUserName, now, msgType, content)
-		print(res)
 		return res
 

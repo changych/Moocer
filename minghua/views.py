@@ -61,6 +61,7 @@ def wechatValid(request):
 	elif msgType == 'text':
 		res = wechatValid.msg(data)
 
+	print(res)
 	return HttpResponse(res)
 
 	
