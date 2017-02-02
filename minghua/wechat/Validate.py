@@ -3,6 +3,7 @@ import hashlib
 import time
 from lxml import etree
 from minghua.quiz.quiz import Quiz
+from minghua.models import QueryInfo
 
 class Validate(object):
 
@@ -38,6 +39,13 @@ class Validate(object):
 		fromUserName = xml.find('FromUserName').text
 		toUserName = xml.find('ToUserName').text
 		content = xml.find('Content').text
+
+		queryFlag = False
+		q = QueryInfo.objects.filter(open_id=fromUserName)
+		if(len(q) == 0):
+			queryFlag = True
+		else:
+			print(q.last_time)
 
 		quiz = Quiz()
 		quizInfo = quiz.getQuizInfo(content)
