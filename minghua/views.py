@@ -25,12 +25,10 @@ def wechatValid(request):
 	#res = wechatValid.validate(signature, timestamp, nonce)
 	data = request.body
 	#print(data)
-	xml = pq(data)
+	xml = etree.fromstring(data)
 	print(xml)
-	u = pq(xml)("ToUserName")
+	u = xml.find('FromUserName').text
 	print(u)
-
-
 
 	for key in request.GET:
 		#rec = request.stream.read()
