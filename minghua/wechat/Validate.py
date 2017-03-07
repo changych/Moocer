@@ -78,9 +78,9 @@ class Validate(object):
 		q = QueryInfo.objects.filter(open_id=fromUserName)
 
 		u = UserInfo.objects.filter(open_id=fromUserName)
-		quota = 2
+		quota = 1
 		if (len(u) > 0):
-			quota = u[0].level * 5 + 2
+			quota = u[0].level * 2 + 2
 
 		if (len(q) == 0):
 			queryFlag = 0
