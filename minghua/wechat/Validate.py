@@ -49,6 +49,8 @@ class Validate(object):
 
 		if content.startswith('#'):
 			resContent = self.bind(fromUserName, content)
+		elif content == '课程':
+			resContent = self.course(fromUserName)
 		else:
 			resContent = self.query(fromUserName, content)		
 
@@ -58,6 +60,11 @@ class Validate(object):
 
 		res = textTpl%(fromUserName, toUserName, now, msgType, resContent)
 		return res
+
+	def course(self, fromUserName):
+		u = UserInfo.objects.filter(open_id=fromUserName)
+		return u[0]
+
 
 	def bind(self, fromUserName, content):
 		infoSet = content.split('#')
