@@ -63,7 +63,14 @@ class Validate(object):
 
 	def course(self, fromUserName):
 		u = UserInfo.objects.filter(open_id=fromUserName)
-		return u[0]
+		user = u[0]
+		if user['school_id'] == '':
+			result = '请输入：#账号#密码 绑定账号，如：#123000000#123456'
+		else:
+			uid = user['school_id']
+			pwd = user['school_password']
+			result = '账号：' + uid
+		return result
 
 
 	def bind(self, fromUserName, content):
