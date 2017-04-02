@@ -63,7 +63,7 @@ class Validate(object):
 		res = textTpl%(fromUserName, toUserName, now, msgType, resContent)
 		return res
 
-	def course(self, fromUserName):
+	def course(self, fromUserName, content):
 		infoSet = content.split('@')
 		user = u[0]
 		if len(infoSet) > 3:
@@ -76,7 +76,7 @@ class Validate(object):
 			print(password)
 
 			school = School()
-			schoolList = school.getSchool(request.GET['school'])
+			schoolList = school.getSchool(school)
 			for schoolInfo in schoolList:
 				print(schoolInfo.key)
 				business = Business()
@@ -87,6 +87,7 @@ class Validate(object):
 						password
 					)
 					content = json.dumps(courseSet)
+					break
 				except: 
 					content = '学校/账号/密码 错误'
 					continue
