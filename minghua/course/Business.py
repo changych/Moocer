@@ -9,14 +9,10 @@ from minghua.course.Course import Course
 class Business(object):
 
 	def run(self, school, userName, password):
-		schoolHandler = School()
-		schoolInfoList = schoolHandler.getSchool(school)
-		for schoolInfo in schoolInfoList:
-			login = Login(schoolInfo.key)
-			res,browser = login.login(userName, password)
-			course = Course(schoolInfo.key, browser, userName)
-			courseSet = course.courseList()
-			break
+		login = Login(school)
+		res,browser = login.login(userName, password)
+		course = Course(school, browser, userName)
+		courseSet = course.courseList()
 		#schoolKey = schoolInfo['key']
 		#print(schoolKey)
 		return courseSet
