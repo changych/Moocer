@@ -62,13 +62,13 @@ def getCourse(request):
 	schoolList = school.getSchool(request.GET['school'])
 	for schoolInfo in schoolList:
 		print(schoolInfo.key)
-	business = Business()
-	courseSet = business.run(
-		request.GET['school'], 
-		request.GET['user_name'], 
-		request.GET['password']
-	)
-	return HttpResponse(json.dumps(courseSet))
+	# business = Business()
+	# courseSet = business.run(
+	# 	request.GET['school'], 
+	# 	request.GET['user_name'], 
+	# 	request.GET['password']
+	# )
+	return HttpResponse(json.dumps(schoolList))
 
 def addQuiz(request):
 	quiz = Quiz()
