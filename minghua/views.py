@@ -70,7 +70,7 @@ def getCourse(request):
 				'123456'
 			)
 			return HttpResponse(json.dumps(courseSet))
-		except Exception,e: 
+		except: 
 			continue
 
 
