@@ -5,6 +5,7 @@ import datetime
 from lxml import etree
 from minghua.quiz.quiz import Quiz
 from minghua.user.user import User
+from minghua.course.Course import Course
 from minghua.models import QueryInfo
 from minghua.models import UserInfo
 
@@ -49,8 +50,8 @@ class Validate(object):
 
 		if content.startswith('#'):
 			resContent = self.bind(fromUserName, content)
-		elif content == '课程':
-			resContent = self.course(fromUserName)
+		elif content.startswith('@'):
+			resContent = self.course(fromUserName, content)
 		else:
 			resContent = self.query(fromUserName, content)		
 
@@ -62,8 +63,12 @@ class Validate(object):
 		return res
 
 	def course(self, fromUserName):
-		u = UserInfo.objects.filter(open_id=fromUserName)
+		infoSet = content.split('@')
 		user = u[0]
+		if len(infoSet) > 3:
+			school = infoSet[1]
+			userName = infoSet[2]
+			password = infoSet[3]
 		if user.school_id == '':
 			result = '请输入：#账号#密码 绑定账号，如：#123000000#123456'
 		else:

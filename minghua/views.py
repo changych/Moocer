@@ -58,6 +58,10 @@ def updateSchool(request):
 	return HttpResponse('success')
 
 def getCourse(request):
+	school = School()
+	schoolList = school.getSchool(request.GET['school'])
+	for schoolInfo in schoolList:
+		print(schoolInfo.key)
 	business = Business()
 	courseSet = business.run(
 		request.GET['school'], 
