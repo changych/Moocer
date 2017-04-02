@@ -48,7 +48,7 @@ class Course(object):
 			test_remain = 0
 			test_complete = 0
 
-			videoListRes = browser.get(self.baseUri + '/portal/session/unitNavigation/' + str(courseId) + '.mooc')
+			videoListRes = self.browser.session.get(self.baseUri + '/portal/session/unitNavigation/' + str(courseId) + '.mooc')
 			jj = q(videoListRes.content)
 			videoListDiv = jj('#unitNavigation')
 
