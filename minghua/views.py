@@ -60,15 +60,19 @@ def updateSchool(request):
 def getCourse(request):
 	school = School()
 	schoolList = school.getSchool(request.GET['school'])
-	# for schoolInfo in schoolList:
-	# 	print(schoolInfo.key)
-	# business = Business()
-	# courseSet = business.run(
-	# 	request.GET['school'], 
-	# 	request.GET['user_name'], 
-	# 	request.GET['password']
-	# )
-	return HttpResponse(json.dumps(schoolList))
+	 for schoolInfo in schoolList:
+	 	print(schoolInfo.key)
+		business = Business()
+		try:
+			courseSet = business.run(
+				schoolInfo.key, 
+				'1334421', 
+				'123456'
+			)
+			return HttpResponse(json.dumps(courseSet))
+		except Exception,e: 
+			continue
+
 
 def addQuiz(request):
 	quiz = Quiz()
