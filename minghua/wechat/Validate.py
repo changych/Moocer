@@ -65,7 +65,6 @@ class Validate(object):
 
 	def course(self, fromUserName, content):
 		infoSet = content.split('@')
-		user = u[0]
 		if len(infoSet) > 3:
 			school = infoSet[1]
 			userName = infoSet[2]
