@@ -44,24 +44,24 @@ class Course(object):
 			print(courseId)
 
 			video_remain = 0
-            video_complete = 0
-            test_remain = 0
-            test_complete = 0
+			video_complete = 0
+			test_remain = 0
+			test_complete = 0
 
-            videoListRes = browser.get(self.baseUri + '/portal/session/unitNavigation/' + str(courseId) + '.mooc')
-            jj = q(videoListRes.content)
-            videoListDiv = jj('#unitNavigation')
+			videoListRes = browser.get(self.baseUri + '/portal/session/unitNavigation/' + str(courseId) + '.mooc')
+			jj = q(videoListRes.content)
+			videoListDiv = jj('#unitNavigation')
 
-            for div in videoListDiv('i').items():
-                status = pyquery.PyQuery(div).attr('class')
-                if status.find('icon-play-done') != -1:
-                    video_complete = video_complete + 1
-                elif status.find('icon-play01') != -1:
-                    video_remain = video_remain + 1
-                elif status.find('icon-edit-done') != -1:
-                    test_complete = test_complete + 1
-                elif status.find('icon-edit02') != -1:
-                    test_remain = test_remain + 1
+			for div in videoListDiv('i').items():
+				status = pyquery.PyQuery(div).attr('class')
+				if status.find('icon-play-done') != -1:
+					video_complete = video_complete + 1
+				elif status.find('icon-play01') != -1:
+					video_remain = video_remain + 1
+				elif status.find('icon-edit-done') != -1:
+					test_complete = test_complete + 1
+				elif status.find('icon-edit02') != -1:
+					test_remain = test_remain + 1
 
 			courseSet.append({
 				'id': courseId, 
