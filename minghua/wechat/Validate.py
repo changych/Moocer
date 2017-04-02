@@ -70,7 +70,7 @@ class Validate(object):
 			userName = infoSet[2]
 			password = infoSet[3]
 
-			print(school)
+			print(schoolCh)
 			print(userName)
 			print(password)
 
