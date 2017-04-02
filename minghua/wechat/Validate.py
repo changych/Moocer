@@ -7,6 +7,7 @@ from minghua.quiz.quiz import Quiz
 from minghua.user.user import User
 from minghua.course.Course import Course
 from minghua.school.school import School
+from minghua.course.Business import Business
 from minghua.models import QueryInfo
 from minghua.models import UserInfo
 
