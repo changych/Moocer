@@ -66,7 +66,7 @@ class Validate(object):
 	def course(self, fromUserName, content):
 		infoSet = content.split('@')
 		if len(infoSet) > 3:
-			school = infoSet[1]
+			schoolCh = infoSet[1]
 			userName = infoSet[2]
 			password = infoSet[3]
 
@@ -75,7 +75,7 @@ class Validate(object):
 			print(password)
 
 			school = School()
-			schoolList = school.getSchool(school)
+			schoolList = school.getSchool(schoolCh)
 			for schoolInfo in schoolList:
 				print(schoolInfo.key)
 				business = Business()
