@@ -60,8 +60,8 @@ def updateSchool(request):
 def getCourse(request):
 	school = School()
 	schoolList = school.getSchool(request.GET['school'])
-	 for schoolInfo in schoolList:
-	 	print(schoolInfo.key)
+	for schoolInfo in schoolList:
+		print(schoolInfo.key)
 		business = Business()
 		try:
 			courseSet = business.run(
