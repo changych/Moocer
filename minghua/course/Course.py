@@ -49,7 +49,7 @@ class Course(object):
 			test_complete = 0
 
 			videoListRes = self.browser.session.get(self.baseUri + '/portal/session/unitNavigation/' + str(courseId) + '.mooc')
-			jj = q(videoListRes.content)
+			jj = pyquery.PyQuery(videoListRes.content)
 			videoListDiv = jj('#unitNavigation')
 
 			for div in videoListDiv('i').items():
