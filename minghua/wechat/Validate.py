@@ -6,6 +6,7 @@ from lxml import etree
 from minghua.quiz.quiz import Quiz
 from minghua.user.user import User
 from minghua.course.Course import Course
+from minghua.school.school import School
 from minghua.models import QueryInfo
 from minghua.models import UserInfo
 
@@ -69,13 +70,27 @@ class Validate(object):
 			school = infoSet[1]
 			userName = infoSet[2]
 			password = infoSet[3]
-		if user.school_id == '':
-			result = '请输入：#账号#密码 绑定账号，如：#123000000#123456'
-		else:
-			uid = user.school_id
-			pwd = user.school_password
-			result = '账号：' + uid
-		return result
+
+			print(school)
+			print(userName)
+			print(password)
+
+			school = School()
+			schoolList = school.getSchool(request.GET['school'])
+			for schoolInfo in schoolList:
+				print(schoolInfo.key)
+				business = Business()
+				try:
+					courseSet = business.run(
+						schoolInfo.key, 
+						userName, 
+						password
+					)
+					content = json.dumps(courseSet)
+				except: 
+					content = '学校/账号/密码 错误'
+					continue
+		return content
 
 
 	def bind(self, fromUserName, content):
