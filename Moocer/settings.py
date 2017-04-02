@@ -25,7 +25,10 @@ SECRET_KEY = '$@ay=hse+hrr6$4y5%fx9cr%_w2i=uk&z(%^i8rkh(t-mlg6yg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['116.62.10.40']
+ALLOWED_HOSTS = [
+    '116.62.10.40',
+    'anymoocer.com'
+]
 
 
 # Application definition
