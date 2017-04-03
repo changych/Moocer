@@ -117,14 +117,14 @@ def addOrder(request):
 def addRecord(request):
 	record = Record()
 	res = record.addRecord(
-		request.GET['school'],
-		request.GET['user'],
-		request.GET['password'],
-		request.GET['courseid'],
-		request.GET['videoremain'],
-		request.GET['videocomplete'],
-		request.GET['testremain'],
-		request.GET['testcomplete'],
+		request.POST['school'],
+		request.POST['user'],
+		request.POST['password'],
+		request.POST['courseid'],
+		request.POST['videoremain'],
+		request.POST['videocomplete'],
+		request.POST['testremain'],
+		request.POST['testcomplete'],
 		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
