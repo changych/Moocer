@@ -125,6 +125,7 @@ def addRecord(request):
 		request.POST['videocomplete'],
 		request.POST['testremain'],
 		request.POST['testcomplete'],
+		request.POST['score'],
 		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
