@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-  
 import json
+import time
 from pyquery import PyQuery as pq
 from lxml import etree
 
@@ -123,6 +124,7 @@ def addRecord(request):
 		request.GET['videoremain'],
 		request.GET['videocomplete'],
 		request.GET['testremain'],
-		request.GET['testcomplete']
+		request.GET['testcomplete'],
+		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
