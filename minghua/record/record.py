@@ -23,7 +23,7 @@ class Record(object):
 				videocomplete=videoComplete,
 				testremain=testRemain,
 				testcomplete=testComplete,
-				score=score,
+				score=int(score),
 				update_time=updateTime
 			)
 			r.save()
@@ -33,7 +33,7 @@ class Record(object):
 				videocomplete=videoComplete,
 				testremain=testRemain,
 				testcomplete=testComplete,
-				score=score,
+				score=int(score),
 				update_time=updateTime
 			)
 		
