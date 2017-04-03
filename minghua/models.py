@@ -53,6 +53,9 @@ class RecordInfo(models.Model):
     videocomplete = models.IntegerField()
     testremain = models.IntegerField()
     testcomplete = models.IntegerField()
+    score = models.IntegerField()
+    exam_start = models.DateTimeField()
+    exam_end = models.DateTimeField()
     update_time = models.DateTimeField()
 
     def __str__(self):
