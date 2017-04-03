@@ -11,7 +11,7 @@ from minghua.models import RecordInfo
 
 class Record(object):
 
-	def addRecord(self, school, user, password, courseId, videoRemain, videoComplete, testRemain, testComplete, examScore, examStart, examEnd, updateTime):
+	def addRecord(self, school, user, password, courseId, courseTitle, videoRemain, videoComplete, testRemain, testComplete, examScore, examStart, examEnd, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
 		if(len(r) == 0):
 			r = RecordInfo(
@@ -19,6 +19,7 @@ class Record(object):
 				user=user, 
 				password=password, 
 				courseid=courseId,
+				course_title=courseTitle,
 				videoremain=videoRemain,
 				videocomplete=videoComplete,
 				testremain=testRemain,

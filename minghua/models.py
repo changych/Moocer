@@ -49,6 +49,7 @@ class RecordInfo(models.Model):
     user = models.CharField(max_length=64)
     password = models.CharField(max_length=64)
     courseid = models.CharField(max_length=64)
+    course_title = models.CharField(max_length=512)
     videoremain = models.IntegerField()
     videocomplete = models.IntegerField()
     testremain = models.IntegerField()

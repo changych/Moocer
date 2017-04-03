@@ -122,6 +122,7 @@ def addRecord(request):
 		request.POST['user'],
 		request.POST['password'],
 		request.POST['courseid'],
+		request.POST['course_title'],
 		request.POST['videoremain'],
 		request.POST['videocomplete'],
 		request.POST['testremain'],
