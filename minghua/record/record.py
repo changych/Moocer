@@ -14,6 +14,9 @@ class Record(object):
 	def addRecord(self, school, user, password, courseId, videoRemain, videoComplete, testRemain, testComplete, score, examStart, examEnd, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
 		if(len(r) == 0):
+			print(examStart)
+			print(examEnd)
+			print(score)
 			r = RecordInfo(
 				school=school, 
 				user=user, 
