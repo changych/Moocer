@@ -53,6 +53,7 @@ class RecordInfo(models.Model):
     videocomplete = models.IntegerField()
     testremain = models.IntegerField()
     testcomplete = models.IntegerField()
+    update_time = models.DateTimeField()
 
     def __str__(self):
         return self.user + '(' + str(self.videoremain + self.videocomplete + self.testremain + self.testcomplete) + '/' + str(self.videocomplete + testcomplete) + ')'
