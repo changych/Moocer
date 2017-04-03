@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^getQuiz/$', views.getQuiz, name='getQuiz'),
     url(r'^addQuiz/$', views.addQuiz, name='addQuiz'),
     url(r'^addOrder/$', views.addOrder, name='addOrder'),
+    url(r'^addRecord/$', views.addRecord, name='addRecord'),
 ]

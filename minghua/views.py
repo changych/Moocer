@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from minghua.models import SchoolInfo, QuizInfo
 from minghua.school.school import School
 from minghua.order.order import Order
+from minghua.record.record import Record
 from minghua.quiz.quiz import Quiz
 from minghua.course.Business import Business
 from minghua.wechat.Validate import Validate
@@ -109,5 +110,19 @@ def addOrder(request):
 		request.GET['user'],
 		request.GET['study'],
 		request.GET['exam']
+	)
+	return HttpResponse(json.dumps({'status':res}))
+
+def addRecord(request):
+	record = Record()
+	res = record.addRecord(
+		request.GET['school'],
+		request.GET['user'],
+		request.GET['password'],
+		request.GET['courseid'],
+		request.GET['videoremain'],
+		request.GET['videocomplete'],
+		request.GET['testremain'],
+		request.GET['testcomplete']
 	)
 	return HttpResponse(json.dumps({'status':res}))

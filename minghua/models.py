@@ -44,6 +44,20 @@ class OrderInfo(models.Model):
         return self.user
 
 @python_2_unicode_compatible
+class RecordInfo(models.Model):
+    school = models.CharField(max_length=256)
+    user = models.CharField(max_length=64)
+    password = models.CharField(max_length=64)
+    courseid = models.CharField(max_length=64)
+    videoremain = models.IntegerField()
+    videocomplete = models.IntegerField()
+    testremain = models.IntegerField()
+    testcomplete = models.IntegerField()
+
+    def __str__(self):
+        return self.user + '(' + str(self.videoremain + self.videocomplete + self.testremain + self.testcomplete) + '/' + str(self.videocomplete + testcomplete) + ')'
+
+@python_2_unicode_compatible
 class QueryInfo(models.Model):
     open_id = models.CharField(max_length=64,unique=True)
     count = models.IntegerField(default=0)
