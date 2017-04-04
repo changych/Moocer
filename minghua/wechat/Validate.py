@@ -87,7 +87,7 @@ class Validate(object):
 					resContent = resContent + item.course_title + '(' + \
 						str(item.videoremain+item.videocomplete+item.testremain+item.testcomplete) + \
 						'/' + str(item.videoremain+item.testremain) + \
-						' 分数:' + str(item.score) + ',开始:' + item.exam_start + ')' 
+						' 分数:' + str(item.score) + ',开始:' + item.exam_start.strftime('%Y-%m-%d %H:%M') + ')' 
 				return resContent
 			return '账号/密码错误或未提交订单'
 
