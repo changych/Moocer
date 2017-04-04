@@ -82,9 +82,18 @@ class Validate(object):
 			for schoolInfo in schoolList:
 				print(schoolInfo.key)
 				r = RecordInfo.objects.filter(user=userName)
-				content = json.dumps(r)
+				for item in r:
+					content.append({
+						'user':item.user,
+						'course':item.course_title,
+						'total':item.videoremain+item.videocomplete+item.testremain+item.testcomplete,
+						'remain':item.videoremain+item.testremain,
+						'score':item.score
+						'exam_start':item.exam_start,
+						'exam_end':item.exam_end
+					})
 
-		return content
+		return json.dumps(content)
 
 
 	def bind(self, fromUserName, content):
