@@ -88,7 +88,7 @@ class Validate(object):
 						'course':item.course_title,
 						'total':item.videoremain+item.videocomplete+item.testremain+item.testcomplete,
 						'remain':item.videoremain+item.testremain,
-						'score':item.score
+						'score':item.score,
 						'exam_start':item.exam_start,
 						'exam_end':item.exam_end
 					})
