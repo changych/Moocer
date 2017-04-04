@@ -136,9 +136,6 @@ def addRecord(request):
 
 def updateRecordScore(request):
 	record = Record()
-	print(request.POST['user'])
-	print(request.POST['courseid'])
-	print(request.POST['score'])
 	res = record.updateScore(
 		request.POST['user'],
 		request.POST['courseid'],
