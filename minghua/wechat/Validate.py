@@ -11,6 +11,7 @@ from minghua.school.school import School
 from minghua.course.Business import Business
 from minghua.models import QueryInfo
 from minghua.models import UserInfo
+from minghua.models import RecordInfo
 
 class Validate(object):
 
