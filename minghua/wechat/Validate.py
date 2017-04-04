@@ -93,8 +93,10 @@ class Validate(object):
 						'exam_start':item.exam_start,
 						'exam_end':item.exam_end
 					})
+				return json.dumps(resContent)
+			return '账号/密码错误或未提交订单'
 
-		return json.dumps(resContent)
+		
 
 
 	def bind(self, fromUserName, content):
