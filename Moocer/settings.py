@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '116.62.10.40',
-    'anymoocer.com'
+    'anymoocer.com',
+    'www.anymoocer.com'
 ]
 
 
