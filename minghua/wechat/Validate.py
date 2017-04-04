@@ -79,21 +79,16 @@ class Validate(object):
 
 			school = School()
 			schoolList = school.getSchool(schoolCh)
-			resContent = []
+			resContent = userName + ':'
 			for schoolInfo in schoolList:
 				print(schoolInfo.key)
 				r = RecordInfo.objects.filter(user=userName)
 				for item in r:
-					resContent.append({
-						'user':item.user,
-						'course':item.course_title,
-						'total':item.videoremain+item.videocomplete+item.testremain+item.testcomplete,
-						'remain':item.videoremain+item.testremain,
-						'score':item.score,
-						'exam_start':item.exam_start,
-						'exam_end':item.exam_end
-					})
-				return json.dumps(resContent)
+					resContent = resContent + item.course_title + '(' + \
+						str(item.videoremain+item.videocomplete+item.testremain+item.testcomplete) + \
+						'/' + str(item.videoremain+item.testremain) + \
+						' 分数:' + str(item.score) + ',开始:' + item.exam_start + ')' 
+				return resContent
 			return '账号/密码错误或未提交订单'
 
 		
