@@ -2,6 +2,7 @@
 import hashlib
 import time
 import datetime
+import json
 from lxml import etree
 from minghua.quiz.quiz import Quiz
 from minghua.user.user import User
@@ -79,18 +80,9 @@ class Validate(object):
 			schoolList = school.getSchool(schoolCh)
 			for schoolInfo in schoolList:
 				print(schoolInfo.key)
-				business = Business()
-				try:
-					courseSet = business.run(
-						schoolInfo.key, 
-						userName, 
-						password
-					)
-					content = json.dumps(courseSet)
-					break
-				except: 
-					content = '学校/账号/密码 错误'
-					continue
+				r = RecordInfo.objects.filter(user=userName)
+				content = json.dumps(r)
+
 		return content
 
 
