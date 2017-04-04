@@ -73,10 +73,6 @@ class Validate(object):
 			userName = infoSet[2]
 			password = infoSet[3]
 
-			print(schoolCh)
-			print(userName)
-			print(password)
-
 			school = School()
 			schoolList = school.getSchool(schoolCh)
 			resContent = userName + ":\n"
