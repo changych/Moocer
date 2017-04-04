@@ -133,3 +133,22 @@ def addRecord(request):
 		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
+
+def updateRecordScore(request):
+	record = Record()
+	res = record.updateScore(
+		request.POST['school'],
+		request.POST['user'],
+		request.POST['password'],
+		request.POST['courseid'],
+		request.POST['course_title'],
+		request.POST['videoremain'],
+		request.POST['videocomplete'],
+		request.POST['testremain'],
+		request.POST['testcomplete'],
+		request.POST['score'],
+		request.POST['exam_start'],
+		request.POST['exam_end'],
+		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+	)
+	return HttpResponse(json.dumps({'status':res}))
