@@ -12,8 +12,10 @@ from minghua.models import RecordInfo
 
 class Record(object):
 
-	def addRecord(self, school, user, password, courseId, courseTitle, videoRemain, videoComplete, testRemain, testComplete, examScore, examStart, examEnd, studyStatus, examStatus):
+	def addRecord(self, school, user, password, courseId, courseTitle, videoRemain, videoComplete, testRemain, testComplete, examScore, examStart, examEnd, studyStatus, examStatus, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
+		resExamStart = examStart if examStart != '' else '0000-00-00 00:00:00'
+		resExamEnd = examEnd if examEnd != '' else '0000-00-00 00:00:00'
 		if(len(r) == 0):
 			r = RecordInfo(
 				school=school,
@@ -26,10 +28,11 @@ class Record(object):
 				testremain=testRemain,
 				testcomplete=testComplete,
 				score=int(examScore),
-				exam_start=examStart,
-				exam_end=examEnd,
+				exam_start=resExamStart,
+				exam_end=resExamEnd,
 				study_status=studyStatus,
-				exam_status=examStatus
+				exam_status=examStatus,
+				update_time=updateTime
 			)
 			r.save()
 		else:
@@ -43,7 +46,8 @@ class Record(object):
 				testcomplete=testComplete,
 				score=resScore,
 				study_status=resStudyStatus,
-				exam_status=resExamStatus
+				exam_status=resExamStatus,
+				update_time=updateTime
 			)
 		
 

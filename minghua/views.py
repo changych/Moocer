@@ -131,7 +131,9 @@ def addRecord(request):
 		request.POST['exam_start'],
 		request.POST['exam_end'],
 		request.POST['study_status'],
-		request.POST['exam_status']
+		request.POST['exam_status'],
+		datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
+		#time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
@@ -141,8 +143,8 @@ def updateRecordScore(request):
 		request.POST['user'],
 		request.POST['courseid'],
 		request.POST['score'],
-		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
-		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
+		#time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
