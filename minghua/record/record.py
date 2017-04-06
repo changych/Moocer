@@ -14,26 +14,41 @@ class Record(object):
 
 	def addRecord(self, school, user, password, courseId, courseTitle, videoRemain, videoComplete, testRemain, testComplete, examScore, examStart, examEnd, studyStatus, examStatus, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
-		resExamStart = examStart if examStart != '' else '0000-00-00 00:00:00'
-		resExamEnd = examEnd if examEnd != '' else '0000-00-00 00:00:00'
 		if(len(r) == 0):
-			r = RecordInfo(
-				school=school,
-				user=user, 
-				password=password,
-				courseid=courseId,
-				course_title=courseTitle,
-				videoremain=videoRemain,
-				videocomplete=videoComplete,
-				testremain=testRemain,
-				testcomplete=testComplete,
-				score=int(examScore),
-				exam_start=resExamStart,
-				exam_end=resExamEnd,
-				study_status=studyStatus,
-				exam_status=examStatus,
-				update_time=updateTime
-			)
+			if(examStart != '' and examEnd != ''):
+				r = RecordInfo(
+					school=school,
+					user=user, 
+					password=password,
+					courseid=courseId,
+					course_title=courseTitle,
+					videoremain=videoRemain,
+					videocomplete=videoComplete,
+					testremain=testRemain,
+					testcomplete=testComplete,
+					score=int(examScore),
+					exam_start=resExamStart,
+					exam_end=resExamEnd,
+					study_status=studyStatus,
+					exam_status=examStatus,
+					update_time=updateTime
+				)
+			else:
+				r = RecordInfo(
+					school=school,
+					user=user, 
+					password=password,
+					courseid=courseId,
+					course_title=courseTitle,
+					videoremain=videoRemain,
+					videocomplete=videoComplete,
+					testremain=testRemain,
+					testcomplete=testComplete,
+					score=int(examScore),
+					study_status=studyStatus,
+					exam_status=examStatus,
+					update_time=updateTime
+				)
 			r.save()
 		else:
 			resStudyStatus = studyStatus if int(studyStatus)>0 else r[0].study_status
