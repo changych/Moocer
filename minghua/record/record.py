@@ -34,8 +34,8 @@ class Record(object):
 			)
 			r.save()
 		else:
-			resStudyStatus = studyStatus if studyStatus>0 else r[0].study_status
-			resExamStatus = examStatus if examStatus>0 else r[0].exam_status
+			resStudyStatus = studyStatus if int(studyStatus)>0 else r[0].study_status
+			resExamStatus = examStatus if int(examStatus)>0 else r[0].exam_status
 			resScore = examScore if int(examScore)>0 else r[0].score
 			r.update(
 				videoremain=videoRemain,
