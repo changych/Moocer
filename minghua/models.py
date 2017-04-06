@@ -57,6 +57,8 @@ class RecordInfo(models.Model):
     score = models.IntegerField()
     exam_start = models.DateTimeField()
     exam_end = models.DateTimeField()
+    study_status = models.IntegerField()
+    exam_status = models.IntegerField()
     update_time = models.DateTimeField()
 
     def __str__(self):

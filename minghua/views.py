@@ -130,6 +130,8 @@ def addRecord(request):
 		request.POST['score'],
 		request.POST['exam_start'],
 		request.POST['exam_end'],
+		request.POST['study_status'],
+		request.POST['exam_status'],
 		datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 		#time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
