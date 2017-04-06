@@ -131,9 +131,7 @@ def addRecord(request):
 		request.POST['exam_start'],
 		request.POST['exam_end'],
 		request.POST['study_status'],
-		request.POST['exam_status'],
-		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
-		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		request.POST['exam_status']
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
