@@ -6,6 +6,7 @@ import time
 import traceback
 import sys
 
+from django.db.models import Q
 from django.http import HttpResponse
 from minghua.models import RecordInfo
 
@@ -15,9 +16,9 @@ class Record(object):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
 		if(len(r) == 0):
 			r = RecordInfo(
-				school=school, 
+				school=school,
 				user=user, 
-				password=password, 
+				password=password,
 				courseid=courseId,
 				course_title=courseTitle,
 				videoremain=videoRemain,
@@ -51,4 +52,18 @@ class Record(object):
 				update_time=updateTime
 			)
 		return True
+
+	def getUndoStudy(self):
+		result = []
+		r = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0))
+		for record in r:
+			result.append({
+				'school':record.school, 
+				'user':record.user,
+				'password':record.password,
+				'courseid':record.courseid
+			})
+		return result
+
+
 

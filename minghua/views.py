@@ -130,7 +130,8 @@ def addRecord(request):
 		request.POST['score'],
 		request.POST['exam_start'],
 		request.POST['exam_end'],
-		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+		#time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
@@ -143,3 +144,8 @@ def updateRecordScore(request):
 		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
+
+def getUndoStudy(request):
+	record = Record()
+	recordList = record.getUndoStudy()
+	return HttpResponse(json.dumps(recordList))
