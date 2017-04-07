@@ -74,6 +74,7 @@ class Validate(object):
 
 			school = School()
 			schoolList = school.getSchool(schoolCh)
+			print(schoolCh)
 			resContent = userName + ":\n"
 			for schoolInfo in schoolList:
 				print(schoolInfo.key)
