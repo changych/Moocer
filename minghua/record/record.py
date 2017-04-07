@@ -63,6 +63,17 @@ class Record(object):
 			)
 		return True
 
+	def updateExam(self, user, courseId, examStart, examEnd, updateTime):
+		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
+		if(len(r) > 0):
+			r.update(
+				exam_status=1,
+				exam_start=examStart,
+				exam_end=examEnd,
+				update_time=updateTime
+			)
+		return True
+
 	def getUndoStudy(self):
 		result = []
 		r = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(study_status=1)

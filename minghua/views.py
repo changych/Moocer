@@ -148,6 +148,18 @@ def updateRecordScore(request):
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
+def updateRecordExam(request):
+	record = Record()
+	res = record.updateScore(
+		request.POST['user'],
+		request.POST['courseid'],
+		request.POST['exam_start'],
+		request.POST['exam_end'],
+		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
+		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+	)
+	return HttpResponse(json.dumps({'status':res}))
+
 def getUndoStudy(request):
 	record = Record()
 	recordList = record.getUndoStudy()
