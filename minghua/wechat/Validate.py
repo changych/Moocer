@@ -72,12 +72,10 @@ class Validate(object):
 			schoolCh = infoSet[1]
 			userName = infoSet[2]
 
-			print(schoolCh)
 			school = School()
 			schoolList = school.getSchool(schoolCh)
 			resContent = userName + ":\n"
 			for schoolInfo in schoolList:
-				print(schoolInfo.key)
 				r = RecordInfo.objects.filter(user=userName)
 				for item in r:
 					resContent = resContent + item.course_title + '(' + \

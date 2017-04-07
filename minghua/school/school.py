@@ -43,9 +43,7 @@ class School(object):
 				)
 
 	def getSchool(self, school):
-		print('in getschool' + school)
 		s = SchoolInfo.objects.filter(ch_name__contains=school) 
-		print(s)
 		if(len(s) == 0):
 			return None
 		else:
