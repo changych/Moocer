@@ -151,8 +151,11 @@ def updateRecordScore(request):
 def updateRecordExam(request):
 	record = Record()
 	res = record.updateScore(
+		request.POST['school'],
 		request.POST['user'],
+		request.POST['password'],
 		request.POST['courseid'],
+		request.POST['course_title'],
 		request.POST['exam_start'],
 		request.POST['exam_end'],
 		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")

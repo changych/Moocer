@@ -63,7 +63,7 @@ class Record(object):
 			)
 		return True
 
-	def updateExam(self, user, courseId, examStart, examEnd, updateTime):
+	def updateExam(self, school, user, password, courseId, courseTitle, examStart, examEnd, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
 		resExamStart = examStart if examStart != '' else None
 		resExamEnd = examEnd if examEnd != '' else None
@@ -74,6 +74,25 @@ class Record(object):
 				exam_end=resExamEnd,
 				update_time=updateTime
 			)
+		else:
+			r = RecordInfo(
+				school=school,
+				user=user, 
+				password=password,
+				courseid=courseId,
+				course_title=courseTitle,
+				videoremain=0,
+				videocomplete=0,
+				testremain=0,
+				testcomplete=0,
+				score=0,
+				exam_start=resExamStart,
+				exam_end=resExamEnd,
+				study_status=0,
+				exam_status=1,
+				update_time=updateTime
+			)
+			r.save()
 		return True
 
 	def getUndoStudy(self):
