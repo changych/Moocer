@@ -65,11 +65,13 @@ class Record(object):
 
 	def updateExam(self, user, courseId, examStart, examEnd, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
+		resExamStart = examStart if examStart != '' else None
+		resExamEnd = examEnd if examEnd != '' else None
 		if(len(r) > 0):
 			r.update(
 				exam_status=1,
-				exam_start=examStart,
-				exam_end=examEnd,
+				exam_start=resExamStart,
+				exam_end=resExamEnd,
 				update_time=updateTime
 			)
 		return True
