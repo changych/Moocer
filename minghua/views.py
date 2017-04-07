@@ -150,7 +150,7 @@ def updateRecordScore(request):
 
 def updateRecordExam(request):
 	record = Record()
-	res = record.updateScore(
+	res = record.updateExam(
 		request.POST['school'],
 		request.POST['user'],
 		request.POST['password'],
