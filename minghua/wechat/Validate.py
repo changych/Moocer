@@ -75,15 +75,18 @@ class Validate(object):
 			school = School()
 			schoolList = school.getSchool(schoolCh)
 			resContent = userName + ":\n"
+			if schoolList == None:
+				return resContent + '账号/密码错误或未提交订单'
 			for schoolInfo in schoolList:
 				r = RecordInfo.objects.filter(user=userName)
 				for item in r:
+					examStart = '未开始' if item.exam_start == None else item.exam_start.strftime('%Y-%m-%d %H:%M')
 					resContent = resContent + item.course_title + '(' + \
 						str(item.videoremain+item.videocomplete+item.testremain+item.testcomplete) + \
 						'/' + str(item.videocomplete+item.testcomplete) + \
-						' 分数:' + str(item.score) + ',开始:' + item.exam_start.strftime('%Y-%m-%d %H:%M') + ")\n" 
+						' 分数:' + str(item.score) + ',开始:' + examStart + ")\n" 
 				return resContent
-			return '账号/密码错误或未提交订单'
+			return resContent + '账号/密码错误或未提交订单'
 
 		
 
