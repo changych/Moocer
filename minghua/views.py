@@ -70,7 +70,7 @@ def getCourse(request):
 		)
 		return HttpResponse(json.dumps(courseSet))
 	except: 
-		continue
+		return HttpResponse('error')
 
 
 def addQuiz(request):
