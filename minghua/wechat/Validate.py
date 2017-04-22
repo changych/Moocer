@@ -3,7 +3,7 @@ import hashlib
 import time
 import datetime
 import json
-import requests
+import os
 from lxml import etree
 from minghua.quiz.quiz import Quiz
 from minghua.user.user import User
