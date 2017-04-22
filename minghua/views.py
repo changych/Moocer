@@ -170,3 +170,11 @@ def getOpenId(request):
 	wechatValid = Validate()
 	res = wechatValid.getOpenId(request.GET['code'])
 	return HttpResponse(json.dumps({'open_id':res}))
+
+def getAnswer(request):
+	wechatValid = Validate()
+	res = wechatValid.query(
+		request.GET['openId'],
+		request.GET['content']
+	)
+	return HttpResponse(json.dumps({'answer':res}))
