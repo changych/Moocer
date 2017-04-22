@@ -78,7 +78,7 @@ class Course(object):
 			examStart = ''
 			examEnd = ''
 			examScore = 0
-			examFlag = 1 if videoListRes.content.find('线上考试') != -1 else 0
+			examFlag = 1 if videoListRes.content.decode().find('线上考试') != -1 else 0
 			if examFlag == 1:
 				examListRes = self.browser.session.get(self.baseUri + '/portal/examine/list/' + str(courseId) + '.mooc')
 				itemList = pyquery.PyQuery(examListRes.content)('.flipped-item')
