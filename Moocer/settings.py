@@ -26,7 +26,7 @@ SECRET_KEY = '$@ay=hse+hrr6$4y5%fx9cr%_w2i=uk&z(%^i8rkh(t-mlg6yg'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1'
+    '127.0.0.1',
     '116.62.10.40',
     'anymoocer.com',
     'www.anymoocer.com'
