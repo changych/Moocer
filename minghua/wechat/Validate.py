@@ -17,8 +17,9 @@ from minghua.models import RecordInfo
 class Validate(object):
 
 	def getOpenId(self, loginCode):
-		r = requests.get('https://api.weixin.qq.com/sns/jscode2session?appid=wxda91b42c38afe4f9&secret=6a50f0b32c167af02221920dd771fb3c&grant_type=authorization_code&js_code='+loginCode)
-		return r.content
+		url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wxda91b42c38afe4f9&secret=6a50f0b32c167af02221920dd771fb3c&grant_type=authorization_code&js_code='+loginCode
+		r = os.popen('curl "' + url + '"')
+		return r.read()
 
 	def validate(self, signature, timestmp, nonce):
 		token = '715074363yuan'
