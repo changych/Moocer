@@ -65,9 +65,9 @@ def getCourse(request):
 	business = Business()
 	try:
 		courseSet = business.run(
-			request.POST['school_id'], 
-			request.POST['user_id'], 
-			request.POST['password']
+			request.REQUEST['school_id'], 
+			request.REQUEST['user_id'], 
+			request.REQUEST['password']
 		)
 		return HttpResponse(json.dumps(courseSet))
 	except: 
