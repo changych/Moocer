@@ -3,6 +3,7 @@ import hashlib
 import time
 import datetime
 import json
+import requests
 from lxml import etree
 from minghua.quiz.quiz import Quiz
 from minghua.user.user import User
@@ -14,6 +15,10 @@ from minghua.models import UserInfo
 from minghua.models import RecordInfo
 
 class Validate(object):
+
+	def getOpenId(self, loginCode):
+		r = requests.get('https://api.weixin.qq.com/sns/jscode2session?appid=wxda91b42c38afe4f9&secret=6a50f0b32c167af02221920dd771fb3c&grant_type=authorization_code&js_code='+loginCode)
+		return r.content
 
 	def validate(self, signature, timestmp, nonce):
 		token = '715074363yuan'
