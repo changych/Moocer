@@ -4,6 +4,7 @@ import time
 import datetime
 from pyquery import PyQuery as pq
 from lxml import etree
+import traceback
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -70,6 +71,7 @@ def getCourse(request):
 		)
 		return HttpResponse(json.dumps(courseSet))
 	except: 
+		traceback.print_exc()
 		return HttpResponse('error')
 
 
