@@ -134,12 +134,14 @@ class Validate(object):
 
 		print(fromUserName)
 		print(quota)
+		print(content)
 		# 构造返回内容
 		if queryFlag == 2:
 			resContent = "您今天查询答案次数已达上限，绑定账号或淘宝下单刷课可提高上限"
 		else:
 			quiz = Quiz()
 			quizInfo = quiz.getQuizInfo(content)
+			print(quizInfo)
 			if quizInfo == None:
 				resContent = "您所查题目不存在，请查其他题目"
 			else:
