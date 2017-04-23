@@ -119,6 +119,9 @@ class Validate(object):
 		quota = 0
 		if (len(u) > 0):
 			quota = u[0].level * 2
+		else:
+			user = User()
+			user.update(fromUserName, None, '', '', None, 1)
 
 		if (len(q) == 0):
 			queryFlag = 0
