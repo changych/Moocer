@@ -173,8 +173,6 @@ def getOpenId(request):
 
 def getAnswer(request):
 	wechatValid = Validate()
-	print('-------view get answer-------')
-	print(request.GET['quizContent'])
 	res = wechatValid.query(
 		request.GET['openId'],
 		request.GET['quizContent']
