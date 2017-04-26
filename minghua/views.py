@@ -166,6 +166,11 @@ def getUndoStudy(request):
 	recordList = record.getUndoStudy()
 	return HttpResponse(json.dumps(recordList))
 
+def getReadyExam(request):
+	record = Record()
+	recordList = record.getReadyExam()
+	return HttpResponse(json.dumps(recordList))
+
 def getOpenId(request):
 	wechatValid = Validate()
 	res = wechatValid.getOpenId(request.GET['code'])

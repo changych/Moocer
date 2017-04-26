@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^updateRecordExam/$', views.updateRecordExam, name='updateRecordExam'),
     url(r'^getOpenId/$', views.getOpenId, name='getOpenId'),
     url(r'^getAnswer/$', views.getAnswer, name='getAnswer'),
+    url(r'^getReadyExam/$', views.getReadyExam, name='getReadyExam'),
 ]

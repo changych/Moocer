@@ -3,6 +3,7 @@ import requests
 import json
 import pyquery
 import time
+import datetime
 import traceback
 import sys
 
@@ -98,6 +99,20 @@ class Record(object):
 	def getUndoStudy(self):
 		result = []
 		r = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(study_status=1)
+		for record in r:
+			result.append({
+				'school':record.school, 
+				'user':record.user,
+				'password':record.password,
+				'courseid':record.courseid
+			})
+		return result
+
+	def getReadyExam(self):
+		result = []
+		now = datetime.datetime.now()
+		start = now + datetime.timedelta(hours=9,minutes=0,seconds=0)
+		r = RecordInfo.objects.filter(Q(exam_start__gt=start) | Q(score__lt=100)).filter(exam_status=1)
 		for record in r:
 			result.append({
 				'school':record.school, 
