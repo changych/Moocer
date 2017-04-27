@@ -6,6 +6,7 @@ from minghua.school.school import School
 from minghua.course.Login import Login
 from minghua.course.Course import Course
 from minghua.models import RecordInfo
+from minghua.record.record import Record
 
 class Business(object):
 
@@ -31,6 +32,25 @@ class Business(object):
 			res,browser = login.login(userName, password)
 			course = Course(school, browser, userName)
 			courseSet = course.courseList()
+			for course in courseSet:
+				res = record.addRecord(
+					school,
+					userName,
+					password,
+					course.id,
+					course.title,
+					course.video_remain,
+					course.video_complete,
+					course.test_remain,
+					course.test_complete,
+					course.exam_score,
+					course.exam_start,
+					course.exam_end,
+					0,
+					0,
+					#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
+					time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+				)
 			#schoolKey = schoolInfo['key']
 			#print(schoolKey)
 			return courseSet
