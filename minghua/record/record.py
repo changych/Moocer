@@ -111,8 +111,10 @@ class Record(object):
 	def getReadyExam(self):
 		result = []
 		now = datetime.datetime.now()
+		print(now)
 		start = now + datetime.timedelta(hours=9,minutes=0,seconds=0)
-		r = RecordInfo.objects.filter(Q(exam_start__gt=start) | Q(score__lt=100)).filter(exam_status=1)
+		print(start)
+		r = RecordInfo.objects.filter(Q(exam_start__lt=start) & Q(score__lt=100)).filter(exam_status=1)
 		for record in r:
 			result.append({
 				'school':record.school, 
