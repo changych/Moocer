@@ -16,7 +16,6 @@ class Business(object):
 		now = datetime.datetime.now()
 		start = now + datetime.timedelta(hours=-24,minutes=0,seconds=0)
 		print(start)
-		query = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(Q(update_time__lt=start)).query
 		sql = 'SELECT * FROM minghua_recordinfo WHERE update_time<\"' + str(start) + '\" and (videoremain>0 or testremain>0) GROUP BY user'
 		print(sql)
 		userSet = []
