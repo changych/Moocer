@@ -74,6 +74,15 @@ def getCourse(request):
 		traceback.print_exc()
 		return HttpResponse('error')
 
+def updateCourse(request):
+	business = Business()
+	try:
+		courseSet = business.update()
+		return HttpResponse(json.dumps(courseSet))
+	except: 
+		traceback.print_exc()
+		return HttpResponse('error')
+
 
 def addQuiz(request):
 	quiz = Quiz()

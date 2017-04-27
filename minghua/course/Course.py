@@ -41,18 +41,6 @@ class Course(object):
 				continue
 			courseId = href[href.rfind('/')+1 : len(href)-len('.mooc')]
 
-
-
-
-		# for li in j('.view-item'):
-		# 	title = pyquery.PyQuery(li)('.view-title').text()
-		# 	subTitile = pyquery.PyQuery(li)('.view-subtitle')
-		# 	link = pyquery.PyQuery(subTitile)('a').filter('.link-action')
-		# 	href = pyquery.PyQuery(link).attr('href')
-		# 	href = href[ : href.rfind('/')]
-		# 	courseId = href[href.rfind('/')+1 : ]
-		# 	print(courseId)
-
 			video_remain = 0
 			video_complete = 0
 			test_remain = 0

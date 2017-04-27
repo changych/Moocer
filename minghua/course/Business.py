@@ -10,6 +10,16 @@ from minghua.record.record import Record
 
 class Business(object):
 
+	def update(self):
+		now = datetime.datetime.now()
+		start = now + datetime.timedelta(hours=-24,minutes=0,seconds=0)
+		print(start)
+		r = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(Q(update_time__lt=start)).group_by('user')
+		if(len(r) > 0):
+			for record in r:
+				print(record)
+		return []
+
 	def run(self, school, userName, password):
 		r = RecordInfo.objects.filter(school=school).filter(user=userName)
 		if(len(r) > 0):
