@@ -21,7 +21,7 @@ class Business(object):
 		print(sql)
 		r = RecordInfo.objects.raw(sql)
 		for record in r:
-			print(record)
+			print(record.user)
 			
 		return []
 
