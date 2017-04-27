@@ -21,8 +21,8 @@ class Business(object):
 					'video_complete': record.videocomplete,
 					'test_remain': record.testremain,
 					'test_complete': record.testcomplete,
-					'exam_start': record.exam_start,
-					'exam_end': record.exam_end,
+					'exam_start': str(record.exam_start),
+					'exam_end': str(record.exam_end),
 					'exam_score': record.score
 				})
 			return courseSet
