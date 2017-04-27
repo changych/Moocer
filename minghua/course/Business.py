@@ -2,6 +2,7 @@
 import time
 import os
 import datetime
+from django.db.models import Q
 
 from minghua.school.school import School
 from minghua.course.Login import Login
