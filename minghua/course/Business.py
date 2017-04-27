@@ -32,6 +32,7 @@ class Business(object):
 			res,browser = login.login(userName, password)
 			course = Course(school, browser, userName)
 			courseSet = course.courseList()
+			record = Record()
 			for course in courseSet:
 				res = record.addRecord(
 					school,
