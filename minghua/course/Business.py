@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-  
 import time
 import os
+import datetime
 
 from minghua.school.school import School
 from minghua.course.Login import Login
