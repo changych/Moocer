@@ -18,7 +18,7 @@ class Business(object):
 		print(start)
 		query = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(Q(update_time__lt=start)).query
 		query.group_by = ['user']
-		r = QuerySet(query=query, model=RecordInfo)
+		r = RecordInfo.objects(query=query, model=RecordInfo)
 		if(len(r) > 0):
 			for record in r:
 				print(record)
