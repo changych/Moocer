@@ -16,7 +16,7 @@ class Business(object):
 			for record in r:
 				courseSet.append({
 					'id': record.courseid, 
-					'title':course.course_title, 
+					'title':record.course_title, 
 					'video_remain': record.videoremain,
 					'video_complete': record.videocomplete,
 					'test_remain': record.testremain,
