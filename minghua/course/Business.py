@@ -17,8 +17,9 @@ class Business(object):
 		start = now + datetime.timedelta(hours=-24,minutes=0,seconds=0)
 		print(start)
 		query = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(Q(update_time__lt=start)).query
-		query.group_by = ['user']
-		r = RecordInfo.objects(query=query, model=RecordInfo)
+		sql = 'SELECT * FROM minghua_record WHERE update_time<' + start + ' videoremain>0 or testremain>0 GROUP BY user'
+		print(sql)
+		r = RecordInfo.objects.raw(sql)
 		if(len(r) > 0):
 			for record in r:
 				print(record)
