@@ -5,7 +5,7 @@ import os
 from minghua.school.school import School
 from minghua.course.Login import Login
 from minghua.course.Course import Course
-from minghua.record.record import Record
+from minghua.models import RecordInfo
 
 class Business(object):
 
