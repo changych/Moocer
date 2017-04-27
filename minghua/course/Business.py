@@ -20,9 +20,9 @@ class Business(object):
 		sql = 'SELECT * FROM minghua_record WHERE update_time<' + str(start) + ' videoremain>0 or testremain>0 GROUP BY user'
 		print(sql)
 		r = RecordInfo.objects.raw(sql)
-		if(len(r) > 0):
-			for record in r:
-				print(record)
+		for record in r:
+			print(record)
+			
 		return []
 
 	def run(self, school, userName, password):
