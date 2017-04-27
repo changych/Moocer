@@ -19,11 +19,16 @@ class Business(object):
 		query = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(Q(update_time__lt=start)).query
 		sql = 'SELECT * FROM minghua_recordinfo WHERE update_time<\"' + str(start) + '\" and (videoremain>0 or testremain>0) GROUP BY user'
 		print(sql)
+		userSet = []
 		r = RecordInfo.objects.raw(sql)
 		for record in r:
-			print(record.school + ' ' + record.user + ' ' + record.password)
+			userSet.append({
+				'school': record.school,
+				'user': record.user,
+				'password': record.password
+			})
 			
-		return []
+		return userSet
 
 	def run(self, school, userName, password):
 		r = RecordInfo.objects.filter(school=school).filter(user=userName)
