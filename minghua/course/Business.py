@@ -21,7 +21,7 @@ class Business(object):
 		print(sql)
 		r = RecordInfo.objects.raw(sql)
 		for record in r:
-			print(record.user)
+			print(record.school + ' ' + record.user + ' ' + record.passowrd)
 			
 		return []
 
