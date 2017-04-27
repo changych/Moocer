@@ -16,7 +16,9 @@ class Business(object):
 		now = datetime.datetime.now()
 		start = now + datetime.timedelta(hours=-24,minutes=0,seconds=0)
 		print(start)
-		r = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(Q(update_time__lt=start)).group_by('user')
+		query = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(Q(update_time__lt=start)).query
+		query.group_by = ['user']
+		r = QuerySet(query=query, model=RecordInfo)
 		if(len(r) > 0):
 			for record in r:
 				print(record)
