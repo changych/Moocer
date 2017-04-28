@@ -13,7 +13,7 @@ class Order(object):
 
 	def addOrder(self, openId, school, user, password, recordIds, status, createTime):
 		openId = self.genOrderId()
-		print openId
+		print(openId)
 		orderId = 'aaaaaaaaa'
 		o = OrderInfo(
 			order_id=order_id,
