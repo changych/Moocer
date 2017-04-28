@@ -13,11 +13,11 @@ from minghua.models import OrderInfo
 class Order(object):
 
 	def addOrder(self, openId, school, user, password, recordIds, status, createTime):
-		openId = self.genOrderId()
+		orderId = self.genOrderId()
 		print(openId)
 		orderId = 'aaaaaaaaa'
 		o = OrderInfo(
-			order_id=order_id,
+			order_id=str(orderId),
 			open_id=openId,
 			school=school, 
 			user=user, 
