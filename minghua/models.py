@@ -32,13 +32,14 @@ class SchoolInfo(models.Model):
 
 @python_2_unicode_compatible
 class OrderInfo(models.Model):
+    order_id = models.CharField(max_length=64)
+    open_id = models.CharField(max_length=128)
     user = models.CharField(max_length=64)
-    school = models.CharField(max_length=256)
-    study = models.CharField(max_length=256)
-    exam = models.CharField(max_length=256)
-    status = models.IntegerField(default=0)
+    passowrd = models.CharField(max_length=64)
+    school = models.CharField(max_length=32)
+    record_ids = models.CharField(max_length=128)
+    status = models.IntegerField(default=1)
     create_time = models.DateTimeField()
-    finish_time = models.DateTimeField()
 
     def __str__(self):
         return self.user
