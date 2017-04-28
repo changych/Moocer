@@ -121,7 +121,7 @@ def addOrder(request):
 		request.GET['password'],
 		request.GET['recordIds'],
 		1,
-		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
