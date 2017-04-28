@@ -112,7 +112,7 @@ class Record(object):
 		result = []
 		now = datetime.datetime.now()
 		print(now)
-		start = now + datetime.timedelta(hours=9,minutes=0,seconds=0)
+		start = now + datetime.timedelta(hours=1,minutes=0,seconds=0)
 		print(start)
 		r = RecordInfo.objects.filter(Q(exam_start__lt=start) & Q(score__lt=100)).filter(exam_status=1)
 		for record in r:
