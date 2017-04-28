@@ -5,6 +5,7 @@ import pyquery
 import time
 import traceback
 import sys
+import datetime
 
 from django.http import HttpResponse
 from minghua.models import OrderInfo
