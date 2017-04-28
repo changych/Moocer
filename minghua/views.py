@@ -5,6 +5,7 @@ import datetime
 from pyquery import PyQuery as pq
 from lxml import etree
 import traceback
+import pytz
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -115,7 +116,9 @@ def getSchoolList(request):
 
 def addOrder(request):
 	order = Order()
-	now = datetime.datetime.now()
+	tz = pytz.timezone('Asia/Shanghai')
+	now = datetime.datetime.now(tz=tz)
+	print('---------')
 	print(now.strftime('%Y-%m-%d %H:%M:%S %Z'))
 	res = order.addOrder(
 		request.GET['open_id'],
