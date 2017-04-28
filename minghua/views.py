@@ -116,7 +116,7 @@ def getSchoolList(request):
 def addOrder(request):
 	order = Order()
 	now = datetime.datetime.now()
-	print(now)
+	print(now.strftime('%Y-%m-%d %H:%M:%S %Z'))
 	res = order.addOrder(
 		request.GET['open_id'],
 		request.GET['school'],
@@ -124,7 +124,7 @@ def addOrder(request):
 		request.GET['password'],
 		request.GET['recordIds'],
 		1,
-		timezone.now().strftime('%Y-%m-%d %H:%M:%S') 
+		now.strftime('%Y-%m-%d %H:%M:%S') 
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
