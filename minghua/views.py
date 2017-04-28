@@ -114,6 +114,8 @@ def getSchoolList(request):
 
 def addOrder(request):
 	order = Order()
+	now = datetime.datetime.now()
+	print(now)
 	res = order.addOrder(
 		request.GET['open_id'],
 		request.GET['school'],
