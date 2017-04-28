@@ -117,7 +117,6 @@ def getSchoolList(request):
 def addOrder(request):
 	order = Order()
 	now = datetime.datetime.now()
-	now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 	print('---------')
 	print(now.strftime('%Y-%m-%d %H:%M:%S %Z'))
 	res = order.addOrder(
@@ -133,7 +132,6 @@ def addOrder(request):
 
 def addRecord(request):
 	now = datetime.datetime.now()
-	now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 	record = Record()
 	res = record.addRecord(
 		request.POST['school'],
@@ -157,7 +155,6 @@ def addRecord(request):
 
 def updateRecordScore(request):
 	now = datetime.datetime.now()
-	now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 	record = Record()
 	res = record.updateScore(
 		request.POST['user'],
@@ -170,7 +167,6 @@ def updateRecordScore(request):
 
 def updateRecordExam(request):
 	now = datetime.datetime.now()
-	now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 	record = Record()
 	res = record.updateExam(
 		request.POST['school'],

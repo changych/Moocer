@@ -9,7 +9,6 @@ class User(object):
 
 	def update(self, openId, schoolKey, schoolId, schoolPwd, name, level):
 		now = datetime.datetime.now()
-		now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 		u = UserInfo.objects.filter(open_id=openId)
 		if len(u) == 0:
 			schoolKey = '' if schoolKey == None else schoolKey
