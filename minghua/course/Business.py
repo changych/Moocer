@@ -32,7 +32,7 @@ class Business(object):
 	def run(self, school, userName, password):
 		now = datetime.datetime.now()
 		now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
-		console.log(now.strftime('%Y-%m-%d %H:%M:%S'))
+		print(now.strftime('%Y-%m-%d %H:%M:%S'))
 		r = RecordInfo.objects.filter(school=school).filter(user=userName)
 		if(len(r) > 0):
 			courseSet = []
