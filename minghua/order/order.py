@@ -32,5 +32,4 @@ class Order(object):
 
 	def genOrderId(self):
 		now = datetime.datetime.now()
-		start = now + datetime.timedelta(hours=9,minutes=0,seconds=0)
-		return start
+		return now
