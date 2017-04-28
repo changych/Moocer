@@ -30,6 +30,8 @@ class Business(object):
 		return userSet
 
 	def run(self, school, userName, password):
+		now = datetime.datetime.now()
+		now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 		r = RecordInfo.objects.filter(school=school).filter(user=userName)
 		if(len(r) > 0):
 			courseSet = []
@@ -69,7 +71,8 @@ class Business(object):
 					0,
 					0,
 					#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
-					time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+					#time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+					now.strftime('%Y-%m-%d %H:%M:%S')
 				)
 			#schoolKey = schoolInfo['key']
 			#print(schoolKey)

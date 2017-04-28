@@ -8,6 +8,8 @@ from minghua.models import UserInfo
 class User(object):
 
 	def update(self, openId, schoolKey, schoolId, schoolPwd, name, level):
+		now = datetime.datetime.now()
+		now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 		u = UserInfo.objects.filter(open_id=openId)
 		if len(u) == 0:
 			schoolKey = '' if schoolKey == None else schoolKey
@@ -22,7 +24,7 @@ class User(object):
 				school_password=schoolPwd, 
 				name=name, 
 				level=level,
-				create_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+				create_time=now.strftime('%Y-%m-%d %H:%M:%S')
 			)
 			u.save()
 		else:

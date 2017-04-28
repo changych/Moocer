@@ -111,6 +111,8 @@ class Validate(object):
 
 	def query(self, fromUserName, content):
 		now = datetime.date.today()
+		current = datetime.datetime.now()
+		current = current + datetime.timedelta(hours=8,minutes=0,seconds=0)
 		# 0: 该用户查询记录不存在, 1: 用户查询没超限, 2: 用户查询超限
 		queryFlag = 2
 		q = QueryInfo.objects.filter(open_id=fromUserName)
@@ -152,12 +154,12 @@ class Validate(object):
 					q = QueryInfo(
 						open_id=fromUserName, 
 						count=1, 
-						last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+						last_time=current.strftime('%Y-%m-%d %H:%M:%S')
 					)
 					q.save()
 				else:
 					q.update(
 						count=q[0].count+1,
-						last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+						last_time=current.strftime('%Y-%m-%d %H:%M:%S')
 					)
 		return resContent

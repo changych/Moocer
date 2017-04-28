@@ -132,6 +132,8 @@ def addOrder(request):
 	return HttpResponse(json.dumps({'status':res}))
 
 def addRecord(request):
+	now = datetime.datetime.now()
+	now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 	record = Record()
 	res = record.addRecord(
 		request.POST['school'],
@@ -149,22 +151,26 @@ def addRecord(request):
 		request.POST['study_status'],
 		request.POST['exam_status'],
 		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
-		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		now.strftime('%Y-%m-%d %H:%M:%S') 
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
 def updateRecordScore(request):
+	now = datetime.datetime.now()
+	now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 	record = Record()
 	res = record.updateScore(
 		request.POST['user'],
 		request.POST['courseid'],
 		request.POST['score'],
 		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
-		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		now.strftime('%Y-%m-%d %H:%M:%S') 
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
 def updateRecordExam(request):
+	now = datetime.datetime.now()
+	now = now + datetime.timedelta(hours=8,minutes=0,seconds=0)
 	record = Record()
 	res = record.updateExam(
 		request.POST['school'],
@@ -175,7 +181,8 @@ def updateRecordExam(request):
 		request.POST['exam_start'],
 		request.POST['exam_end'],
 		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
-		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		#time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		now.strftime('%Y-%m-%d %H:%M:%S') 
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
