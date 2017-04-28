@@ -8,6 +8,7 @@ import traceback
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.utils import timezone
 from minghua.models import SchoolInfo, QuizInfo
 from minghua.school.school import School
 from minghua.order.order import Order
@@ -123,7 +124,7 @@ def addOrder(request):
 		request.GET['password'],
 		request.GET['recordIds'],
 		1,
-		datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') 
+		timezone.now().strftime('%Y-%m-%d %H:%M:%S') 
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
