@@ -44,8 +44,7 @@ class Business(object):
 					'test_complete': record.testcomplete,
 					'exam_start': str(record.exam_start),
 					'exam_end': str(record.exam_end),
-					'exam_score': record.score,
-					'update_time': record.update_time
+					'exam_score': record.score
 				})
 			return courseSet
 		else:
