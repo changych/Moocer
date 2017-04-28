@@ -115,10 +115,13 @@ def getSchoolList(request):
 def addOrder(request):
 	order = Order()
 	res = order.addOrder(
+		request.GET['open_id'],
 		request.GET['school'],
 		request.GET['user'],
-		request.GET['study'],
-		request.GET['exam']
+		request.GET['password'],
+		request.GET['recordIds'],
+		1,
+		time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
