@@ -35,7 +35,7 @@ class OrderInfo(models.Model):
     order_id = models.CharField(max_length=64)
     open_id = models.CharField(max_length=128)
     user = models.CharField(max_length=64)
-    passowrd = models.CharField(max_length=64)
+    password = models.CharField(max_length=64)
     school = models.CharField(max_length=32)
     record_ids = models.CharField(max_length=128)
     status = models.IntegerField(default=1)
