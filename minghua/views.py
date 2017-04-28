@@ -117,7 +117,7 @@ def getSchoolList(request):
 def addOrder(request):
 	order = Order()
 	tz = pytz.timezone('Asia/Shanghai')
-	now = datetime.datetime.now(tz=tz)
+	now = timezone.now(tz=tz)
 	print('---------')
 	print(now.strftime('%Y-%m-%d %H:%M:%S %Z'))
 	res = order.addOrder(
