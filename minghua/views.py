@@ -130,6 +130,33 @@ def addOrder(request):
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
+
+def addBatchRecord(request):
+	now = datetime.datetime.now()
+	record = Record()
+	recordList = json.loads(request.POST['content'])
+	for record in recordList:
+		res = record.addRecord(
+			record.school,
+			record.user,
+			record.password,
+			record.courseid,
+			record.course_title,
+			record.videoremain,
+			record.videocomplete,
+			record.testremain,
+			record.testcomplete,
+			record.score,
+			record.exam_start,
+			record.exam_end,
+			record.study_status,
+			record.exam_status,
+			#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
+			now.strftime('%Y-%m-%d %H:%M:%S') 
+		)
+	return HttpResponse(json.dumps({'status':res}))
+
+
 def addRecord(request):
 	now = datetime.datetime.now()
 	record = Record()

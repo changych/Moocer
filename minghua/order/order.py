@@ -16,7 +16,6 @@ class Order(object):
 	def addOrder(self, openId, school, user, password, recordIds, status, createTime):
 		orderId = self.genOrderId()
 		print(orderId)
-		orderId = 'aaaaaaaaa'
 		o = OrderInfo(
 			order_id=str(orderId),
 			open_id=openId,

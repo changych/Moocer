@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^addQuiz/$', views.addQuiz, name='addQuiz'),
     url(r'^addOrder/$', views.addOrder, name='addOrder'),
     url(r'^addRecord/$', views.addRecord, name='addRecord'),
+    url(r'^addBatchRecord/$', views.addBatchRecord, name='addBatchRecord'),
     url(r'^updateRecordScore/$', views.updateRecordScore, name='updateRecordScore'),
     url(r'^getUndoStudy/$', views.getUndoStudy, name='getUndoStudy'),
     url(r'^updateRecordExam/$', views.updateRecordExam, name='updateRecordExam'),
