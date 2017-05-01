@@ -17,6 +17,7 @@ class Record(object):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
 		resExamStart = examStart if examStart != '' else None
 		resExamEnd = examEnd if examEnd != '' else None
+		resId = 0
 		if(len(r) == 0):
 			r = RecordInfo(
 				school=school,
@@ -36,6 +37,7 @@ class Record(object):
 				update_time=updateTime
 			)
 			r.save()
+			resId = r.id
 		else:
 			resStudyStatus = studyStatus if int(studyStatus)>0 else r[0].study_status
 			resExamStatus = examStatus if int(examStatus)>0 else r[0].exam_status
@@ -50,9 +52,10 @@ class Record(object):
 				exam_status=resExamStatus,
 				update_time=updateTime
 			)
+			resId = r[0].id
 		
 
-		return r.id
+		return resId
 
 	def updateScore(self, user, courseId, examScore, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)
