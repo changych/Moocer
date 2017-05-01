@@ -28,7 +28,7 @@ class Order(object):
 		)
 		o.save()
 
-		return True
+		return o.id
 
 	def genOrderId(self):
 		now = datetime.datetime.now()

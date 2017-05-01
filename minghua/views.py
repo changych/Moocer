@@ -117,8 +117,6 @@ def getSchoolList(request):
 def addOrder(request):
 	order = Order()
 	now = datetime.datetime.now()
-	print('---------')
-	print(now.strftime('%Y-%m-%d %H:%M:%S %Z'))
 	res = order.addOrder(
 		request.GET['open_id'],
 		request.GET['school'],
@@ -128,7 +126,7 @@ def addOrder(request):
 		1,
 		now.strftime('%Y-%m-%d %H:%M:%S') 
 	)
-	return HttpResponse(json.dumps({'status':res}))
+	return HttpResponse(json.dumps({'res':res}))
 
 
 def addBatchRecord(request):
