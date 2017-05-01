@@ -52,7 +52,7 @@ class Record(object):
 			)
 		
 
-		return True
+		return r.id
 
 	def updateScore(self, user, courseId, examScore, updateTime):
 		r = RecordInfo.objects.filter(courseid=courseId).filter(user=user)

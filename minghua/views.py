@@ -136,6 +136,7 @@ def addBatchRecord(request):
 	record = Record()
 	recordContent = request.GET['recordContent']
 	recordList = json.loads(recordContent)
+	recordIds = []
 	for item in recordList:
 		res = record.addRecord(
 			item['school'],
@@ -155,7 +156,8 @@ def addBatchRecord(request):
 			#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
 			now.strftime('%Y-%m-%d %H:%M:%S') 
 		)
-	return HttpResponse(json.dumps({'status':res}))
+		recordIds.append(res)
+	return HttpResponse(json.dumps({'res':recordIds}))
 
 
 def addRecord(request):
