@@ -135,7 +135,6 @@ def addBatchRecord(request):
 	now = datetime.datetime.now()
 	record = Record()
 	recordContent = request.GET['recordContent']
-	print(recordContent)
 	recordList = json.loads(recordContent)
 	for item in recordList:
 		res = record.addRecord(
