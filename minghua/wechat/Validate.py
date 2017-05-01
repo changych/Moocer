@@ -45,7 +45,7 @@ class Validate(object):
 		msgType = 'text'
 		now = int(time.time())
 		content = "感谢您的关注。1、输入：#账号#密码 绑定账号，如：#123000000#123456。\
-		3、绑定账号可输入题目内容查询测试答案。2、淘宝网搜索“名华慕课”，可进入名华慕课专业服务。"
+		2、绑定账号可输入题目内容查询测试答案。"
 
 		res = textTpl%(fromUserName, toUserName, now, msgType, content)
 		return res

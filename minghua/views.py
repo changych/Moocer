@@ -17,6 +17,7 @@ from minghua.record.record import Record
 from minghua.quiz.quiz import Quiz
 from minghua.course.Business import Business
 from minghua.wechat.Validate import Validate
+from minghua.xiaochengxu.XcxValidate import XcxValidate
 
 def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
@@ -53,6 +54,42 @@ def wechatValid(request):
 			res = wechatValid.subscribe(data)
 	elif msgType == 'text':
 		res = wechatValid.msg(data)
+
+	return HttpResponse(res)
+
+
+def xcxValid(request):
+	wechatValid = XcxValidate()
+
+	#echoStr = request.GET['echostr']
+	#signature = request.GET['signature']
+	#timestamp = request.GET['timestamp']
+	#nonce = request.GET['nonce']	
+	#res = wechatValid.validate(signature, timestamp, nonce)
+
+	data = request.body
+	xml = etree.fromstring(data)
+	msgType = xml.find('MsgType').text
+
+	# for key in request.GET:
+	# 	#rec = request.stream.read()
+	# 	print(key)
+	# 	print(request.GET[key])
+	#if res == True:
+	#	return HttpResponse(echoStr)
+	#else:
+	#	return HttpResponse('error')
+
+	res = 'end'
+	if msgType == 'event':
+		res = XcxValidate.subscribe(data)
+		event = xml.find('Event').text
+		if event == 'subscribe':
+			res = XcxValidate.subscribe(data)
+		elif event == 'unsubscribe':
+			res = XcxValidate.subscribe(data)
+	elif msgType == 'text':
+		res = XcxValidate.subscribe(data)
 
 	return HttpResponse(res)
 
