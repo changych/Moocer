@@ -137,22 +137,22 @@ def addBatchRecord(request):
 	recordContent = request.GET['recordContent']
 	print(recordContent)
 	recordList = json.loads(recordContent)
-	for record in recordList:
+	for item in recordList:
 		res = record.addRecord(
-			record.school,
-			record.user,
-			record.password,
-			record.courseid,
-			record.course_title,
-			record.videoremain,
-			record.videocomplete,
-			record.testremain,
-			record.testcomplete,
-			record.score,
-			record.exam_start,
-			record.exam_end,
-			record.study_status,
-			record.exam_status,
+			item.school,
+			item.user,
+			item.password,
+			item.courseid,
+			item.course_title,
+			item.videoremain,
+			item.videocomplete,
+			item.testremain,
+			item.testcomplete,
+			item.score,
+			item.exam_start,
+			item.exam_end,
+			item.study_status,
+			item.exam_status,
 			#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
 			now.strftime('%Y-%m-%d %H:%M:%S') 
 		)
