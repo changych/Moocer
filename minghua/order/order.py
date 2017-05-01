@@ -33,5 +33,5 @@ class Order(object):
 
 	def genOrderId(self):
 		now = datetime.datetime.now()
-		return str(now.year) + str(now.month) + str(now.day) + str(now.hour) + str(now.minute) + \
-			str(now.second) + str(now.microsecond) + str(random.randrange(1001,9999,1))
+		strTime = now.strftime('%Y%m%d%H%M%S')
+		return strTime + str(random.randrange(10000, 99999, 1))
