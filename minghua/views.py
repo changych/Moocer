@@ -134,7 +134,7 @@ def addOrder(request):
 def addBatchRecord(request):
 	now = datetime.datetime.now()
 	record = Record()
-	recordContent = request.POST['recordContent']
+	recordContent = request.GET['recordContent']
 	print(recordContent)
 	recordList = json.loads(recordContent)
 	for record in recordList:
