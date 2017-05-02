@@ -92,8 +92,9 @@ class Course(object):
 				'test_complete': test_complete,
 				'exam_start': examStart,
 				'exam_end': examEnd,
-				'exam_score': examScore
+				'exam_score': examScore,
+				'study_status': 0,
+				'exam_status': 0
 			})
 
-		print(courseSet)
 		return courseSet	
