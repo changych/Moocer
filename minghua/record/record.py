@@ -121,8 +121,8 @@ class Record(object):
 
 		
 		for record in r:
-			examStart = '' if (record.exam_start == NULL or record.exam_start == 'NULL') else record.exam_start.strftime('%Y-%m-%d %H:%M:%S')
-			examEnd = '' if (record.exam_end == NULL or record.exam_end == 'NULL') else record.exam_end.strftime('%Y-%m-%d %H:%M:%S')
+			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start.strftime('%Y-%m-%d %H:%M:%S')
+			examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end.strftime('%Y-%m-%d %H:%M:%S')
 		
 			result.append({
 				'school':record.school, 
