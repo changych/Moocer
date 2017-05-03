@@ -124,8 +124,7 @@ class Record(object):
 			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
 			examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
 			
-			print(time.mktime(examStart.timetuple()))
-			print(time.time())
+			
 			try:
 				if examStart == '' or time.mktime(examStart.timetuple()) < time.time():
 					#examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
