@@ -118,14 +118,18 @@ class Record(object):
 		start = now + datetime.timedelta(hours=1,minutes=0,seconds=0)
 		print(start)
 		r = RecordInfo.objects.filter(Q(score__lt=100)).filter(exam_status=1)
+
+		examStart = (record.exam_start == null || record.exam_start == 'NULL') ? '' : record.exam_start.strftime('%Y-%m-%d %H:%M:%S')
+		examEnd = (record.exam_end == null || record.exam_end == 'NULL') ? '' : record.exam_end.strftime('%Y-%m-%d %H:%M:%S')
+		
 		for record in r:
 			result.append({
 				'school':record.school, 
 				'user':record.user,
 				'password':record.password,
 				'courseid':record.courseid,
-				'exam_start': record.exam_start,
-				'exam_end': record.exam_end
+				'exam_start': examStart,
+				'exam_end': examEnd
 			})
 		return result
 
