@@ -114,25 +114,25 @@ class Record(object):
 	def getReadyExam(self):
 		result = []
 		now = datetime.datetime.now()
-		print(now)
 		start = now + datetime.timedelta(hours=1,minutes=0,seconds=0)
 		print(start)
 		r = RecordInfo.objects.filter(Q(score__lt=100)).filter(exam_status=1)
 
 		
 		for record in r:
-			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start.strftime('%Y-%m-%d %H:%M:%S')
-			examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end.strftime('%Y-%m-%d %H:%M:%S')
+			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
+			examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
 		
-			result.append({
-				'school':record.school, 
-				'user':record.user,
-				'password':record.password,
-				'courseid':record.courseid,
-				'exam_start': examStart,
-				'exam_end': examEnd,
-				'exam_score': record.score
-			})
+			if examStart == '' or examStart < start:
+				result.append({
+					'school':record.school, 
+					'user':record.user,
+					'password':record.password,
+					'courseid':record.courseid,
+					'exam_start': examStart,
+					'exam_end': examEnd,
+					'exam_score': record.score
+				})
 		return result
 
 
