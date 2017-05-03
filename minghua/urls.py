@@ -19,5 +19,6 @@ urlpatterns = [
     url(r'^getOpenId/$', views.getOpenId, name='getOpenId'),
     url(r'^getAnswer/$', views.getAnswer, name='getAnswer'),
     url(r'^getReadyExam/$', views.getReadyExam, name='getReadyExam'),
+    url(r'^getEmptyExam/$', views.getEmptyExam, name='getEmptyExam'),
     url(r'^updateCourse/$', views.updateCourse, name='updateCourse'),
 ]

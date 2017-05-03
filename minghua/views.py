@@ -257,6 +257,11 @@ def getReadyExam(request):
 	recordList = record.getReadyExam()
 	return HttpResponse(json.dumps(recordList))
 
+def getEmptyExam(request):
+	record = Record()
+	recordList = record.getEmptyExam()
+	return HttpResponse(json.dumps(recordList))
+
 def getOpenId(request):
 	wechatValid = Validate()
 	res = wechatValid.getOpenId(request.GET['code'])
