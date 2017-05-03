@@ -124,7 +124,7 @@ class Record(object):
 			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
 			examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
 		
-			if time.mktime(examStart) < time.mktime(start):
+			if examStart != '' and time.mktime(examStart) < time.mktime(start):
 				result.append({
 					'school':record.school, 
 					'user':record.user,
