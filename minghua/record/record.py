@@ -119,10 +119,11 @@ class Record(object):
 		print(start)
 		r = RecordInfo.objects.filter(Q(score__lt=100)).filter(exam_status=1)
 
-		examStart = '' if (record.exam_start == null or record.exam_start == 'NULL') else record.exam_start.strftime('%Y-%m-%d %H:%M:%S')
-		examEnd = '' if (record.exam_end == null or record.exam_end == 'NULL') else record.exam_end.strftime('%Y-%m-%d %H:%M:%S')
 		
 		for record in r:
+			examStart = '' if (record.exam_start == null or record.exam_start == 'NULL') else record.exam_start.strftime('%Y-%m-%d %H:%M:%S')
+			examEnd = '' if (record.exam_end == null or record.exam_end == 'NULL') else record.exam_end.strftime('%Y-%m-%d %H:%M:%S')
+		
 			result.append({
 				'school':record.school, 
 				'user':record.user,
