@@ -6,6 +6,7 @@ import time
 import datetime
 import traceback
 import sys
+import time
 
 from django.db.models import Q
 from django.http import HttpResponse
@@ -123,14 +124,16 @@ class Record(object):
 			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
 			examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
 		
-			if examStart == '' or examStart < start:
+			if time.mktime(examStart) < time.mktime(start):
 				result.append({
 					'school':record.school, 
 					'user':record.user,
 					'password':record.password,
 					'courseid':record.courseid,
 					'exam_start': examStart,
+					'exam_start_stamp': time.mktime(examStart)
 					'exam_end': examEnd,
+					'exam_end_stamp': time.mktime(examEnd)
 					'exam_score': record.score
 				})
 		return result
