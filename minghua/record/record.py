@@ -133,7 +133,7 @@ class Record(object):
 					'exam_start': examStart,
 					'exam_start_stamp': time.mktime(examStart)
 					'exam_end': examEnd,
-					'exam_end_stamp': time.mktime(examEnd)
+					'exam_end_stamp': time.mktime(examEnd),
 					'exam_score': record.score
 				})
 		return result
