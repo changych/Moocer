@@ -131,7 +131,7 @@ class Record(object):
 					'password':record.password,
 					'courseid':record.courseid,
 					'exam_start': examStart,
-					'exam_start_stamp': time.mktime(examStart)
+					'exam_start_stamp': time.mktime(examStart),
 					'exam_end': examEnd,
 					'exam_end_stamp': time.mktime(examEnd),
 					'exam_score': record.score
