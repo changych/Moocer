@@ -126,9 +126,20 @@ class Record(object):
 			
 			print(time.mktime(examStart.timetuple()))
 			print(time.time())
-			if examStart == '' or time.mktime(examStart.timetuple()) < time.time():
-				#examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
-				#examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
+			try:
+				if examStart == '' or time.mktime(examStart.timetuple()) < time.time():
+					#examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
+					#examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
+					result.append({
+						'school':record.school, 
+						'user':record.user,
+						'password':record.password,
+						'courseid':record.courseid,
+						'exam_start': examStart,
+						'exam_end': examEnd,
+						'exam_score': record.score
+					})
+			except:
 				result.append({
 					'school':record.school, 
 					'user':record.user,
