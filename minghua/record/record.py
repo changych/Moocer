@@ -149,6 +149,7 @@ class Record(object):
 					'exam_end': examEnd,
 					'exam_score': record.score
 				})
+				continue
 		return result
 
 
