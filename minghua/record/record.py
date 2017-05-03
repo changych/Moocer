@@ -127,15 +127,15 @@ class Record(object):
 			
 			try:
 				if examStart == '' or time.mktime(examStart.timetuple()) < time.time():
-					#examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
-					#examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
+					examStart = examStart if type(examStart) is str else examStart.strftime('%Y-%m-%d %H:%M:%S')
+					examEnd = examEnd if type(examEnd) is str else examEnd.strftime('%Y-%m-%d %H:%M:%S')
 					result.append({
 						'school':record.school, 
 						'user':record.user,
 						'password':record.password,
 						'courseid':record.courseid,
-						'exam_start': examStart.strftime('%Y-%m-%d %H:%M:%S'),
-						'exam_end': examEnd.strftime('%Y-%m-%d %H:%M:%S'),
+						'exam_start': examStart,
+						'exam_end': examEnd,
 						'exam_score': record.score
 					})
 			except:
@@ -144,8 +144,8 @@ class Record(object):
 					'user':record.user,
 					'password':record.password,
 					'courseid':record.courseid,
-					'exam_start': examStart.strftime('%Y-%m-%d %H:%M:%S'),
-					'exam_end': examEnd.strftime('%Y-%m-%d %H:%M:%S'),
+					'exam_start': examStart,
+					'exam_end': examEnd,
 					'exam_score': record.score
 				})
 				continue
