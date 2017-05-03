@@ -134,8 +134,8 @@ class Record(object):
 						'user':record.user,
 						'password':record.password,
 						'courseid':record.courseid,
-						'exam_start': examStart,
-						'exam_end': examEnd,
+						'exam_start': examStart.strftime('%Y-%m-%d %H:%M:%S'),
+						'exam_end': examEnd.strftime('%Y-%m-%d %H:%M:%S'),
 						'exam_score': record.score
 					})
 			except:
@@ -144,8 +144,8 @@ class Record(object):
 					'user':record.user,
 					'password':record.password,
 					'courseid':record.courseid,
-					'exam_start': examStart,
-					'exam_end': examEnd,
+					'exam_start': examStart.strftime('%Y-%m-%d %H:%M:%S'),
+					'exam_end': examEnd.strftime('%Y-%m-%d %H:%M:%S'),
 					'exam_score': record.score
 				})
 				continue
