@@ -130,7 +130,8 @@ class Record(object):
 				'password':record.password,
 				'courseid':record.courseid,
 				'exam_start': examStart,
-				'exam_end': examEnd
+				'exam_end': examEnd,
+				'exam_score': record.score
 			})
 		return result
 
