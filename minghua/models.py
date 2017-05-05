@@ -61,6 +61,7 @@ class RecordInfo(models.Model):
     study_status = models.IntegerField()
     exam_status = models.IntegerField()
     update_time = models.DateTimeField(auto_now_add=True, blank=True)
+    status = models.IntegerField()
 
     def __str__(self):
         return self.user + '(' + str(self.videoremain + self.videocomplete + self.testremain + self.testcomplete) + '/' + str(self.videocomplete + testcomplete) + ')'
