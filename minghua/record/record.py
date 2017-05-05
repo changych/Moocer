@@ -147,7 +147,7 @@ class Record(object):
 		now = datetime.datetime.now()
 		start = now + datetime.timedelta(hours=1,minutes=0,seconds=0)
 		print(start)
-		r = RecordInfo.objects.filter(Q(score__lt=100)).filter(exam_status=1).filter(status=1)
+		r = RecordInfo.objects.filter(Q(score__lt=100)).filter(exam_status=1).filter(status=0)
 		
 		for record in r:
 			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
