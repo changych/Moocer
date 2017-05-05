@@ -142,6 +142,34 @@ class Record(object):
 				continue
 		return result
 
+	def getOneReadyExam(self):
+		result = []
+		now = datetime.datetime.now()
+		start = now + datetime.timedelta(hours=1,minutes=0,seconds=0)
+		print(start)
+		r = RecordInfo.objects.filter(Q(score__lt=100)).filter(exam_status=1).filter(status=1)[0]
+		
+		for record in r:
+			examStart = '' if (record.exam_start == None or record.exam_start == 'NULL') else record.exam_start
+			examEnd = '' if (record.exam_end == None or record.exam_end == 'NULL') else record.exam_end
+			
+			try:
+				if time.mktime(examStart.timetuple()) < time.time():
+					examStart = examStart if type(examStart) is str else examStart.strftime('%Y-%m-%d %H:%M:%S')
+					examEnd = examEnd if type(examEnd) is str else examEnd.strftime('%Y-%m-%d %H:%M:%S')
+					result.append({
+						'school':record.school, 
+						'user':record.user,
+						'password':record.password,
+						'courseid':record.courseid,
+						'exam_start': examStart,
+						'exam_end': examEnd,
+						'exam_score': record.score
+					})
+			except:
+				continue
+		return result
+
 	def getEmptyExam(self):
 		result = []
 		now = datetime.datetime.now()

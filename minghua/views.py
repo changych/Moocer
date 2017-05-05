@@ -257,6 +257,11 @@ def getReadyExam(request):
 	recordList = record.getReadyExam()
 	return HttpResponse(json.dumps(recordList))
 
+def getOneReadyExam(request):
+	record = Record()
+	recordList = record.getOneReadyExam()
+	return HttpResponse(json.dumps(recordList))
+
 def getEmptyExam(request):
 	record = Record()
 	recordList = record.getEmptyExam()
