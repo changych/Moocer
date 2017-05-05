@@ -112,6 +112,19 @@ class Record(object):
 			})
 		return result
 
+	def getOneUndoStudy(self):
+		result = []
+		r = RecordInfo.objects.filter(Q(videoremain__gt=0) | Q(testremain__gt=0)).filter(study_status=1).filter(status=0)
+		for record in r:
+			result.append({
+				'school':record.school, 
+				'user':record.user,
+				'password':record.password,
+				'courseid':record.courseid
+			})
+			break
+		return result
+
 	def getReadyExam(self):
 		result = []
 		now = datetime.datetime.now()

@@ -252,6 +252,11 @@ def getUndoStudy(request):
 	recordList = record.getUndoStudy()
 	return HttpResponse(json.dumps(recordList))
 
+def getOneUndoStudy(request):
+	record = Record()
+	recordList = record.getOneUndoStudy()
+	return HttpResponse(json.dumps(recordList))
+
 def getReadyExam(request):
 	record = Record()
 	recordList = record.getReadyExam()

@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^addBatchRecord/$', views.addBatchRecord, name='addBatchRecord'),
     url(r'^updateRecordScore/$', views.updateRecordScore, name='updateRecordScore'),
     url(r'^getUndoStudy/$', views.getUndoStudy, name='getUndoStudy'),
+    url(r'^getOneUndoStudy/$', views.getOneUndoStudy, name='getOneUndoStudy'),
     url(r'^updateRecordExam/$', views.updateRecordExam, name='updateRecordExam'),
     url(r'^getOpenId/$', views.getOpenId, name='getOpenId'),
     url(r'^getAnswer/$', views.getAnswer, name='getAnswer'),
