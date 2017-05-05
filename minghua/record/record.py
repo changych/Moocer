@@ -35,8 +35,7 @@ class Record(object):
 				exam_end=resExamEnd,
 				study_status=studyStatus,
 				exam_status=examStatus,
-				update_time=updateTime,
-				status=0
+				update_time=updateTime
 			)
 			r.save()
 			resId = r.id
@@ -97,7 +96,6 @@ class Record(object):
 				study_status=0,
 				exam_status=1,
 				update_time=updateTime
-				status=0
 			)
 			r.save()
 		return True
