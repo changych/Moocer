@@ -230,6 +230,19 @@ def updateRecordScore(request):
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
+def updateRecordStatus(request):
+	now = datetime.datetime.now()
+	record = Record()
+	res = record.updateRecordStatus(
+		request.POST['school'],
+		request.POST['user'],
+		request.POST['courseid'],
+		request.POST['status'],
+		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
+		now.strftime('%Y-%m-%d %H:%M:%S') 
+	)
+	return HttpResponse(json.dumps({'status':res}))
+
 def updateRecordExam(request):
 	now = datetime.datetime.now()
 	record = Record()

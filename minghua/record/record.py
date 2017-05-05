@@ -222,4 +222,13 @@ class Record(object):
 		return result
 
 
+	# status: 0:default(available), 1:doing, 2:finish
+	def updateRecordStatus(self, school, user, courseId, status, updateTime):
+		r = RecordInfo.objects.filter(school=school).filter(user=user).filter(courseid=courseId)
+		if(len(r) > 0):
+			r.update(
+				status=status,
+				update_time=updateTime
+			)
+		return True
 
