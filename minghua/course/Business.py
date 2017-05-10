@@ -62,8 +62,13 @@ class Business(object):
 			if(len(r) > 0):
 				studyStatus = r[0].study_status
 				examStatus = r[0].exam_status
-			print(studyStatus)
-			print(examStatus)
+			
+			course['study_status'] = studyStatus
+			course['exam_status'] = examStatus
+
+			print(course['study_status'])
+			print(course['exam_status'])
+			
 			res = record.addRecord(
 				school,
 				userName,
