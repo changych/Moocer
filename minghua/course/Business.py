@@ -56,6 +56,12 @@ class Business(object):
 		courseSet = course.courseList()
 		record = Record()
 		for course in courseSet:
+			studyStatus = 0
+			examStatus = 0
+			r = RecordInfo.objects.filter(school=school).filter(user=userName).filter(courseid=course['id'])
+			if(len(r) > 0):
+				studyStatus = r[0].study_status
+				examStatus = r[0].exam_status
 			res = record.addRecord(
 				school,
 				userName,
@@ -69,8 +75,8 @@ class Business(object):
 				course['exam_score'],
 				course['exam_start'],
 				course['exam_end'],
-				0,
-				0,
+				studyStatus,
+				examStatus,
 				now.strftime('%Y-%m-%d %H:%M:%S')
 			)
 		#schoolKey = schoolInfo['key']
