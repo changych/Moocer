@@ -30,7 +30,7 @@ class Record(object):
 				videocomplete=videoComplete,
 				testremain=testRemain,
 				testcomplete=testComplete,
-				score=int(examScore),
+				score=float(examScore),
 				exam_start=resExamStart,
 				exam_end=resExamEnd,
 				study_status=studyStatus,
@@ -43,7 +43,7 @@ class Record(object):
 		else:
 			resStudyStatus = studyStatus if int(studyStatus)>0 else r[0].study_status
 			resExamStatus = examStatus if int(examStatus)>0 else r[0].exam_status
-			resScore = examScore if int(examScore)>0 else r[0].score
+			resScore = examScore if float(examScore)>0 else r[0].score
 			r.update(
 				videoremain=videoRemain,
 				videocomplete=videoComplete,
@@ -64,7 +64,7 @@ class Record(object):
 		if(len(r) > 0):
 			r.update(
 				exam_status=1,
-				score=int(examScore),
+				score=float(examScore),
 				update_time=updateTime
 			)
 		return True
