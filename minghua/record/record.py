@@ -49,7 +49,7 @@ class Record(object):
 				videocomplete=videoComplete,
 				testremain=testRemain,
 				testcomplete=testComplete,
-				score=resScore,
+				score=float(resScore),
 				study_status=resStudyStatus,
 				exam_status=resExamStatus,
 				update_time=updateTime
