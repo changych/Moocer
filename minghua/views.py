@@ -167,6 +167,15 @@ def addOrder(request):
 	return HttpResponse(json.dumps({'res':res}))
 
 
+def getRecordSet(request):
+	record = Record()
+	recordList = record.getRecordSet(
+		request.POST['offset'],
+		request.POST['pageSize']
+	)
+	return HttpResponse(json.dumps(recordList))
+
+
 def addBatchRecord(request):
 	now = datetime.datetime.now()
 	record = Record()

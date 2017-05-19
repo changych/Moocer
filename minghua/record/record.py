@@ -234,3 +234,18 @@ class Record(object):
 			)
 		return True
 
+	def getRecordSet(self, offset, pageSize):
+		result = []
+		r = RecordInfo.objects.all()[offset:offset+pageSize]
+		for record in r:
+			result.append({
+				'school':record.school, 
+				'user':record.user,
+				'password':record.password,
+				'courseid':record.courseid,
+				'course_title':record.course_title,
+				'exam_start': examStart,
+				'exam_end': examEnd,
+				'exam_score': record.score
+			})
+		return result
