@@ -67,6 +67,23 @@ class RecordInfo(models.Model):
         return self.user + '(' + str(self.videoremain + self.videocomplete + self.testremain + self.testcomplete) + '/' + str(self.videocomplete + testcomplete) + ')'
 
 @python_2_unicode_compatible
+class Stat(models.Model):
+    school = models.CharField(max_length=256)
+    user = models.CharField(max_length=64)
+    password = models.CharField(max_length=64)
+    courseid = models.CharField(max_length=64)
+    course_title = models.CharField(max_length=512)
+    my_duration = models.CharField(max_length=1024)
+    avg_duration = models.CharField(max_length=1024)
+    my_scores = models.CharField(max_length=1024)
+    avg_scores = models.CharField(max_length=1024)
+    update_time = models.DateTimeField(auto_now_add=True, blank=True)
+
+    def __str__(self):
+        return self.user + '(' + str(self.my_duration+ ')'
+
+
+@python_2_unicode_compatible
 class QueryInfo(models.Model):
     open_id = models.CharField(max_length=64,unique=True)
     count = models.IntegerField(default=0)

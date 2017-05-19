@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^getOneReadyExam/$', views.getOneReadyExam, name='getOneReadyExam'),
     url(r'^getEmptyExam/$', views.getEmptyExam, name='getEmptyExam'),
     url(r'^updateCourse/$', views.updateCourse, name='updateCourse'),
+    url(r'^updateStat/$', views.updateStat, name='updateStat'),
 ]

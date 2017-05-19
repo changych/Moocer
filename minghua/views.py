@@ -14,6 +14,7 @@ from minghua.models import SchoolInfo, QuizInfo
 from minghua.school.school import School
 from minghua.order.order import Order
 from minghua.record.record import Record
+from minghua.stat.stat import Stat
 from minghua.quiz.quiz import Quiz
 from minghua.course.Business import Business
 from minghua.wechat.Validate import Validate
@@ -256,6 +257,23 @@ def updateRecordExam(request):
 		request.POST['exam_end'],
 		#datetime.datetime.now().strftime("YYYY-MM-DD HH:MM")
 		#time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		now.strftime('%Y-%m-%d %H:%M:%S') 
+	)
+	return HttpResponse(json.dumps({'status':res}))
+
+def updateStat(request):
+	now = datetime.datetime.now()
+	stat = Stat()
+	res = stat.updateStat(
+		request.POST['school'],
+		request.POST['user'],
+		request.POST['password'],
+		request.POST['courseid'],
+		request.POST['course_title'],
+		request.POST['my_duration'],
+		request.POST['avg_duration'],
+		request.POST['my_scores'],
+		request.POST['avg_scores'],
 		now.strftime('%Y-%m-%d %H:%M:%S') 
 	)
 	return HttpResponse(json.dumps({'status':res}))
