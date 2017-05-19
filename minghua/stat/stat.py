@@ -17,7 +17,7 @@ class Stat(object):
 	def updateStat(self, school, user, password, courseId, courseTitle, myDuration, avgDuration, myScores, avgScores, updateTime):
 		r = StatInfo.objects.filter(school=school).filter(courseid=courseId).filter(user=user)
 		if(len(r) == 0):
-			r = Stat(
+			r = StatInfo(
 				school=school,
 				user=user, 
 				password=password,
