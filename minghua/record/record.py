@@ -243,9 +243,6 @@ class Record(object):
 				'user':record.user,
 				'password':record.password,
 				'courseid':record.courseid,
-				'course_title':record.course_title,
-				'exam_start': examStart,
-				'exam_end': examEnd,
-				'exam_score': record.score
+				'course_title':record.course_title
 			})
 		return result
