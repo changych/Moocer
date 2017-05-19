@@ -243,6 +243,7 @@ class Record(object):
 				'user':record.user,
 				'password':record.password,
 				'courseid':record.courseid,
-				'course_title':record.course_title
+				'course_title':record.course_title,
+				'study_status':record.study_status
 			})
 		return result

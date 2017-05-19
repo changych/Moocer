@@ -78,6 +78,7 @@ class StatInfo(models.Model):
     my_scores = models.CharField(max_length=1024)
     avg_scores = models.CharField(max_length=1024)
     update_time = models.DateTimeField(auto_now_add=True, blank=True)
+    study_status = models.IntegerField()
 
     def __str__(self):
         return self.user + '(' + str(self.my_duration)+ ')'

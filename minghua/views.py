@@ -283,7 +283,8 @@ def updateStat(request):
 		request.POST['avg_duration'],
 		request.POST['my_scores'],
 		request.POST['avg_scores'],
-		now.strftime('%Y-%m-%d %H:%M:%S') 
+		now.strftime('%Y-%m-%d %H:%M:%S'),
+		request.POST['study_status']
 	)
 	return HttpResponse(json.dumps({'status':res}))
 
