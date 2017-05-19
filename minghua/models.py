@@ -67,7 +67,7 @@ class RecordInfo(models.Model):
         return self.user + '(' + str(self.videoremain + self.videocomplete + self.testremain + self.testcomplete) + '/' + str(self.videocomplete + testcomplete) + ')'
 
 @python_2_unicode_compatible
-class Stat(models.Model):
+class StatInfo(models.Model):
     school = models.CharField(max_length=256)
     user = models.CharField(max_length=64)
     password = models.CharField(max_length=64)

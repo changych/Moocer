@@ -10,12 +10,12 @@ import time
 
 from django.db.models import Q
 from django.http import HttpResponse
-from minghua.models import Stat
+from minghua.models import StatInfo
 
 class Stat(object):
 
 	def updateStat(self, school, user, password, courseId, courseTitle, myDuration, avgDuration, myScores, avgScores, updateTime):
-		r = Stat.objects.filter(school=school).filter(courseid=courseId).filter(user=user)
+		r = StatInfo.objects.filter(school=school).filter(courseid=courseId).filter(user=user)
 		if(len(r) == 0):
 			r = Stat(
 				school=school,
