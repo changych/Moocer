@@ -14,7 +14,7 @@ from minghua.models import Stat
 
 class Stat(object):
 
-	def updateStat(self, school, user, password, courseId, courseTitle, myDuration, avgDuration, myScores, avgScores):
+	def updateStat(self, school, user, password, courseId, courseTitle, myDuration, avgDuration, myScores, avgScores, updateTime):
 		r = Stat.objects.filter(school=school).filter(courseid=courseId).filter(user=user)
 		if(len(r) == 0):
 			r = Stat(
