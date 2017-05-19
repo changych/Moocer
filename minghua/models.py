@@ -78,6 +78,7 @@ class StatInfo(models.Model):
     my_scores = models.CharField(max_length=1024)
     avg_scores = models.CharField(max_length=1024)
     chapter_count = models.IntegerField()
+    zero_count = models.IntegerField()
     total_duration = models.IntegerField()
     total_score = models.IntegerField()
     update_time = models.DateTimeField(auto_now_add=True, blank=True)
