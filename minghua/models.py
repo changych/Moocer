@@ -80,7 +80,7 @@ class Stat(models.Model):
     update_time = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
-        return self.user + '(' + str(self.my_duration+ ')'
+        return self.user + '(' + str(self.my_duration)+ ')'
 
 
 @python_2_unicode_compatible
