@@ -289,7 +289,7 @@ def updateStat(request):
 		now.strftime('%Y-%m-%d %H:%M:%S'),
 		request.POST['study_status']
 	)
-	return HttpResponse(json.dumps({'status':res}))
+	return HttpResponse(json.dumps({'res':res}))
 
 def getUndoStudy(request):
 	record = Record()
