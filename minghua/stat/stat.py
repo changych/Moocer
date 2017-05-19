@@ -14,7 +14,7 @@ from minghua.models import StatInfo
 
 class Stat(object):
 
-	def updateStat(self, school, user, password, courseId, courseTitle, myDuration, avgDuration, myScores, avgScores, updateTime, studyStatus):
+	def updateStat(self, school, user, password, courseId, courseTitle, myDuration, avgDuration, myScores, avgScores, chapterCount, totalDuration, totalScore, updateTime, studyStatus):
 		r = StatInfo.objects.filter(school=school).filter(courseid=courseId).filter(user=user)
 		if(len(r) == 0):
 			r = StatInfo(
@@ -25,6 +25,9 @@ class Stat(object):
 				course_title=courseTitle,
 				my_duration=myDuration,
 				avg_duration=avgDuration,
+				chapter_count=chapterCount,
+				total_duration=totalDuration,
+				total_score=totalScore,
 				my_scores=myScores,
 				avg_scores=avgScores,
 				update_time=updateTime,
@@ -38,6 +41,9 @@ class Stat(object):
 				avg_duration=avgDuration,
 				my_scores=myScores,
 				avg_scores=avgScores,
+				chapter_count=chapterCount,
+				total_duration=totalDuration,
+				total_score=totalScore,
 				update_time=updateTime,
 				study_status=studyStatus
 			)

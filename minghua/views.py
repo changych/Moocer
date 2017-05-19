@@ -283,6 +283,9 @@ def updateStat(request):
 		request.POST['avg_duration'],
 		request.POST['my_scores'],
 		request.POST['avg_scores'],
+		request.POST['chapter_count'],
+		int(request.POST['total_duration']),
+		int(request.POST['total_score']),
 		now.strftime('%Y-%m-%d %H:%M:%S'),
 		request.POST['study_status']
 	)
