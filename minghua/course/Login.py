@@ -36,7 +36,7 @@ class Login(object):
 				''
 			)
 
-			#print(strToken)
+			print(strToken)
 
 			res = browser.session.post(self.urlDoLogin, data = {
 				'loginName' : userName,
@@ -46,7 +46,7 @@ class Login(object):
 				'historyUrl' : ''
 			})
 
-			#print(res.content)
+			print(res.content)
 
 			#self.saveUserInfo(userName, password, strToken, self.prefix)
 
