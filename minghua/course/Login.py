@@ -28,6 +28,7 @@ class Login(object):
 				browser.session.get(self.urlLoginInit).content
 			)
 
+			print(self.urlLoginInit)
 			print(j)
 			print(j('#tokenId').val())
 			print(j('#modulus').val())
