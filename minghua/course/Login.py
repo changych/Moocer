@@ -27,6 +27,10 @@ class Login(object):
 			j = pyquery.PyQuery(
 				browser.session.get(self.urlLoginInit).content
 			)
+
+			print(j('#tokenId').val())
+			print(j('#modulus').val())
+			print(j('#exponent').val())
 			
 			strToken = self.getEncryptPwd(
 				password, 
