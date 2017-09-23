@@ -144,6 +144,13 @@ def getQuiz(request):
 	)
 	return HttpResponse(json.dumps(quizSet))
 
+def getQuizByQuizId(request):
+	quiz = Quiz()
+	quizItem = quiz.getQuizInfoByQuizId(
+		request.GET['quiz_id']
+	)
+	return HttpResponse(json.dumps(quizItem))
+
 def getSchoolList(request):
 	school = School()
 	schoolList = school.getSchoolList(

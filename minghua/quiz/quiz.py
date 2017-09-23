@@ -22,6 +22,17 @@ class Quiz(object):
 			for quiz in q:
 				return {'quiz_content':quiz.quiz_content, 'answer_content':quiz.answer_content}
 
+	def getQuizInfoByQuizId(self, quizId):
+		quizId = quizId.strip()
+		q = QuizInfo.objects.filter(quiz_id=quizId)
+		if(len(q) == 0):
+			return None
+		else:
+			for quiz in q:
+				return {
+					'answer_id':quiz.answer_id
+				}
+
 	def addQuizInfo(self, courseId, quizId, answerId, markResult, markQuizScore, quizContent, answerContent):
 		q = QuizInfo.objects.filter(course_id=courseId).filter(quiz_id=quizId)
 		quizContent = quizContent.strip()
