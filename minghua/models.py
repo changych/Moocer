@@ -19,6 +19,15 @@ class QuizInfo(models.Model):
     def __str__(self):
         return self.quiz_content
 
+@python_2_unicode_compatible
+class ExamInfo(models.Model):
+    course_id = models.IntegerField()
+    quiz_id = models.IntegerField()
+    quiz_type = models.CharField(max_length=256)
+    answer = models.CharField(max_length=256)
+
+    def __str__(self):
+        return str(self.quiz_id) + str(self.answer)
 
 @python_2_unicode_compatible
 class SchoolInfo(models.Model):
