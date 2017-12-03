@@ -9,7 +9,7 @@ import sys
 from django.http import HttpResponse
 from minghua.models import ExamInfo
 
-class Quiz(object):
+class Exam(object):
 
 	def getExamInfoByQuizId(self, quizId):
 		quizId = quizId.strip()
