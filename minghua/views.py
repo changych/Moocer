@@ -153,8 +153,8 @@ def getQuizByQuizId(request):
 	return HttpResponse(json.dumps(quizItem))
 
 def getExamByQuizId(request):
-	quiz = Quiz()
-	quizItem = quiz.getQuizInfoByQuizId(
+	exam = Exam()
+	quizItem = exam.getExamInfoByQuizId(
 		request.GET['quiz_id']
 	)
 	return HttpResponse(json.dumps(quizItem))
