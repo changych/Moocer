@@ -10,12 +10,13 @@ import pytz
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import timezone
-from minghua.models import SchoolInfo, QuizInfo
+from minghua.models import SchoolInfo, QuizInfo, ExamInfo
 from minghua.school.school import School
 from minghua.order.order import Order
 from minghua.record.record import Record
 from minghua.stat.stat import Stat
 from minghua.quiz.quiz import Quiz
+from minghua.exam.exam import Exam
 from minghua.course.Business import Business
 from minghua.wechat.Validate import Validate
 from minghua.xiaochengxu.XcxValidate import XcxValidate
@@ -145,6 +146,13 @@ def getQuiz(request):
 	return HttpResponse(json.dumps(quizSet))
 
 def getQuizByQuizId(request):
+	quiz = Quiz()
+	quizItem = quiz.getQuizInfoByQuizId(
+		request.GET['quiz_id']
+	)
+	return HttpResponse(json.dumps(quizItem))
+
+def getExamByQuizId(request):
 	quiz = Quiz()
 	quizItem = quiz.getQuizInfoByQuizId(
 		request.GET['quiz_id']

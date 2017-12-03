@@ -7,4 +7,18 @@ import traceback
 import sys
 
 from django.http import HttpResponse
-from minghua.models import QuizInfo
+from minghua.models import ExamInfo
+
+class Quiz(object):
+
+	def getExamInfoByQuizId(self, quizId):
+		quizId = quizId.strip()
+		q = ExamInfo.objects.filter(quiz_id=quizId)
+		if(len(q) == 0):
+			return None
+		else:
+			for quiz in q:
+				return {
+					'answer':quiz.answer,
+					'quiz_type':quiz.quiz_type
+				}
