@@ -32,6 +32,7 @@ class Search(object):
 		j = pyquery.PyQuery(result_raw.content)
 
 		href = 'none'
+		job_list = []
 		for li in j('li'):
 			#txt_box = pyquery.PyQuery(li)('.txt-box')
 
@@ -53,6 +54,12 @@ class Search(object):
 			description = pyquery.PyQuery(li)('p').text()
 			print(description)
 			print("******************")
+
+			job_list.append({
+				'title': title,
+				'description': description,
+				'link': href
+			})
 
 			#href = href + "#######" + href2
 			#break
