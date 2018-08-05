@@ -44,7 +44,7 @@ class Search(object):
 
 		return href
 
-	def html_escape(html):
+	def html_escape(self, html):
 		html = html.replace('&quot;', '"')
 		html = html.replace('&amp;', '&')
 		html = html.replace('&lt;', '<')
