@@ -28,8 +28,8 @@ class Search(object):
 		j = pyquery.PyQuery(result_raw.content)
 
 		href = 'none'
-		for item in j('.news-list'):
-			href = pyquery.PyQuery(li)(div)(a).attr('href')
+		for li in j('.news-list'):
+			href = pyquery.PyQuery(li).text
 			break
 
 		return href
