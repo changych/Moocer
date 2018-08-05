@@ -37,8 +37,8 @@ class Search(object):
 
 			href = pyquery.PyQuery(li)('.txt-box')('h3')('a').attr('href')
 			href2 = self.html_escape(href)
-			title = pyquery.PyQuery(li)('.txt-box')('h3')('a').content
-			description = pyquery.PyQuery(li)('.txt-box')('.txt-info').content
+			title = pyquery.PyQuery(li)('.txt-box')('h3')('a')
+			description = pyquery.PyQuery(li)('.txt-box')('p').text
 
 			href = href + "#######" + href2 + "#######" + title + "#######" + description
 			break
