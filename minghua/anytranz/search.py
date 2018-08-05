@@ -33,11 +33,12 @@ class Search(object):
 
 		href = 'none'
 		for li in j('.news-list'):
-			txt_box = pyquery.PyQuery(li)('.txt-box')
+			#txt_box = pyquery.PyQuery(li)('.txt-box')
 
-			href = self.html_escape(pyquery.PyQuery(txt_box)('h3')('a').attr('href'))
-			title = pyquery.PyQuery(txt_box)('h3')('a').text()
-			description = pyquery.PyQuery(txt_box)('.txt-info').text()
+			href = pyquery.PyQuery(li)('.txt-box')('h3')('a').attr('href')
+			href2 = self.html_escape(href)
+			title = pyquery.PyQuery(li)('.txt-box')('h3')('a').text()
+			description = pyquery.PyQuery(li)('.txt-box')('.txt-info').text()
 
 			href = href + "#######" + title + "#######" + description
 			break
