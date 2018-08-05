@@ -20,6 +20,7 @@ from minghua.exam.exam import Exam
 from minghua.course.Business import Business
 from minghua.wechat.Validate import Validate
 from minghua.xiaochengxu.XcxValidate import XcxValidate
+from minghua.anytranz.Search import Search
 
 def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
@@ -29,7 +30,8 @@ def form(request):
 	return render(request, 'form.html', {'string': string})
 
 def search(request):
-	string = "hello"
+	search_engine = Search()
+	string = search_engine.getInfo('法语', '兼职', '上海')
 	return render(request, 'result.html', {'string': string})
 
 def wechatValid(request):
