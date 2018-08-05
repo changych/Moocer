@@ -20,7 +20,7 @@ from minghua.exam.exam import Exam
 from minghua.course.Business import Business
 from minghua.wechat.Validate import Validate
 from minghua.xiaochengxu.XcxValidate import XcxValidate
-from minghua.anytranz.Search import Search
+from minghua.anytranz.search import Search
 
 def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
