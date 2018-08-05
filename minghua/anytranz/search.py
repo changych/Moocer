@@ -35,7 +35,7 @@ class Search(object):
 		for li in j('li'):
 			#txt_box = pyquery.PyQuery(li)('.txt-box')
 
-			print(li.html)
+			print(pyquery.PyQuery(li).html())
 			print("##################")
 
 			#href = pyquery.PyQuery(li)('.txt-box')('h3')('a').attr('href')
