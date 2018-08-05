@@ -40,7 +40,7 @@ class Search(object):
 			title = pyquery.PyQuery(li)('.txt-box')('h3')('a')
 			description = pyquery.PyQuery(li)('.txt-box')('p').text
 
-			href = href + "#######" + href2 + "#######" + title + "#######" + description
+			href = href + "#######" + href2 + "#######" + description
 			break
 
 		return href
