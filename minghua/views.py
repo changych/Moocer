@@ -24,6 +24,10 @@ from minghua.xiaochengxu.XcxValidate import XcxValidate
 def index(request):
 	return HttpResponse("Hello, world. You're at the minghua index.")
 
+def search(request):
+	string = "hello"
+	return render(request, 'home.html', {'string': string})
+
 def wechatValid(request):
 	wechatValid = Validate()
 
