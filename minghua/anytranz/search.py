@@ -29,7 +29,7 @@ class Search(object):
 
 		href = 'none'
 		for li in j('.news-list'):
-			href = pyquery.PyQuery(li)('div').context
+			href = pyquery.PyQuery(li)('div')('a').attr('href')
 			break
 
 		return href
