@@ -32,7 +32,7 @@ class Search(object):
 		j = pyquery.PyQuery(result_raw.content)
 
 		href = 'none'
-		for li in j('.news-list'):
+		for li in j('li'):
 			#txt_box = pyquery.PyQuery(li)('.txt-box')
 
 			print(li)
