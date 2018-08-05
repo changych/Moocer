@@ -35,6 +35,9 @@ class Search(object):
 		for li in j('.news-list'):
 			#txt_box = pyquery.PyQuery(li)('.txt-box')
 
+			print(li)
+			print("##################")
+
 			href = pyquery.PyQuery(li)('.txt-box')('h3')('a').attr('href')
 			print(href)
 			print("##################")
