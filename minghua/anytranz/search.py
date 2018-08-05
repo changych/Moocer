@@ -38,9 +38,9 @@ class Search(object):
 			print(pyquery.PyQuery(li).html())
 			print("##################")
 
-			#href = pyquery.PyQuery(li)('.txt-box')('h3')('a').attr('href')
-			#print(href)
-			#print("##################")
+			href = pyquery.PyQuery(li)('h3')('a').attr('href')
+			print(href)
+			print("******************")
 
 			#href2 = self.html_escape(href)
 			#print(href2)
