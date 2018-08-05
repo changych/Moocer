@@ -23,6 +23,10 @@ class Search(object):
 		data = {}
 		data['type'] = self.sogou_search_type_artilce
 		data['query'] = keyword
+		data['s_from']= 'input'
+		data['ie']= 'utf8'
+		data['_sug_']= 'n'
+		data['_sug_type_']= ''
 
 		result_raw = requests.get(self.sogou_uri, params = data)
 		j = pyquery.PyQuery(result_raw.content)
