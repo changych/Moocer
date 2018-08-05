@@ -27,12 +27,12 @@ def index(request):
 
 def form(request):
 	string = "hello"
-	return render(request, 'form.html', {'string': string})
+	return render(request, "form.html", {"string": string})
 
 def search(request):
 	search_engine = Search()
-	string = search_engine.getInfo('法语', '兼职', '上海')
-	return render(request, 'result.html', {'string': string})
+	string = search_engine.getInfo("法语", "兼职", "上海")
+	return render(request, "result.html", {"string": string})
 
 def wechatValid(request):
 	wechatValid = Validate()
