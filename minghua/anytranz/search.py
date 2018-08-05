@@ -24,4 +24,4 @@ class Search(object):
 		data['type'] = self.sogou_search_type_artilce
 		data['query'] = keyword
 
-		return requests.get(url, params = data).text
+		return requests.get(self.sogou_uri, params = data).text
