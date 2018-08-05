@@ -55,11 +55,12 @@ class Search(object):
 			print(description)
 			print("******************")
 
-			job_list.append({
-				'title': title,
-				'description': description,
-				'link': href
-			})
+			if title !== '':
+				job_list.append({
+					'title': title,
+					'description': description,
+					'link': href
+				})
 
 			#href = href + "#######" + href2
 			#break
