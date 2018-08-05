@@ -64,7 +64,7 @@ class Search(object):
 			#href = href + "#######" + href2
 			#break
 
-		return ''
+		return job_list
 
 	def html_escape(self, html):
 		html = html.replace('&quot;', '"')
