@@ -46,11 +46,11 @@ class Search(object):
 			#print(href2)
 			#print("##################")
 
-			title = pyquery.PyQuery(li)('h3')('a').text
+			title = pyquery.PyQuery(li)('h3')('a').text()
 			print(title)
 			print("******************")
 
-			description = pyquery.PyQuery(li)('p').text
+			description = pyquery.PyQuery(li)('p').text()
 			print(description)
 			print("******************")
 
