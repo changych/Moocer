@@ -55,7 +55,7 @@ class Search(object):
 			print(description)
 			print("******************")
 
-			if title !== '':
+			if title != '':
 				job_list.append({
 					'title': title,
 					'description': description,
