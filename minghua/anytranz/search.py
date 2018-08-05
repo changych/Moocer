@@ -36,14 +36,25 @@ class Search(object):
 			#txt_box = pyquery.PyQuery(li)('.txt-box')
 
 			href = pyquery.PyQuery(li)('.txt-box')('h3')('a').attr('href')
+			print href
+			print "##################"
+
 			href2 = self.html_escape(href)
-			title = pyquery.PyQuery(li)('.txt-box')('h3')('a')
+			print href2
+			print "##################"
+
+			title = pyquery.PyQuery(li)('.txt-box')('h3')('a').text
+			print title
+			print "##################"
+
 			description = pyquery.PyQuery(li)('.txt-box')('p').text
+			print description
+			print "##################"
 
 			#href = href + "#######" + href2
 			break
 
-		return description
+		return ''
 
 	def html_escape(self, html):
 		html = html.replace('&quot;', '"')
