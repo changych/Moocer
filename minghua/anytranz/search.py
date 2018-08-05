@@ -24,4 +24,12 @@ class Search(object):
 		data['type'] = self.sogou_search_type_artilce
 		data['query'] = keyword
 
-		return requests.get(self.sogou_uri, params = data).text
+		result_raw = requests.get(self.sogou_uri, params = data)
+		j = pyquery.PyQuery(result_raw.content)
+
+		href = 'none'
+		for item in j('.news-list'):
+			href = pyquery.PyQuery(li)(div)(a).attr('href')
+			break
+
+		return href
