@@ -42,17 +42,17 @@ class Search(object):
 			print(href)
 			print("******************")
 
-			#href2 = self.html_escape(href)
+			#]href2 = self.html_escape(href)
 			#print(href2)
 			#print("##################")
 
-			#title = pyquery.PyQuery(li)('.txt-box')('h3')('a').text
-			#print(title)
-			#print("##################")
+			title = pyquery.PyQuery(li)('h3')('a').text
+			print(title)
+			print("******************")
 
-			#description = pyquery.PyQuery(li)('.txt-box')('p').text
-			#print(description)
-			#print("##################")
+			description = pyquery.PyQuery(li)('p').text
+			print(description)
+			print("******************")
 
 			#href = href + "#######" + href2
 			#break
