@@ -40,10 +40,10 @@ class Search(object):
 			title = pyquery.PyQuery(li)('.txt-box')('h3')('a')
 			description = pyquery.PyQuery(li)('.txt-box')('p').text
 
-			href = href + "#######" + href2 + "#######" + description
+			#href = href + "#######" + href2
 			break
 
-		return href
+		return description
 
 	def html_escape(self, html):
 		html = html.replace('&quot;', '"')
