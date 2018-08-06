@@ -1,10 +1,13 @@
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<form class="form-inline" action="../search/" method="get">
+
+
+<form class="form-inline" id="job_search">
   <div class="form-group">
     <label for="area_label">地域：</label>
-    <input type="text" class="form-control" id="area" placeholder="北京">
+    <input type="text" class="form-control" id="area_value" placeholder="北京">
   </div>
   <div class="form-group">
     <label for="language_label">语种：</label>
@@ -16,3 +19,36 @@
   </div>
   <button type="submit" class="btn btn-default">全网搜</button>
 </form>
+
+<div>
+	<ul id="job_list">
+	</ul>
+</div>
+
+<script type="text/javascript">
+	$(function() {
+        $("#job_search").submit(function(){
+        	$("#job_list").html('');
+
+            var area_value = $("#area_value").val();
+            var language_value = $("#language_value").val();
+            var job_type = $("#job_type").val()
+            $(this).ajaxSubmit({
+                type:"post",  //提交方式
+                dataType:"text", //数据类型
+                url:"../search/", //请求url
+                data: {
+	                'area': area_value,
+	                'language': language_value,
+	                'job_type':job_type
+                },
+                success:function(data){ //提交成功的回调函数
+                	var job_list = $("#job_list");
+                	$("#job_list").html(data);
+                    loadNewJobs();
+                }
+            });
+            return false; //不刷新页面
+        });
+    });
+</script>>
