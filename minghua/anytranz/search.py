@@ -36,24 +36,24 @@ class Search(object):
 		for li in j('li'):
 			#txt_box = pyquery.PyQuery(li)('.txt-box')
 
-			print(pyquery.PyQuery(li).html())
-			print("##################")
+			#print(pyquery.PyQuery(li).html())
+			#print("##################")
 
 			href = pyquery.PyQuery(li)('h3')('a').attr('href')
-			print(href)
-			print("******************")
+			#print(href)
+			#print("******************")
 
 			#]href2 = self.html_escape(href)
 			#print(href2)
 			#print("##################")
 
 			title = pyquery.PyQuery(li)('h3')('a').text()
-			print(title)
-			print("******************")
+			#print(title)
+			#print("******************")
 
 			description = pyquery.PyQuery(li)('p').text()
-			print(description)
-			print("******************")
+			#print(description)
+			#print("******************")
 
 			if title != '':
 				job_list.append({
