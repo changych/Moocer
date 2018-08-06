@@ -31,7 +31,11 @@ def form(request):
 
 def search(request):
 	search_engine = Search()
-	job_list = search_engine.getInfo("法语", "兼职", "上海")
+	area = request.GET['area']
+	language = request.GET['language']
+	job_type = request.GET['job_type']
+
+	job_list = search_engine.getInfo(area, language, job_type)
 	return render(request, "result.html", {"job_list": job_list})
 
 def wechatValid(request):
