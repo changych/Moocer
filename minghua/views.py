@@ -36,7 +36,8 @@ def search(request):
 	job_type = request.GET['job_type']
 
 	job_list = search_engine.getInfo(area, language, job_type)
-	return render(request, "result.html", {"job_list": job_list})
+	#return render(request, "result.html", {"job_list": job_list})
+	return HttpResponse(json.dumps(job_list))
 
 def wechatValid(request):
 	wechatValid = Validate()
