@@ -164,7 +164,7 @@
           var job_type = $("#job_type").val()
           $.ajax({
               type:"get",  //提交方式
-              dataType:"text", //数据类型
+              dataType:"json", //数据类型
               url:"../search/", //请求url
               data: {
                 'area': province,
