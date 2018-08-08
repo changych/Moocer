@@ -1,54 +1,181 @@
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    form {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form class="form-inline" id="job_search">
+    <div class="form-group">
+      <label for="area_label">地域：</label>
+      <select class="form-control" name="province" id="province"></select>
+    </div>
+    <div class="form-group">
+      <label for="language_label">语种：</label>
+      <input type="text" class="form-control" id="language" placeholder="英语">
+    </div>
+    <div class="form-group">
+      <label for="job_type_label">兼/全职：</label>
+      <input type="text" class="form-control" id="job_type" placeholder="兼职">
+    </div>
+    <button type="submit" class="btn btn-default">全网搜</button>
+  </form>
+  
+  <div id="job_list" class="list-group"></div>
+  <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    var provinceData = [{
+          "name": "北京市",
+          "id": "110000"
+      }, {
+          "name": "天津市",
+          "id": "120000"
+      }, {
+          "name": "河北省",
+          "id": "130000"
+      }, {
+          "name": "山西省",
+          "id": "140000"
+      }, {
+          "name": "内蒙古自治区", 
+          "id": "150000"
+      }, {
+          "name": "辽宁省",
+          "id": "210000"
+      }, {
+          "name": "吉林省",
+          "id": "220000"
+      }, {
+          "name": "黑龙江省",
+          "id": "230000"
+      }, {
+          "name": "上海市",
+          "id": "310000"
+      }, {
+          "name": "江苏省",
+          "id": "320000"
+      }, {
+          "name": "浙江省",
+          "id": "330000"
+      }, {
+          "name": "安徽省",
+          "id": "340000"
+      }, {
+          "name": "福建省",
+          "id": "350000"
+      }, {
+          "name": "江西省",
+          "id": "360000"
+      }, {
+          "name": "山东省",
+          "id": "370000"
+      }, {
+          "name": "河南省",
+          "id": "410000"
+      }, {
+          "name": "湖北省",
+          "id": "420000"
+      }, {
+          "name": "湖南省",
+          "id": "430000"
+      }, {
+          "name": "广东省",
+          "id": "440000"
+      }, {
+          "name": "广西壮族自治区",
+          "id": "450000"
+      }, {
+          "name": "海南省",
+          "id": "460000"
+      }, {
+          "name": "重庆市",
+          "id": "500000"
+      }, {
+          "name": "四川省",
+          "id": "510000"
+      }, {
+          "name": "贵州省",
+          "id": "520000"
+      }, {
+          "name": "云南省",
+          "id": "530000"
+      }, {
+          "name": "西藏自治区",  
+          "id": "540000"
+      }, {
+          "name": "陕西省",
+          "id": "610000"
+      }, {
+          "name": "甘肃省",
+          "id": "620000"
+      }, {
+          "name": "青海省",
+          "id": "630000"
+      }, {
+          "name": "宁夏回族自治区",
+          "id": "640000"
+      }, {
+          "name": "新疆维吾尔自治区",
+          "id": "650000"
+      }, {
+          "name": "台湾省",
+          "id": "710000"
+      }, {
+          "name": "香港特别行政区",
+          "id": "810000"
+      }, {
+          "name": "澳门特别行政区",
+          "id": "820000"
+      }];
 
+    function loadNewJobs(data) {
+      var listArr = [];
 
-
-<form class="form-inline" id="job_search">
-  <div class="form-group">
-    <label for="area_label">地域：</label>
-    <input type="text" class="form-control" id="area_value" placeholder="北京">
-  </div>
-  <div class="form-group">
-    <label for="language_label">语种：</label>
-    <input type="text" class="form-control" id="language" placeholder="英语">
-  </div>
-  <div class="form-group">
-    <label for="job_type_label">兼/全职：</label>
-    <input type="text" class="form-control" id="job_type" placeholder="兼职">
-  </div>
-  <button type="submit" class="btn btn-default">全网搜</button>
-</form>
-
-<div>
-	<ul id="job_list">
-	</ul>
-</div>
-
-<script type="text/javascript">
-	$(function() {
-        $("#job_search").submit(function(){
-        	$("#job_list").html('');
-
-            var area_value = $("#area_value").val();
-            var language_value = $("#language_value").val();
-            var job_type = $("#job_type").val()
-            $(this).ajaxSubmit({
-                type:"post",  //提交方式
-                dataType:"text", //数据类型
-                url:"../search/", //请求url
-                data: {
-	                'area': area_value,
-	                'language': language_value,
-	                'job_type':job_type
-                },
-                success:function(data){ //提交成功的回调函数
-                	var job_list = $("#job_list");
-                	$("#job_list").html(data);
-                    loadNewJobs();
-                }
-            });
-            return false; //不刷新页面
+      if (data && data.length) {
+        data.forEach(function (item) {
+          listArr.push('<a class="list-group-item" href="' + item.link + '">' + item.title + '</a>');
         });
+      }
+
+      $('#job_list').html(listArr.join(''));
+    }
+
+    $(function() {
+      var provinceOptionArr = [];
+      provinceData.forEach(function (item) {
+        provinceOptionArr.push('<option value="' + item.name + '">' + item.name + '</option>')
+      });
+
+      $('#province').html(provinceOptionArr.join(''));
+
+      $('#job_search').click(function (event) {
+        event.preventDefault();
+        var province = $("#province").val();
+          var language_value = $("#language_value").val();
+          var job_type = $("#job_type").val()
+          $.ajax({
+              type:"get",  //提交方式
+              dataType:"text", //数据类型
+              url:"../search/", //请求url
+              data: {
+                'area': province,
+                'language': language_value,
+                'job_type':job_type
+              },
+              success:function(data){ //提交成功的回调函数
+                loadNewJobs(data);
+              }
+          });
+      });
     });
-</script>>
+  </script>
+</body>
+</html>

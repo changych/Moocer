@@ -31,9 +31,9 @@ def form(request):
 
 def search(request):
 	search_engine = Search()
-	area = request.POST.get['area']
-	language = request.POST.get['language']
-	job_type = request.POST.get['job_type']
+	area = request.GET['area']
+	language = request.GET['language']
+	job_type = request.GET['job_type']
 
 	job_list = search_engine.getInfo(area, language, job_type)
 	return render(request, "result.html", {"job_list": job_list})
