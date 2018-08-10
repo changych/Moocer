@@ -34,8 +34,9 @@ def search(request):
 	area = request.GET['area']
 	language = request.GET['language']
 	job_type = request.GET['job_type']
+	page = request.GET['page']
 
-	job_list = search_engine.getInfo(area, language, job_type)
+	job_list = search_engine.getInfo(area, language, job_type, page)
 	#return render(request, "result.html", {"job_list": job_list})
 	return HttpResponse(json.dumps(job_list))
 
