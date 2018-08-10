@@ -39,7 +39,7 @@ def search(request):
 	page = 1
 
 	if length > 0 :
-		page = length / 10 + 1
+		page = int((length+1) / 10 + 1)
 
 	print(length)
 	print(page)
