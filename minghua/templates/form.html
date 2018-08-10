@@ -15,15 +15,15 @@
 <body>
   <form class="form-inline" id="job_search">
     <div class="form-group">
-      <label for="area_label">地域：</label>
+      <label for="area_label" onchange="areaChange(this)">地域：</label>
       <select class="form-control" name="province" id="province"></select>
     </div>
     <div class="form-group">
-      <label for="language_label">语种：</label>
+      <label for="language_label" onchange="languageChange(this)">语种：</label>
       <select class="form-control" name="language" id="language"></select>
     </div>
     <div class="form-group">
-      <label for="job_type_label">兼/全职：</label>
+      <label for="job_type_label" onchange="jobTypeChange(this)">兼/全职：</label>
       <select class="form-control" name="job_type" id="job_type"></select>
     </div>
     <button type="submit" class="btn btn-default" style="text-align: center;">全网搜</button>
@@ -167,8 +167,33 @@
           "id": "820000"
       }];
 
+
+    var provinceChanged = false;
+    var languageChanged = false;
+    var jobTypeChanged = false;
+
+    var listArr = [];
+
+
+    function areaChange(obj) {
+		provinceChanged = true;
+    }
+
+    function languageChange(obj) {
+		languageChanged = true;
+    }
+
+    function jobTypeChange(obj) {
+		jobTypeChanged = true;
+    }
+
     function loadNewJobs(data) {
-      var listArr = [];
+      if (provinceChanged || languageChanged || jobTypeChanged) {
+      	listArr = [];
+      	provinceChanged = false;
+        languageChanged = false;
+        jobTypeChanged = false;
+      }
 
       if (data && data.length) {
         data.forEach(function (item) {
@@ -220,7 +245,7 @@
                 'area': province,
                 'language': language_value,
                 'job_type':job_type,
-                'page':1
+                'length':listArr.length
               },
               success:function(data){ //提交成功的回调函数
                 loadNewJobs(data);
