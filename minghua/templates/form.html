@@ -188,6 +188,10 @@
     }
 
     function loadNewJobs(data) {
+    	console.log(provinceChanged);
+    	console.log(provinceChanged);
+    	console.log(provinceChanged);
+    	
       if (provinceChanged || languageChanged || jobTypeChanged) {
       	listArr = [];
       	provinceChanged = false;
@@ -203,7 +207,7 @@
         $('.more-btn-wrapper').show();
       }
 
-      //$('#job_list').html(listArr.join(''));
+      $('#job_list').html(listArr.join(''));
     }
 
 
