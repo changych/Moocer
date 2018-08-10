@@ -34,7 +34,7 @@ def search(request):
 	area = request.GET['area']
 	language = request.GET['language']
 	job_type = request.GET['job_type']
-	length = (int)request.GET['length']
+	length = int(request.GET['length'])
 	page = 1
 	if (length > 0) {
 		page = length / 10
