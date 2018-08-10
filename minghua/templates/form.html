@@ -32,7 +32,7 @@
   <div id="job_list" class="list-group"></div>
 
   <div class="more-btn-wrapper" style="text-align: center; display: none;">
-      <button class="btn btn-default" onclick="job_more()">查看更多</button>
+      <button class="btn btn-default" id="job_more">查看更多</button>
   </div>
 
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
@@ -253,7 +253,7 @@
           });
       });
 
-      function job_more(event) {
+      $('#job_more').click(function (event) {
         event.preventDefault();
         var province = $("#province").val();
           var language_value = $("#language").val();
@@ -272,7 +272,7 @@
                 loadNewJobs(data);
               }
           });
-      }
+      });
 
     });
   </script>
