@@ -35,10 +35,14 @@ def search(request):
 	language = request.GET['language']
 	job_type = request.GET['job_type']
 	length = int(request.GET['length'])
+
 	page = 1
 
 	if length > 0 :
 		page = length / 10 + 1
+
+	print(length)
+	print(page)
 
 	job_list = search_engine.getInfo(area, language, job_type, page)
 	#return render(request, "result.html", {"job_list": job_list})
