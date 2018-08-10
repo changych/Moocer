@@ -38,7 +38,7 @@ def search(request):
 	page = 1
 
 	if length > 0 :
-		page = length / 10
+		page = length / 10 + 1
 
 	job_list = search_engine.getInfo(area, language, job_type, page)
 	#return render(request, "result.html", {"job_list": job_list})
