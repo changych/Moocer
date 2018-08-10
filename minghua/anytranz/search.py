@@ -18,11 +18,12 @@ class Search(object):
 		self.sogou_search_type_artilce = 2
 		self.sogou_search_type_site = 1
 
-	def getInfo(self, area, language, job_type):
+	def getInfo(self, area, language, job_type, page):
 		keyword = area + "+" + language + "+" + job_type
 		data = {}
 		data['type'] = self.sogou_search_type_artilce
 		data['query'] = keyword
+		data['page'] = page
 		data['s_from']= 'input'
 		data['ie']= 'utf8'
 		data['_sug_']= 'n'
