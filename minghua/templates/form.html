@@ -20,11 +20,11 @@
     </div>
     <div class="form-group">
       <label for="language_label">语种：</label>
-      <input type="text" class="form-control" id="language" placeholder="英语">
+      <select class="form-control" name="language" id="language"></select>
     </div>
     <div class="form-group">
       <label for="job_type_label">兼/全职：</label>
-      <input type="text" class="form-control" id="job_type" placeholder="兼职">
+      <select class="form-control" name="job_type" id="job_type"></select>
     </div>
     <button type="submit" class="btn btn-default">全网搜</button>
   </form>
@@ -32,6 +32,32 @@
   <div id="job_list" class="list-group"></div>
   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript">
+
+  	var languageData = [{
+  		"name": "英语",
+  		"id": "1000"
+  	}, {
+  		"name": "法语",
+  		"id": "2000"
+  	}, {
+  		"name": "韩语",
+  		"id": "3000"
+  	}, {
+  		"name": "日语",
+  		"id": "4000"
+  	}, {
+  		"name": "俄语",
+  		"id": "5000"
+  	}];
+
+  	var jobTypeData = [{
+  		"name": "兼职",
+  		"id": "1"
+  	}, {
+  		"name": "全职",
+  		"id": "2"
+  	}];
+
     var provinceData = [{
           "name": "北京市",
           "id": "110000"
@@ -149,6 +175,7 @@
       $('#job_list').html(listArr.join(''));
     }
 
+
     $(function() {
       var provinceOptionArr = [];
       provinceData.forEach(function (item) {
@@ -156,6 +183,23 @@
       });
 
       $('#province').html(provinceOptionArr.join(''));
+
+
+      var languageOptionArr = [];
+      languageData.forEach(function (item) {
+        languageOptionArr.push('<option value="' + item.name + '">' + item.name + '</option>')
+      });
+
+      $('#language').html(languageOptionArr.join(''));
+
+
+      var jobTypeOptionArr = [];
+      jobTypeData.forEach(function (item) {
+        jobTypeOptionArr.push('<option value="' + item.name + '">' + item.name + '</option>')
+      });
+
+      $('#job_type').html(provinceOptionArr.join(''));
+
 
       $('#job_search').click(function (event) {
         event.preventDefault();
