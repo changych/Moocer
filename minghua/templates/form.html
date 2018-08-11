@@ -15,16 +15,16 @@
 <body>
   <form class="form-inline">
     <div class="form-group">
-      <label for="area_label" onchange="areaChange(this)">地域：</label>
-      <select class="form-control" name="province" id="province"></select>
+      <label for="area_label">地域：</label>
+      <select class="form-control" name="province" id="province" onchange="areaChange(this)"></select>
     </div>
     <div class="form-group">
-      <label for="language_label" onchange="languageChange(this)">语种：</label>
-      <select class="form-control" name="language" id="language"></select>
+      <label for="language_label">语种：</label>
+      <select class="form-control" name="language" id="language" onchange="languageChange(this)"></select>
     </div>
     <div class="form-group">
-      <label for="job_type_label" onchange="jobTypeChange(this)">兼/全职：</label>
-      <select class="form-control" name="job_type" id="job_type"></select>
+      <label for="job_type_label">兼/全职：</label>
+      <select class="form-control" name="job_type" id="job_type" onchange="jobTypeChange(this)"></select>
     </div>
     <button type="submit" class="btn btn-default" id="job_search" style="text-align: center;">全网搜</button>
   </form>
