@@ -176,22 +176,27 @@
 
 
     function areaChange(obj) {
+    	console.log(obj);
 		provinceChanged = true;
     }
 
     function languageChange(obj) {
+    	console.log(languageChanged);
 		languageChanged = true;
+		console.log(languageChanged);
     }
 
     function jobTypeChange(obj) {
+		console.log(jobTypeChanged);
 		jobTypeChanged = true;
+		console.log(jobTypeChanged);
     }
 
     function loadNewJobs(data) {
     	console.log(provinceChanged);
     	console.log(provinceChanged);
     	console.log(provinceChanged);
-    	
+
       if (provinceChanged || languageChanged || jobTypeChanged) {
       	listArr = [];
       	provinceChanged = false;
