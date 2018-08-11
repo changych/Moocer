@@ -36,12 +36,12 @@ def search(request):
 	job_type = request.GET['job_type']
 	length = int(request.GET['length'])
 
+	job_list = []
 	page = 1
 
-	if length > 0 :
+	if length > 0 and length % 10 == 0:
 		page = int((length+1) / 10 + 1)
-
-	job_list = search_engine.getInfo(area, language, job_type, page)
+		job_list = search_engine.getInfo(area, language, job_type, page)
 	#return render(request, "result.html", {"job_list": job_list})
 	return HttpResponse(json.dumps(job_list))
 
