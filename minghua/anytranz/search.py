@@ -29,6 +29,7 @@ class Search(object):
 		data['_sug_']= 'n'
 		data['_sug_type_']= ''
 
+		print(data)
 		result_raw = requests.get(self.sogou_uri, params = data)
 		j = pyquery.PyQuery(result_raw.content)
 
