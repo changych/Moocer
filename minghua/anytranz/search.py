@@ -19,7 +19,7 @@ class Search(object):
 		self.sogou_search_type_site = 1
 
 	def getInfo(self, area, language, job_type, page):
-		keyword = area + "+" + language + "+" + job_type
+		keyword = area + " " + language + " " + job_type
 		data = {}
 		data['type'] = self.sogou_search_type_artilce
 		data['query'] = keyword
