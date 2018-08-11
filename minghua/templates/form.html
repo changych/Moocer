@@ -192,12 +192,12 @@
 		console.log(jobTypeChanged);
     }
 
-    function loadNewJobs(data) {
+    function loadNewJobs(data, update) {
     	console.log(provinceChanged);
     	console.log(provinceChanged);
     	console.log(provinceChanged);
 
-      if (provinceChanged || languageChanged || jobTypeChanged) {
+      if (update || provinceChanged || languageChanged || jobTypeChanged) {
       	listArr = [];
       	provinceChanged = false;
         languageChanged = false;
@@ -257,7 +257,7 @@
                 'length':listArr.length
               },
               success:function(data){ //提交成功的回调函数
-                loadNewJobs(data);
+                loadNewJobs(data, true);
               }
           });
       });
@@ -278,7 +278,7 @@
                 'length':listArr.length
               },
               success:function(data){ //提交成功的回调函数
-                loadNewJobs(data);
+                loadNewJobs(data, false);
               }
           });
       });
