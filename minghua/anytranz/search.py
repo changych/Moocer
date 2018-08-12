@@ -5,6 +5,7 @@ import pyquery
 import time
 import traceback
 import sys
+import datetime
 
 from django.http import HttpResponse
 from minghua.models import JobInfo
@@ -57,12 +58,14 @@ class Search(object):
 				})
 
 				j = JobInfo.objects.filter(title=title).filter(account=account)
+				d = datetime.datetime.fromtimestamp(timeStamp)
+				deliver_time = d.strftime("%Y-%m-%d %H:%M:%S.%f")
 				if(len(j) == 0):
 					j = JobInfo(
 						title=title, 
 						description=description, 
 						url=href,
-						deliver_time=timestamp,
+						deliver_time=deliver_time,
 						account=account
 					)
 					j.save()
