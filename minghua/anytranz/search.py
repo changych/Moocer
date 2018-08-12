@@ -37,11 +37,16 @@ class Search(object):
 		job_list = []
 		for li in j('li'):
 
-			print(pyquery.PyQuery(li).html())
+			#print(pyquery.PyQuery(li).html())
 		
 			href = pyquery.PyQuery(li)('h3')('a').attr('href')
 			title = pyquery.PyQuery(li)('h3')('a').text()
 			description = pyquery.PyQuery(li)('p').text()
+			timestamp = pyquery.PyQuery(li)('.s-p').attr('t')
+			account = pyquery.PyQuery(li)('.account').text()
+
+			print(timestamp)
+			print(account)
 			
 			if title != '':
 				job_list.append({
