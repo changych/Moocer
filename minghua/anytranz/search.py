@@ -30,12 +30,14 @@ class Search(object):
 		data['_sug_type_']= ''
 
 		result_raw = requests.get(self.sogou_uri, params = data)
-		print(result_raw.url)
+		
 		j = pyquery.PyQuery(result_raw.content)
 
 		href = 'none'
 		job_list = []
 		for li in j('li'):
+
+			print(li)
 		
 			href = pyquery.PyQuery(li)('h3')('a').attr('href')
 			title = pyquery.PyQuery(li)('h3')('a').text()
