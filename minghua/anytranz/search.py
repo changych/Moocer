@@ -37,7 +37,7 @@ class Search(object):
 		job_list = []
 		for li in j('li'):
 
-			print(li.html())
+			print(pyquery.PyQuery(li).html())
 		
 			href = pyquery.PyQuery(li)('h3')('a').attr('href')
 			title = pyquery.PyQuery(li)('h3')('a').text()
