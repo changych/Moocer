@@ -58,7 +58,7 @@ class Search(object):
 				})
 
 				j = JobInfo.objects.filter(title=title).filter(account=account)
-				d = datetime.datetime.fromtimestamp(timestamp)
+				d = datetime.datetime.fromtimestamp(float(timestamp))
 				deliver_time = d.strftime("%Y-%m-%d %H:%M:%S.%f")
 				if(len(j) == 0):
 					j = JobInfo(
