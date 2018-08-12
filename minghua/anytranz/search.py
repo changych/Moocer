@@ -46,17 +46,6 @@ class Search(object):
 			timestamp = pyquery.PyQuery(li)('.s-p').attr('t')
 			account = pyquery.PyQuery(li)('.account').text()
 
-			j = JobInfo.objects.filter(title=title).filter(account=account)
-			if(len(j) == 0):
-				j = JobInfo(
-					title=title, 
-					description=description, 
-					url=href,
-					deliver_time=timestamp,
-					account=account
-				)
-				j.save()
-
 			print(timestamp)
 			print(account)
 			
@@ -66,6 +55,17 @@ class Search(object):
 					'description': description,
 					'link': href
 				})
+
+				j = JobInfo.objects.filter(title=title).filter(account=account)
+				if(len(j) == 0):
+					j = JobInfo(
+						title=title, 
+						description=description, 
+						url=href,
+						deliver_time=timestamp,
+						account=account
+					)
+					j.save()
 
 			#href = href + "#######" + href2
 			#break
