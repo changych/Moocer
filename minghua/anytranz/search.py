@@ -66,7 +66,8 @@ class Search(object):
 						description=description, 
 						url=href,
 						deliver_time=deliver_time,
-						account=account
+						account=account,
+						keyword=keyword
 					)
 					j.save()
 

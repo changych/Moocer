@@ -126,6 +126,7 @@ class JobInfo(models.Model):
     url = models.CharField(max_length=2048)
     deliver_time = models.DateTimeField()
     account = models.CharField(max_length=256)
+    keyword = models.CharField(max_length=128)
 
     def __str__(self):
         return self.title
