@@ -118,3 +118,14 @@ class UserInfo(models.Model):
 
     def __str__(self):
         return self.open_id
+
+@python_2_unicode_compatible
+class JobInfo(models.Model):
+    title = models.CharField(max_length=256)
+    description = models.CharField(max_length=2048)
+    url = models.CharField(max_length=2048)
+    deliver_time = models.DateTimeField()
+    account = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.title

@@ -7,6 +7,7 @@ import traceback
 import sys
 
 from django.http import HttpResponse
+from minghua.models import JobInfo
 
 #import Browser
 #import LogUtil
@@ -44,6 +45,17 @@ class Search(object):
 			description = pyquery.PyQuery(li)('p').text()
 			timestamp = pyquery.PyQuery(li)('.s-p').attr('t')
 			account = pyquery.PyQuery(li)('.account').text()
+
+			j = JobInfo.objects.filter(title=title).filter(account=account)
+			if(len(s) == 0):
+				s = JobInfo(
+					title=title, 
+					description=description, 
+					url=href,
+					deliver_time=timestamp,
+					account=account
+				)
+				s.save()
 
 			print(timestamp)
 			print(account)
