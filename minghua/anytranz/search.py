@@ -98,7 +98,7 @@ class Search(object):
 				j.save()
 			else :
 				j.update(
-					url=href
+					url=url
 				)
 
 	def html_escape(self, html):
