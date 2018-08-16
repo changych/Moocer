@@ -24,7 +24,7 @@ class Search(object):
 	def getJob(self, area, language, job_type, page):
 		job_list = []
 		keyword = area + " " + language + " " + job_type
-		j = JobInfo.objects.filter(keyword__contains=keyword)[(int(page)-1)*10:(int(page))*10]
+		j = JobInfo.objects.filter(keyword__contains=keyword).order_by('update_time')[(int(page)-1)*10:(int(page))*10]
 
 		for job in j:
 			job_list.append({
