@@ -46,6 +46,21 @@ def search(request):
 	#return render(request, "result.html", {"job_list": job_list})
 	return HttpResponse(json.dumps(job_list))
 
+def saveJob(request):
+	search_engine = Search()
+
+	title = request.GET['title']
+	account = request.GET['account']
+	timestamp = request.GET['timestamp']
+	description = request.GET['description']
+	url = request.GET['url']
+	keyword = request.GET['keyword']
+	secret = request.GET['secret']
+
+	job_list = search_engine.save(title, account, timestamp, description, url, keyword, secret)
+	#return render(request, "result.html", {"job_list": job_list})
+	return HttpResponse('success')
+
 def wechatValid(request):
 	wechatValid = Validate()
 
