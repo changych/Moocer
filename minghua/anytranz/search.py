@@ -82,7 +82,7 @@ class Search(object):
 		return job_list
 
 	def save(self, title, account, timestamp, description, url, keyword, secret):
-		if secret === self.secret:
+		if secret == self.secret:
 			j = JobInfo.objects.filter(title=title).filter(account=account)
 			d = datetime.datetime.fromtimestamp(float(timestamp))
 			deliver_time = d.strftime("%Y-%m-%d %H:%M:%S.%f")
