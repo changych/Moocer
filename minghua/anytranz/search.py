@@ -70,6 +70,10 @@ class Search(object):
 						keyword=keyword
 					)
 					j.save()
+				else :
+					j.update(
+						url=href
+					)
 
 			#href = href + "#######" + href2
 			#break
