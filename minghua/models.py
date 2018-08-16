@@ -127,6 +127,7 @@ class JobInfo(models.Model):
     deliver_time = models.DateTimeField()
     account = models.CharField(max_length=256)
     keyword = models.CharField(max_length=128)
+    update_time = models.DateTimeField()
 
     def __str__(self):
         return self.title
