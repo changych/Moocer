@@ -30,7 +30,7 @@ class Search(object):
 			job_list.append({
 				'title': job.title,
 				'description': job.description,
-				'link': job.rul
+				'link': job.url
 			})
 
 		return job_list
