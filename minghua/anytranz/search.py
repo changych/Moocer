@@ -19,6 +19,7 @@ class Search(object):
 		self.sogou_uri = "http://weixin.sogou.com/weixin?type=2"
 		self.sogou_search_type_artilce = 2
 		self.sogou_search_type_site = 1
+		self.secret = "Lindi1!"
 
 	def getInfo(self, area, language, job_type, page):
 		keyword = area + " " + language + " " + job_type
@@ -79,6 +80,26 @@ class Search(object):
 			#break
 
 		return job_list
+
+	def save(self, title, account, timestamp, description, url, keyword, secret):
+		if secret === self.secret:
+			j = JobInfo.objects.filter(title=title).filter(account=account)
+			d = datetime.datetime.fromtimestamp(float(timestamp))
+			deliver_time = d.strftime("%Y-%m-%d %H:%M:%S.%f")
+			if(len(j) == 0):
+				j = JobInfo(
+					title=title, 
+					description=description, 
+					url=url,
+					deliver_time=deliver_time,
+					account=account,
+					keyword=keyword
+				)
+				j.save()
+			else :
+				j.update(
+					url=href
+				)
 
 	def html_escape(self, html):
 		html = html.replace('&quot;', '"')
