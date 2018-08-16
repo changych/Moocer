@@ -42,8 +42,8 @@ def search(request):
 	if length % 10 == 0:
 		if length > 0 :
 			page = int((length+1) / 10 + 1)
-	job_list = search_engine.getInfo(area, language, job_type, page)
-	#return render(request, "result.html", {"job_list": job_list})
+	#job_list = search_engine.getInfo(area, language, job_type, page)
+	job_list = search_engine.getJob(area, language, job_type, page)
 	return HttpResponse(json.dumps(job_list))
 
 def saveJob(request):

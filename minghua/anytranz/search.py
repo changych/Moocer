@@ -21,6 +21,21 @@ class Search(object):
 		self.sogou_search_type_site = 1
 		self.secret = "Lindi1!"
 
+	def getJob(self, area, language, job_type, page):
+		job_list = []
+		keyword = area + " " + language + " " + job_type
+		j = JobInfo.objects.filter(keyword__contains=keyword)
+
+		for job in j:
+			job_list.append({
+				'title': job.title,
+				'description': job.description,
+				'link': job.rul
+			})
+
+		return job_list
+
+
 	def getInfo(self, area, language, job_type, page):
 		keyword = area + " " + language + " " + job_type
 		data = {}
